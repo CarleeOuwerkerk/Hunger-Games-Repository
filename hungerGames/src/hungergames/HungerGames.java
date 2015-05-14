@@ -5,6 +5,8 @@
  */
 package hungergames;
 
+import byui.cit260.hungerGames.model.Inventory;
+import byui.cit260.hungerGames.model.Items;
 import byui.cit260.hungerGames.model.Player;
 import byui.cit260.hungerGames.model.Scene;
 
@@ -34,6 +36,22 @@ public class HungerGames {
         
         String sceneInfo = sceneOne.toString();
         System.out.println(sceneInfo);
+        
+        Inventory inventoryOne = new Inventory();
+        inventoryOne.setInventoryType("Weapon");
+        inventoryOne.setNumberInStock(2);
+        
+        String inventoryInfo = inventoryOne.toString();
+        System.out.println(inventoryInfo);
+        
+        Items itemOne = new Items();
+        itemOne.setDescription("Bow and Arrow");
+        itemOne.setType("Weapon");
+        itemOne.setStats(7);
+        itemOne.setNumberInStock(1);
+        
+        String itemInfo = itemOne.toString();
+        System.out.println(itemInfo);
     }
     
 }
