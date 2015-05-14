@@ -6,6 +6,7 @@
 package hungergames;
 
 import byui.cit260.hungerGames.model.Player;
+import byui.cit260.hungerGames.model.Scene;
 
 /**
  *
@@ -23,6 +24,16 @@ public class HungerGames {
  
         String playerInfo = playerOne.toString();
         System.out.println(playerInfo);
+        
+        Scene sceneOne = new Scene();
+        sceneOne.setDescription("Sand Dune in dessert");
+        sceneOne.setTerrainType("sand");
+        sceneOne.setTrap(true);
+        sceneOne.setStats(-3);
+        sceneOne.setBlocked(false);
+        
+        String sceneInfo = sceneOne.toString();
+        System.out.println(sceneInfo);
     }
     
 }
