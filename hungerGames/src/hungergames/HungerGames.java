@@ -6,6 +6,8 @@
 package hungergames;
 
 import byui.cit260.hungerGames.model.Player;
+import byui.cit260.hungerGames.model.Tributes;
+import java.awt.Point;
 
 /**
  *
@@ -23,6 +25,17 @@ public class HungerGames {
  
         String playerInfo = playerOne.toString();
         System.out.println(playerInfo);
+        
+        Tributes tributeOne = new Tributes();
+        
+        tributeOne.setName("Player One");
+        tributeOne.setDistrict(11);
+        tributeOne.setStats(7);
+        tributeOne.setLocation(new Point(3, 7));
+        tributeOne.setGender("male");
+        
+        String tributeInfo = tributeOne.toString();
+        System.out.println(tributeInfo);
     }
     
 }
