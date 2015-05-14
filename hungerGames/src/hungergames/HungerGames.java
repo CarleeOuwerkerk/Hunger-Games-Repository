@@ -7,6 +7,7 @@ package hungergames;
 
 import byui.cit260.hungerGames.model.Inventory;
 import byui.cit260.hungerGames.model.Items;
+import byui.cit260.hungerGames.model.Map;
 import byui.cit260.hungerGames.model.Player;
 import byui.cit260.hungerGames.model.Scene;
 import byui.cit260.hungerGames.model.Tributes;
@@ -65,6 +66,14 @@ public class HungerGames {
         
         String tributeInfo = tributeOne.toString();
         System.out.println(tributeInfo);
+        
+        Map map = new Map();
+        
+        map.setRow(5);
+        map.setColumn(2);
+        
+        String mapInfo = map.toString();
+        System.out.println(mapInfo);
     }
     
 }
