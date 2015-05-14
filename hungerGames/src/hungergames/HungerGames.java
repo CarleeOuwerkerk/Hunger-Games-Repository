@@ -7,6 +7,7 @@ package hungergames;
 
 import byui.cit260.hungerGames.model.Inventory;
 import byui.cit260.hungerGames.model.Items;
+import byui.cit260.hungerGames.model.Location;
 import byui.cit260.hungerGames.model.Map;
 import byui.cit260.hungerGames.model.Player;
 import byui.cit260.hungerGames.model.Scene;
@@ -74,6 +75,15 @@ public class HungerGames {
         
         String mapInfo = map.toString();
         System.out.println(mapInfo);
+        
+        Location locationOne = new Location();
+        
+        locationOne.setRow(5);
+        locationOne.setColumn(4);
+        locationOne.setVisited(true);
+        
+        String locationInfo = locationOne.toString();
+        System.out.println(locationInfo);
     }
     
 }
