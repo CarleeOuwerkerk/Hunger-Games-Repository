@@ -9,6 +9,8 @@ import byui.cit260.hungerGames.model.Inventory;
 import byui.cit260.hungerGames.model.Items;
 import byui.cit260.hungerGames.model.Player;
 import byui.cit260.hungerGames.model.Scene;
+import byui.cit260.hungerGames.model.Tributes;
+import java.awt.Point;
 
 /**
  *
@@ -52,6 +54,17 @@ public class HungerGames {
         
         String itemInfo = itemOne.toString();
         System.out.println(itemInfo);
+        
+        Tributes tributeOne = new Tributes();
+        
+        tributeOne.setName("Player One");
+        tributeOne.setDistrict(11);
+        tributeOne.setStats(7);
+        tributeOne.setLocation(new Point(3, 7));
+        tributeOne.setGender("male");
+        
+        String tributeInfo = tributeOne.toString();
+        System.out.println(tributeInfo);
     }
     
 }
