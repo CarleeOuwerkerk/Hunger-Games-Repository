@@ -13,7 +13,7 @@ import java.util.Objects;
  *
  * @author Carlee Ouwerkerk
  */
-public class Tributes implements Serializable{
+public class Tribute implements Serializable{
     
     private String name;
     private int district;
@@ -21,7 +21,7 @@ public class Tributes implements Serializable{
     private Point location;
     private String gender;
 
-    public Tributes() {
+    public Tribute() {
     }
     
     public String getName() {
@@ -66,7 +66,7 @@ public class Tributes implements Serializable{
 
     @Override
     public String toString() {
-        return "Tributes{" + "name=" + name + ", district=" + district + ", stats=" + stats + ", location=" + location + ", gender=" + gender + '}';
+        return "Tributes{" + "name=" + name + ", district=" + district + ", stats=" + stats + ", location=" + location.toString() + ", gender=" + gender + '}';
     }
 
     @Override
@@ -89,7 +89,7 @@ public class Tributes implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Tributes other = (Tributes) obj;
+        final Tribute other = (Tribute) obj;
         if (!Objects.equals(this.name, other.name)) {
             return false;
         }

@@ -12,7 +12,7 @@ import java.util.Objects;
  *
  * @author Zack
  */
-public class Items implements Serializable {
+public class Item implements Serializable {
     
     //class instance variables
     private String description;
@@ -20,7 +20,7 @@ public class Items implements Serializable {
     private int stats;
     private int numberInStock;
 
-    public Items() {
+    public Item() {
     }
     
 
@@ -79,7 +79,7 @@ public class Items implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Items other = (Items) obj;
+        final Item other = (Item) obj;
         if (!Objects.equals(this.description, other.description)) {
             return false;
         }

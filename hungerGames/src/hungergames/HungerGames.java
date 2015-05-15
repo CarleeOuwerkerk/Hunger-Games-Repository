@@ -6,12 +6,12 @@
 package hungergames;
 
 import byui.cit260.hungerGames.model.Inventory;
-import byui.cit260.hungerGames.model.Items;
+import byui.cit260.hungerGames.model.Item;
 import byui.cit260.hungerGames.model.Location;
 import byui.cit260.hungerGames.model.Map;
 import byui.cit260.hungerGames.model.Player;
 import byui.cit260.hungerGames.model.Scene;
-import byui.cit260.hungerGames.model.Tributes;
+import byui.cit260.hungerGames.model.Tribute;
 import java.awt.Point;
 
 /**
@@ -48,7 +48,7 @@ public class HungerGames {
         String inventoryInfo = inventoryOne.toString();
         System.out.println(inventoryInfo);
         
-        Items itemOne = new Items();
+        Item itemOne = new Item();
         itemOne.setDescription("Bow and Arrow");
         itemOne.setType("Weapon");
         itemOne.setStats(7);
@@ -57,7 +57,7 @@ public class HungerGames {
         String itemInfo = itemOne.toString();
         System.out.println(itemInfo);
         
-        Tributes tributeOne = new Tributes();
+        Tribute tributeOne = new Tribute();
         
         tributeOne.setName("Player One");
         tributeOne.setDistrict(11);
