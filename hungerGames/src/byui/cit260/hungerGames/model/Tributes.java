@@ -108,10 +108,4 @@ public class Tributes implements Serializable{
         return true;
     }
 
-    
-    
-    
-    
-    
-    
 }
