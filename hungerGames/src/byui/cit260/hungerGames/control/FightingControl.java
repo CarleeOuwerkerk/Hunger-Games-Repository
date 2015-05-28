@@ -5,14 +5,20 @@
  */
 package byui.cit260.hungerGames.control;
 
+import java.util.Random;
+
 /**
  *
  * @author Carlee Ouwerkerk
  */
 public class FightingControl {
+          
     
     static public boolean calculateSneak(double player, double scene, double tribute){
         
+        Random playerRandomFactor = new java.util.Random(); 
+        Random tributeRandomFactor = new java.util.Random(); 
+            
         //Sneak paramaters
         if (player < 0 || player > 51) {
             return false;
