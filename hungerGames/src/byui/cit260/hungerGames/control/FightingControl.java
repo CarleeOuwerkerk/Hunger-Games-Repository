@@ -14,10 +14,13 @@ import java.util.Random;
 public class FightingControl {
           
     
-    static public boolean calculateSneak(double player, double scene, double tribute){
+        Random playerRandomFactor = new Random();
+        double randomNum = playerRandomFactor.nextInt(6 - 1);
         
-        Random playerRandomFactor = new java.util.Random(); 
-        Random tributeRandomFactor = new java.util.Random(); 
+        Random tributeRandomFactor = new Random();
+        double randomNum = tributeRandomFactor.nextInt(4 - 1);
+        
+    static public boolean calculateSneak(double player, double scene, double tribute){
             
         //Sneak paramaters
         if (player < 0 || player > 51) {

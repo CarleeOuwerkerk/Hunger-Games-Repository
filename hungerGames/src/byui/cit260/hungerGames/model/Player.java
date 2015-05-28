@@ -15,7 +15,6 @@ import java.util.Objects;
 public class Player implements Serializable{
     
     private String name;
-    private double playerRandomFactor;
 
     public Player() {
     }
