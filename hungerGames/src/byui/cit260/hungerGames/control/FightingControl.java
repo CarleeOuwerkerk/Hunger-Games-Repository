@@ -13,17 +13,11 @@ import java.util.Random;
  */
 public class FightingControl {
           
-    
-        Random playerRandomFactor = new Random();
-        double randomNum = playerRandomFactor.nextInt(6 - 1);
-        
-        Random tributeRandomFactor = new Random();
-        double randomNum = tributeRandomFactor.nextInt(4 - 1);
         
     static public boolean calculateSneak(double player, double scene, double tribute){
-            
+
         //Sneak paramaters
-        if (player < 0 || player > 51) {
+        if (player < 0 || player >= 51) {
             return false;
         }
         
@@ -31,18 +25,27 @@ public class FightingControl {
             return false;
         }
         
-        if (tribute < 5 || tribute > 45) {
+        if (tribute < 5 || tribute >= 45) {
             return false;
         }
+        // As we make new random numbers with different ranges we should continue with the pattern of randomNum1, randomNum2, randomNum3, etc.
+        Random randomNum1 = new Random();
+        double playerRandomFactor = randomNum1.nextInt(6);
+        
+        Random randomNum2 = new Random();
+        double tributeRandomFactor = randomNum2.nextInt(4);
         
         //Calculate sneak
-        if ((player + scene) * playerRandomFactor) < (tribute * tributeRandomFactor) {
+        double playerFactor=(player + scene) * playerRandomFactor;
+        double tributeFactor= tribute * tributeRandomFactor;
+        //ignore the "if statement is redundent" comment on the left.
+        if (playerFactor < tributeFactor) {
             return false;
         }
-        
-        if ((player + scene) * playerRandomFactor) > (tribute * tributeRandomFactor) {
+        else {
             return true;
         }
+       
 
     }
     
