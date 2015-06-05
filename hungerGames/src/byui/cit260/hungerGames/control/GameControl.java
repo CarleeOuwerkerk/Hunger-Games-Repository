@@ -5,10 +5,16 @@
  */
 package byui.cit260.hungerGames.control;
 
+import byui.cit260.hungerGames.model.Player;
+
 /**
  *
  * @author Carlee Ouwerkerk
  */
 public class GameControl {
+
+    public static void creatNewGame(Player player) {
+        System.out.println("\n*** createNewGame stub function called ***");
+    }
     
 }
