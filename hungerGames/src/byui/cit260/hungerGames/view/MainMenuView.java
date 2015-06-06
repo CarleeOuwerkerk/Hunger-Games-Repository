@@ -48,13 +48,13 @@ public class MainMenuView {
         
         while(!valid) {
             
-            System.out.println("Enter a menu option");
+            System.out.println("Enter a menu option.");
             
             menuItem = keyboard.nextLine();
             menuItem = menuItem.trim();
             
             if(menuItem.length()< 1) {
-                System.out.println("Invalid option, please try again");
+                System.out.println("Invalid selection, please try again.");
                 continue;
             }
             break;
@@ -68,28 +68,32 @@ public class MainMenuView {
         
         switch(choice){
             case 'N':
+            case 'n':
                 this.startNewGame();
                 break;
             case 'C':
+            case 'c':
                 this.continueExistingGame();
                 break;
             case 'H':
+            case 'h':
                 this.displayHelpMenu();
                 break;
             case 'Q':
+            case 'q':
                 return;
             default:
-                System.out.println("\n*** Invalid selection, try again ***");
+                System.out.println("\n*** Invalid selection, please try again. ***");
                 break;
         }
     }
-
     private void startNewGame() {
         GameControl.creatNewGame(HungerGames.getPlayer());
         
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.displayMenu();
     }
+
 
     private void continueExistingGame() {
         System.out.println("*** continueExistingGame function called ***");
