@@ -75,7 +75,7 @@ public class HelpMenuView {
                 this.viewControls();
                 break;
             case 'G':
-            case 'f':
+            case 'g':
                 this.gatherSupplies();
                 break;
             case 'V':
