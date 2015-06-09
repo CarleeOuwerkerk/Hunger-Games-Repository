@@ -23,9 +23,9 @@ public class StartProgramView {
             //Display the banner scren
             this.displayBanner();
             //Get player's name
-            String playersName= this.getPlayersName();
+            String playersName = this.getPlayersName();
             //Create a new player
-            Player player= ProgramControl.createPlayer(playersName);
+            Player player = ProgramControl.createPlayer(playersName);
             //DISPLAY a customized welcome message
             this.displayWelcomeMessage(player);
             //DISPLAY main menu
@@ -72,16 +72,16 @@ public class StartProgramView {
     }
 
     private String getPlayersName() {
-        boolean valid=false;
-        String playersName=null;
-        Scanner keyboard=new Scanner(System.in);
+        boolean valid = false;
+        String playersName = null;
+        Scanner keyboard = new Scanner(System.in);
         
         while(!valid) {
             
             System.out.println("Enter your name");
             
-            playersName=keyboard.nextLine();
-            playersName= playersName.trim();
+            playersName = keyboard.nextLine();
+            playersName = playersName.trim();
             
             if(playersName.length()< 2) {
                 System.out.println("Invalid name, please try again.");

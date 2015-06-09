@@ -103,7 +103,7 @@ public class GameMenuView {
 
     private void viewInventoryMenu() {
         InventoryMenuView inventoryMenuView = new InventoryMenuView();
-        InventoryMenuView.displayMenu();
+        inventoryMenuView.displayMenu();
     }
 
     private void setTrap() {
@@ -113,7 +113,7 @@ public class GameMenuView {
     private void viewMap() {
         System.out.println("*** viewMap function called ***");
     }
-
+       
     private void viewRemainingTributes() {
         System.out.println("*** viewRemainingTributes function called ***");
     }

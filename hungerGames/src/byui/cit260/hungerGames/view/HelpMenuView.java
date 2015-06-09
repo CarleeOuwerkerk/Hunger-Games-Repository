@@ -36,7 +36,7 @@ public class HelpMenuView {
             
             this.doAction(selection);
             
-        } while(selection != 'B');
+        } while(selection != 'B' && selection != 'b');
         
     }
         
@@ -148,6 +148,11 @@ public class HelpMenuView {
                             +"\n* items by category: Food, Weapons, and    *"
                             +"\n* Supplies.                                *"
                             +"\n********************************************");
+    }
+
+    private void viewMainMenu() {
+        MainMenuView mainMenuView = new MainMenuView();
+        mainMenuView.displayMenu();
     }
     
 }
