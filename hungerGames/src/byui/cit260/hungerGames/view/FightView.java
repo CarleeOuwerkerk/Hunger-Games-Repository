@@ -5,6 +5,7 @@
  */
 package byui.cit260.hungerGames.view;
 
+import byui.cit260.hungerGames.control.FightingControl;
 import java.util.Scanner;
 
 /**
@@ -18,7 +19,7 @@ public class FightView {
             +"\n----------------------------------------------"
             +"\n| As you examine your location, you notice   |"
             +"\n| another tribute. They don't see you,       |"
-            +"\n| however. Their skill point level is +      |"
+            +"\n| however. Their skill point level is +       |"
             +"\n| skillPointLevel + .  You have the option   |"
             +"\n| to either fight them or to try to sneak    |"
             +"\n| past them.                                 |"
@@ -44,8 +45,8 @@ public class FightView {
     
     private String getInput() {
     boolean valid = false;
-    Scanner keyboard=new Scanner(System.in);
-    String menuItem ="";
+    Scanner keyboard = new Scanner(System.in);
+    String menuItem = "";
 
     while(!valid) {
 
@@ -84,10 +85,12 @@ public void doAction(char choice) {
 
     private void fightTribute() {
         System.out.println("*** fightTribute function called ***");
+//        FightingControl.calculateFight(player, tribute);
     }
 
     private void sneakPast() {
         System.out.println("*** sneakPast function called ***");
+//        FightingControl.calculateSneak(player, scene, tribute);
     }
     
 }
