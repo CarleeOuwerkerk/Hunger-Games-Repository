@@ -123,6 +123,7 @@ public class GameMenuView {
     }
 
     private void displayHelpMenu() {
+        
         HelpMenuView helpMenuView = new HelpMenuView();
         helpMenuView.displayMenu();
     }
