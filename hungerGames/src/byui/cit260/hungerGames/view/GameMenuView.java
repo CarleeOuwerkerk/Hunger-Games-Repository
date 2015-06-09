@@ -38,7 +38,7 @@ public class GameMenuView {
             
             this.doAction(selection);
             
-        } while(selection != 'Q');
+        } while(selection != 'Q' && selection != 'q');
         
     }
         

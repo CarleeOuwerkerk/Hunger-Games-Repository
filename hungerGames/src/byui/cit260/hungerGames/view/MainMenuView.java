@@ -37,7 +37,7 @@ public class MainMenuView {
             
             this.doAction(selection);
             
-        } while(selection != 'Q');
+        } while(selection != 'Q' && selection != 'q');
         
     }
         
