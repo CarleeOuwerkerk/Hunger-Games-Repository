@@ -36,7 +36,7 @@ public class HelpMenuView {
             
             this.doAction(selection);
             
-        } while(selection != 'B');
+        } while(selection != 'B' && selection != 'b');
         
     }
         

@@ -38,7 +38,7 @@ public class GameMenuView {
             
             this.doAction(selection);
             
-        } while(selection != 'Q');
+        } while(selection != 'Q' && selection != 'q');
         
     }
         
@@ -103,7 +103,7 @@ public class GameMenuView {
 
     private void viewInventoryMenu() {
         InventoryMenuView inventoryMenuView = new InventoryMenuView();
-        InventoryMenuView.displayMenu();
+        inventoryMenuView.displayMenu();
     }
 
     private void setTrap() {
