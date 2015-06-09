@@ -107,7 +107,8 @@ public class GameMenuView {
     }
 
     private void setTrap() {
-        System.out.println("*** setTrap function called ***");
+        TrapView trapView = new TrapView();
+        trapView.displayTrapView();
     }
 
     private void viewMap() {
