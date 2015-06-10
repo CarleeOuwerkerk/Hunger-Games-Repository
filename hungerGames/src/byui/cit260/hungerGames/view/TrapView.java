@@ -67,7 +67,13 @@ public class TrapView {
 public boolean doAction(String choice) {
         
         int guess = Integer.parseInt(choice);
-        return TrapControl.calculateAngle(8, 6, guess);
-                
+        if ( TrapControl.calculateAngle(8, 6, guess)) {
+            System.out.println("\n Trap was SUCESSFUL!");
+            return true;
+        }
+        else {
+             System.out.println("\n Invalid number, please try again.");
+             return false;
+        }        
     }
 }
