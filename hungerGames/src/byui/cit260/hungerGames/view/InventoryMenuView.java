@@ -87,8 +87,8 @@ public class InventoryMenuView {
     }
 
     private void viewFood() {
-                System.out.println("\n\n********************************************"
-                            +"\n************** Food Items ***************"
+                System.out.println("\n\n******************************************"
+                            +"\n************** Food Items ****************"
                             +"\n* Food items will help you increase your *"
                             +"\n* skill points. As you explore each      *"
                             +"\n* location you will find various food    *"
@@ -96,13 +96,13 @@ public class InventoryMenuView {
                             +"\n* points in a different way. For example:*"
                             +"\n* Fruits will increase your skill points *"
                             +"\n* by 3 points. While meat will increase  *"
-                            +"\n* your skill points by 5. *"
-                            +"\n********************************************");
+                            +"\n* your skill points by 5.                *"
+                            +"\n******************************************");
     }
 
     private void viewWeapons() {
                 System.out.println("\n\n********************************************"
-                            +"\n*********** Weapon Items ************"
+                            +"\n************** Weapon Items ****************"
                             +"\n* Weapon items will help you increase your *"
                             +"\n* skill points by 1, 3, or 5. As you find  *"
                             +"\n* and equip these weapons your skill points*"
@@ -111,21 +111,21 @@ public class InventoryMenuView {
                             +"\n* or crossbow will increase your skill     *"
                             +"\n* points by 3. And a bow and arrow, or     *"
                             +"\n* spear will increase your skill points by *"
-                            +"\n* 5 skill points. *"
+                            +"\n* 5 skill points.                          *"
                             +"\n********************************************");
     }
 
     private void viewSupplies() {
-               System.out.println("\n\n********************************************"
-                            +"\n************ Supply Items **************"
+               System.out.println("\n\n*******************************************"
+                            +"\n************* Supply Items ****************"
                             +"\n* Supply items will help you increase your*"
-                            +"\n* skill points. As you explore each      *"
-                            +"\n* location you will find various supply  *"
-                            +"\n* types that will increase your skill    *"
-                            +"\n* points or be used to set a trap. Each  *"
-                            +"\n* item will be identified and used       *"
-                            +"\n* correctly depending on it's use.       *"
-                            +"\n********************************************");
+                            +"\n* skill points. As you explore each       *"
+                            +"\n* location you will find various supply   *"
+                            +"\n* types that will increase your skill     *"
+                            +"\n* points or be used to set a trap. Each   *"
+                            +"\n* item will be identified and used        *"
+                            +"\n* correctly depending on it's use.        *"
+                            +"\n*******************************************");
     }
     
 }
