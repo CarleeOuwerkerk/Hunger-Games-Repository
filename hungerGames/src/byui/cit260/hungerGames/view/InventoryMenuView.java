@@ -11,9 +11,10 @@ import java.util.Scanner;
  *
  * @author Zack
  */
-public class InventoryMenuView {
+public class InventoryMenuView extends View{
     
-        private final String INVENTORY_MENU = "\n"
+        public InventoryMenuView(){
+                super("\n"
             +"\n----------------------------------------------"
             +"\n| Inventory Menu                                  |"
             +"\n----------------------------------------------"
@@ -21,50 +22,16 @@ public class InventoryMenuView {
             +"\nW - Weapons"
             +"\nS - Supplies"
             +"\nB - Back"
-            +"\n----------------------------------------------";
-            
-
-    public void displayMenu() {
-        
-        char selection = ' ';
-        do {
-            System.out.println(INVENTORY_MENU);
-            
-            String input = this.getInput();
-            selection = input.charAt(0);
-            
-            this.doAction(selection);
-            
-        } while(selection != 'B' && selection != 'b');
-        
-    }
-        
-    private String getInput() {
-        boolean valid = false;
-        Scanner keyboard=new Scanner(System.in);
-        String menuItem ="";
-        
-        while(!valid) {
-            
-            System.out.println("Enter an Inventory menu option.");
-            
-            menuItem = keyboard.nextLine();
-            menuItem = menuItem.trim();
-            
-            if(menuItem.length()< 1) {
-                System.out.println("Invalid option, please try again.");
-                continue;
-            }
-            break;
+            +"\n----------------------------------------------");
+                
         }
+            
+        @Override
+    public boolean doAction(Object obj) {
         
-        return menuItem;
-    }
-               
-
-    public void doAction(char choice) {
+        char selection = (char) obj;
         
-        switch(choice){
+        switch(selection){
             case 'F':
             case 'f':
                 this.viewFood();
@@ -79,11 +46,12 @@ public class InventoryMenuView {
                 break;
             case 'B':
             case 'b':
-                return;
+                return false;
             default:
                 System.out.println("\n*** Invalid selection, try again. ***");
                 break;
         }
+        return true;
     }
 
     private void viewFood() {

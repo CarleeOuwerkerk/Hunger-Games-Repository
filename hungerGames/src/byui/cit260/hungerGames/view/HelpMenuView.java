@@ -11,9 +11,10 @@ import java.util.Scanner;
  *
  * @author Zack
  */
-public class HelpMenuView {
+public class HelpMenuView extends View {
     
-    private final String HELP_MENU = "\n"
+        public HelpMenuView() {
+            super("\n"
             +"\n----------------------------------------------"
             +"\n| Help Menu                                  |"
             +"\n----------------------------------------------"
@@ -22,50 +23,16 @@ public class HelpMenuView {
             +"\nG - Gathering supplies"
             +"\nV - View inventory"
             +"\nB - Back"
-            +"\n----------------------------------------------";
+            +"\n----------------------------------------------");
             
-
-    public void displayMenu() {
-        
-        char selection = ' ';
-        do {
-            System.out.println(HELP_MENU);
-            
-            String input = this.getInput();
-            selection = input.charAt(0);
-            
-            this.doAction(selection);
-            
-        } while(selection != 'B' && selection != 'b');
-        
-    }
-        
-    private String getInput() {
-        boolean valid = false;
-        Scanner keyboard=new Scanner(System.in);
-        String menuItem ="";
-        
-        while(!valid) {
-            
-            System.out.println("Enter a help menu option.");
-            
-            menuItem = keyboard.nextLine();
-            menuItem = menuItem.trim();
-            
-            if(menuItem.length()< 1) {
-                System.out.println("Invalid option, please try again.");
-                continue;
-            }
-            break;
         }
         
-        return menuItem;
-    }
-               
-
-    public void doAction(char choice) {
+        @Override
+    public boolean doAction(Object obj) {
         
-        switch(choice){
+        char selection = (char) obj;
+        
+        switch(selection){
             case 'O':
             case 'o':
                 this.viewObjectives();
@@ -84,11 +51,12 @@ public class HelpMenuView {
                 break;
             case 'B':
             case 'b':
-                return;
+                return false;
             default:
                 System.out.println("\n*** Invalid selection, try again. ***");
                 break;
         }
+        return true;
     }
     
     private void viewObjectives() {
@@ -152,7 +120,7 @@ public class HelpMenuView {
 
     private void viewMainMenu() {
         MainMenuView mainMenuView = new MainMenuView();
-        mainMenuView.displayMenu();
+        mainMenuView.display();
     }
     
 }

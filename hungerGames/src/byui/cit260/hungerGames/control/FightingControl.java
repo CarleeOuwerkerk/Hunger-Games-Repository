@@ -29,7 +29,6 @@ public class FightingControl {
             return false;
         }
         
-        // As we make new random numbers with different ranges we should continue with the pattern of randomNum1, randomNum2, randomNum3, etc.
         Random randomNum1 = new Random();
         double playerRandomFactor = randomNum1.nextInt(6);
         

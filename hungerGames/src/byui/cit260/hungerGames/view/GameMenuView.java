@@ -11,9 +11,10 @@ import java.util.Scanner;
  *
  * @author Zack
  */
-public class GameMenuView {
-        
-        private final String GAME_PLAY_MENU = "\n"
+public class GameMenuView extends View {
+    
+           public GameMenuView() {
+               super("\n"
             +"\n----------------------------------------------"
             +"\n| Game Play Menu                             |"
             +"\n----------------------------------------------"
@@ -24,50 +25,16 @@ public class GameMenuView {
             +"\nS - Save Game"   
             +"\nH - Help"
             +"\nQ - Quit"
-            +"\n----------------------------------------------";
+            +"\n----------------------------------------------");
             
-
-    public void displayMenu() {
+           }
+             
+           @Override
+    public boolean doAction(Object obj) {
         
-        char selection = ' ';
-        do {
-            System.out.println(GAME_PLAY_MENU);
-            
-            String input = this.getInput();
-            selection = input.charAt(0);
-            
-            this.doAction(selection);
-            
-        } while(selection != 'Q' && selection != 'q');
+        char selection = (char) obj;
         
-    }
-        
-    private String getInput() {
-        boolean valid = false;
-        Scanner keyboard=new Scanner(System.in);
-        String menuItem ="";
-        
-        while(!valid) {
-            
-            System.out.println("Enter a menu option.");
-            
-            menuItem = keyboard.nextLine();
-            menuItem = menuItem.trim();
-            
-            if(menuItem.length()< 1) {
-                System.out.println("Invalid selection, please try again.");
-                continue;
-            }
-            break;
-        }
-        
-        return menuItem;
-    }
-            
-                
-    public void doAction(char choice) {
-        
-        switch(choice){
+        switch(selection){
             case 'I':
             case 'i':
                 this.viewInventoryMenu();
@@ -94,16 +61,17 @@ public class GameMenuView {
                 break;
             case 'Q':
             case 'q':
-                return;
+                return false;
             default:
                 System.out.println("\n*** Invalid selection, please try again. ***");
                 break;
         }
+        return true;
     }
 
     private void viewInventoryMenu() {
         InventoryMenuView inventoryMenuView = new InventoryMenuView();
-        inventoryMenuView.displayMenu();
+        inventoryMenuView.display();
     }
 
     private void setTrap() {
@@ -126,7 +94,7 @@ public class GameMenuView {
     private void displayHelpMenu() {
         
         HelpMenuView helpMenuView = new HelpMenuView();
-        helpMenuView.displayMenu();
+        helpMenuView.display();
     }
     
 }
