@@ -19,49 +19,50 @@ public abstract class View implements ViewInterface {
         this.promptMessage= promptMessage;
     }
 
-//    public String getPromptMessage() {
-//        return promptMessage;
-//    }
-//
-//    public void setPromptMessage(String promptMessage) {
-//        this.promptMessage = promptMessage;
-//    }
+    public String getPromptMessage() {
+        return promptMessage;
+    }
+
+    public void setPromptMessage(String promptMessage) {
+        this.promptMessage = promptMessage;
+    }
     
-    @Override
-    public void display() {
-        String selection = " ";
-        boolean done = false;
+@Override
+public void display() {
         
+        char selection = ' ';
         do {
-            System.out.println(this.promptMessage);
-            selection = this.getInput();
-            done = this.doAction(selection);
+            System.out.println(promptMessage);
             
-        } while(!done);
+            String input = this.getInput();
+            selection = input.charAt(0);
+            
+            this.doAction(selection);
+            
+        } while(selection != 'B' && selection !='b' && selection !='Q' && selection !='q');
         
     }
         
     @Override
     public String getInput() {
         boolean valid = false;
-        Scanner keyboard = new Scanner(System.in);
-        String selection = null;
+        Scanner keyboard=new Scanner(System.in);
+        String menuItem ="";
         
         while(!valid) {
             
-            System.out.println("Enter a menu option.");
+            System.out.println("Enter a help menu option");
             
-            selection = keyboard.nextLine();
-            selection = selection.trim();
+            menuItem = keyboard.nextLine();
+            menuItem = menuItem.trim();
             
-            if(selection.length()< 1) {
-                System.out.println("Invalid selection, please try again.");
+            if(menuItem.length()< 1) {
+                System.out.println("Invalid option, please try again");
                 continue;
             }
             break;
         }
         
-        return selection;
+        return menuItem;
     }
-    
 }

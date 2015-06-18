@@ -26,18 +26,12 @@ public class MainMenuView extends View {
             +"\nQ - Quit"
             +"\n----------------------------------------------");
     }
-    
-//    private final String promptMessage = "\n"
-//            +"\n----------------------------------------------"
-//            +"\n| Main Menu                                  |"
-//            +"\n----------------------------------------------"
-//            +"\nN - New Game"
-//            +"\nC - Continue Saved Game"
-//            +"\nH - Help"
-//            +"\nQ - Quit"
-//            +"\n----------------------------------------------";
-//            
-
+             
+    /**
+     *
+     * @param obj
+     * @return
+     */
     @Override
     public boolean doAction(Object obj) {
         
