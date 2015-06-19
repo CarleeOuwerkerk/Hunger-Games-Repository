@@ -51,7 +51,7 @@ public void display() {
         
         while(!valid) {
             
-            System.out.println("Enter a help menu option");
+            System.out.println("Enter a menu option");
             
             menuItem = keyboard.nextLine();
             menuItem = menuItem.trim();
