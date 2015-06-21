@@ -69,18 +69,9 @@ public class InventoryMenuView extends View{
     }
 
     private void viewWeapons() {
-                System.out.println("\n\n********************************************"
-                            +"\n************** Weapon Items ****************"
-                            +"\n* Weapon items will help you increase your *"
-                            +"\n* skill points by 1, 3, or 5. As you find  *"
-                            +"\n* and equip these weapons your skill points*"
-                            +"\n* will go up. A bat, plank and knife will  *"
-                            +"\n* raise your skill points by 1. A sword,   *"
-                            +"\n* or crossbow will increase your skill     *"
-                            +"\n* points by 3. And a bow and arrow, or     *"
-                            +"\n* spear will increase your skill points by *"
-                            +"\n* 5 skill points.                          *"
-                            +"\n********************************************");
+        WeaponsView weaponsView = new WeaponsView();
+        weaponsView.display();
+
     }
 
     private void viewSupplies() {
