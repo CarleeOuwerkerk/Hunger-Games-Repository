@@ -51,8 +51,8 @@ public void display() {
         
         while(!valid) {
             
-            System.out.println("Make a selection.");
-            
+            System.out.println("Please make a selection.");
+
             menuItem = keyboard.nextLine();
             menuItem = menuItem.trim();
             

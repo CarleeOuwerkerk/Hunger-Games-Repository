@@ -55,35 +55,26 @@ public class InventoryMenuView extends View{
     }
 
     private void viewFood() {
-                System.out.println("\n\n******************************************"
-                            +"\n************** Food Items ****************"
-                            +"\n* Food items will help you increase your *"
-                            +"\n* skill points. As you explore each      *"
-                            +"\n* location you will find various food    *"
-                            +"\n* types that will increase your skill    *"
-                            +"\n* points in a different way. For example:*"
-                            +"\n* Fruits will increase your skill points *"
-                            +"\n* by 3 points. While meat will increase  *"
-                            +"\n* your skill points by 5.                *"
-                            +"\n******************************************");
+        FoodItemsView foodItemsView = new FoodItemsView();
+        foodItemsView.display();
     }
 
     private void viewWeapons() {
         WeaponsView weaponsView = new WeaponsView();
         weaponsView.display();
-
+        
     }
-
+        
     private void viewSupplies() {
                System.out.println("\n\n*******************************************"
                             +"\n************* Supply Items ****************"
                             +"\n* Supply items will help you increase your*"
                             +"\n* skill points. As you explore each       *"
-                            +"\n* location you will find various supply   *"
+                            +"\n* location, you will find various supply  *"
                             +"\n* types that will increase your skill     *"
                             +"\n* points or be used to set a trap. Each   *"
                             +"\n* item will be identified and used        *"
-                            +"\n* correctly depending on it's use.        *"
+                            +"\n* correctly depending on its use.         *"
                             +"\n*******************************************");
     }
     
