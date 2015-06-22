@@ -9,20 +9,22 @@ package byui.cit260.hungerGames.view;
  *
  * @author Carlee Ouwerkerk
  */
-public class FoodItemsView extends View{
+public class SupplyItemsView extends View{
     
-    public FoodItemsView(){
+    
+        public SupplyItemsView(){
         super("\n\n******************************************"
-               +"\n************** Food Items ****************"
-               +"\n* Food items will help you to increase   *"
+               +"\n************* Supply Items ***************"
+               +"\n* Supply items will help you to increase *"
                +"\n* your skill points. As you explore      *"
                +"\n* various locations, you will find       *"
-               +"\n* various food items.  Select a food     *"
-               +"\n* item below to get a description, see   *"
-               +"\n* how many you have, eat the item, or    *"
-               +"\n* discard the item.                      *"
+               +"\n* various supply items. Some of these    *"     
+               +"\n* may be used to set a trap. Select a    *"
+               +"\n* supply item below to get a description,*"
+               +"\n* see how many you have, use the item,   *"
+               +"\n* or discard the item.                   *"
                +"\n*                                        *"
-               +"\n* F - Fruit                              *"
+               +"\n* R - Rope                               *"
                +"\n* M - Meat                               *"
                +"\n* W - Water                              *"
                +"\n* B - Back                               *"
@@ -35,8 +37,8 @@ public class FoodItemsView extends View{
         char selection = (char) obj;
 
         switch(selection){
-            case 'F':
-            case 'f':
+            case 'R':
+            case 'r':
                 this.viewFruit();
                 break;
             case 'M':
@@ -60,10 +62,10 @@ public class FoodItemsView extends View{
 
     private void viewFruit() {
         System.out.println("\n\n********************************************"
-                            +"\n****************** Fruit *******************"
+                            +"\n******************* Rope *******************"
                             +"\n* H - See how many you have                *"
                             +"\n* D - Description                          *"
-                            +"\n* E - Eat the item                         *"
+                            +"\n* U - Use the item                         *"
                             +"\n* X - Discard                              *"
                             +"\n* B - Back                                 *"
                             +"\n********************************************");
@@ -74,7 +76,7 @@ public class FoodItemsView extends View{
                             +"\n****************** Meat ********************"
                             +"\n* H - See how many you have                *"
                             +"\n* D - Description                          *"
-                            +"\n* E - Eat the item                         *"
+                            +"\n* E - Use the item                         *"
                             +"\n* X - Discard                              *"
                             +"\n* B - Back                                 *"
                             +"\n********************************************");
@@ -85,11 +87,11 @@ public class FoodItemsView extends View{
                             +"\n****************** Water *******************"
                             +"\n* H - See how many you have                *"
                             +"\n* D - Description                          *"
-                            +"\n* E - Eat the item                         *"
+                            +"\n* E - Use the item                         *"
                             +"\n* X - Discard                              *"
                             +"\n* B - Back                                 *"
                             +"\n********************************************");
     }
-                       
-                    
+           
+    
 }
