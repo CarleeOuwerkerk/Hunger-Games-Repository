@@ -67,16 +67,8 @@ public class InventoryMenuView extends View{
     }
         
     private void viewSupplies() {
-               System.out.println("\n\n*******************************************"
-                            +"\n************* Supply Items ****************"
-                            +"\n* Supply items will help you increase your*"
-                            +"\n* skill points. As you explore each       *"
-                            +"\n* location, you will find various supply  *"
-                            +"\n* types that will increase your skill     *"
-                            +"\n* points or be used to set a trap. Each   *"
-                            +"\n* item will be identified and used        *"
-                            +"\n* correctly depending on its use.         *"
-                            +"\n*******************************************");
+        SupplyItemsView supplyItemsView = new SupplyItemsView();
+        supplyItemsView.display();
     }
     
 }
