@@ -30,16 +30,17 @@ public abstract class View implements ViewInterface {
 @Override
 public void display() {
         
-        char selection = ' ';
+        char firstLetter;
+
         do {
             System.out.println(promptMessage);
             
-            String input = this.getInput();
-            selection = input.charAt(0);
+            String selection = this.getInput();
+            firstLetter = selection.toUpperCase().charAt(0);
             
             this.doAction(selection);
             
-        } while(selection != 'B' && selection !='b' && selection !='Q' && selection !='q');
+        } while(firstLetter != 'B' && firstLetter != 'Q');
         
     }
         

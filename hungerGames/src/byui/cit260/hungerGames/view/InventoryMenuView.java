@@ -29,7 +29,8 @@ public class InventoryMenuView extends View{
         @Override
     public boolean doAction(Object obj) {
         
-        char selection = (char) obj;
+        String value = (String) obj;
+        char selection = value.charAt(0);
         
         switch(selection){
             case 'F':

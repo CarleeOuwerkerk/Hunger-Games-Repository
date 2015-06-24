@@ -5,13 +5,17 @@
  */
 package byui.cit260.hungerGames.view;
 
+import byui.cit260.hungerGames.control.DiscardItem;
+import byui.cit260.hungerGames.control.EquipItem;
+import hungergames.HungerGames;
+
 /**
  *
  * @author Zack
  */
 public class WeaponsView extends View{
     
-    private String item = null;
+        private String item = null;
     
     public WeaponsView() {
         super("\n\n********************************************"
@@ -50,23 +54,23 @@ public class WeaponsView extends View{
         switch(selection){
             case "T":
                 this.item = "bat";
-                this.viewBat();
+                this.view();
                 break;
             case "K":
                 this.item = "knife";
-                this.viewKnife();
+                this.view();
                 break;
             case "S":
                 this.item = "sword";
-                this.viewSword();
+                this.view();
                 break;
             case "A":
                 this.item = "bow and arrow";
-                this.viewBow();
+                this.view();
                 break;
             case "P":
                 this.item = "spear";
-                this.viewSpear();
+                this.view();
                 break;
             case "B":
                 return false;
@@ -78,67 +82,51 @@ public class WeaponsView extends View{
         return true;
     }
 
-    
-    
-    
-//    private void view() {
-//                
-//        ViewItem viewItem = new ViewItem("\n Do you want to equip or discard item?");
-//        viewItem.display();
-//    }
-//
-//
-//
-//    class ViewItem extends View {
+    private void view() {
+                
+        ViewItem viewItem = new ViewItem("\n Do you want to equip or discard item?");
+        viewItem.display();
+    }
+
+
+
+    class ViewItem extends View {
 
         
+        public ViewItem(String promptMessage) {
+            super("\n\n********************************************"
+                   +"\n* Do you wish to equip or discard item?    *"
+                   +"\n*                                          *"
+                   +"\n* E- Equip                                 *"
+                   +"\n* D- Discard                               *"
+                   +"\n* B- Back                                  *"
+                   +"\n********************************************");
+        }
+
+        @Override
+        public boolean doAction(Object obj) {
+            String selectedItem = item;
+            selectedItem = selectedItem.toUpperCase();
+            
+           
+            switch (selectedItem) {
+                case "E":
+                  EquipItem.equipItem(obj);
+                  System.out.println("Item was equipped");  
+                    break;
+                case "D":
+                  EquipItem.equipItem(obj);
+                  System.out.println("Item was discarded");  
+                    break;
+                case "B":
+                    return false;
+                default:
+                    System.out.println("\n*** Invalid selection, please try again. ***");
+                    break;
+            }
         
-        
-//        public ViewItem(String promptMessage) {
-//            super(promptMessage);
-//        }
-//
-//        @Override
-//        public boolean doAction(Object obj) {
-//            String selectedItem = item;
-//            
-//            // downcast obj to String
-//            
-//            // if equip then
-//                // call control function to equip
-//                // didslau item was equipred
-//            // else if discard then
-//                // call control function to discard
-//                // display item was discardd
-//            // else 
-//                // display "invalid selection"
-//                // returm fa;se
-//
-//            return true;
-//
-//        }
-//
-//
-//    }
-
-    private void viewBat() {
-        System.out.println("*** viewBat function called ***");
+        return true;
+        }
     }
-
-    private void viewKnife() {
-        System.out.println("*** viewKnife function called ***");
-    }
-
-    private void viewSword() {
-        System.out.println("*** viewSword function called ***");
-    }
-
-    private void viewBow() {
-        System.out.println("*** viewBow function called ***");
-    }
-
-    private void viewSpear() {
-        System.out.println("*** viewSpear function called ***");
-    }
-
 }
+
