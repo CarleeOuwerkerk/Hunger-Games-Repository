@@ -105,6 +105,8 @@ public class WeaponsView extends View{
 
         @Override
         public boolean doAction(Object obj) {
+            
+            
             String selectedItem = item;
             selectedItem = selectedItem.toUpperCase();
             
@@ -115,7 +117,7 @@ public class WeaponsView extends View{
                   System.out.println("Item was equipped");  
                     break;
                 case "D":
-                  EquipItem.equipItem(obj);
+                  DiscardItem.discardItem(obj);
                   System.out.println("Item was discarded");  
                     break;
                 case "B":
