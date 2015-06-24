@@ -15,6 +15,8 @@ import java.util.Objects;
 public class Player implements Serializable{
     
     private String name;
+    
+    private Tribute tribute;
 
     public Player() {
     }
@@ -26,6 +28,15 @@ public class Player implements Serializable{
     public void setName(String name) {
         this.name = name;
     }
+
+    public Tribute getTribute() {
+        return tribute;
+    }
+
+    public void setTribute(Tribute tribute) {
+        this.tribute = tribute;
+    }
+    
 
     @Override
     public String toString() {

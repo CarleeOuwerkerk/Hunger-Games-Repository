@@ -12,8 +12,22 @@ import java.io.Serializable;
  * @author Zack
  */
 public class Game implements Serializable {
+    
+    private Map map;
+    
+//    ArrayList<Player> players = new ArrayList<>();
 
     public Game() {
     }
+
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
+    
+    
     
 }

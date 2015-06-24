@@ -15,6 +15,8 @@ public class Map implements Serializable{
     
     private int row;
     private int column;
+    
+
 
     public Map() {
     }
