@@ -26,12 +26,7 @@ public class MainMenuView extends View {
             +"\nQ - Quit"
             +"\n----------------------------------------------");
     }
-             
-    /**
-     *
-     * @param obj
-     * @return
-     */
+
     @Override
     public boolean doAction(Object obj) {
         

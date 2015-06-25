@@ -5,7 +5,10 @@
  */
 package byui.cit260.hungerGames.control;
 
+import byui.cit260.hungerGames.model.Game;
+import byui.cit260.hungerGames.model.Map;
 import byui.cit260.hungerGames.model.Player;
+import hungergames.HungerGames;
 
 /**
  *
@@ -14,7 +17,13 @@ import byui.cit260.hungerGames.model.Player;
 public class GameControl {
 
     public static void creatNewGame(Player player) {
-        System.out.println("\n*** createNewGame stub function called ***");
+        Game game = new Game();
+        HungerGames.setCurrentGame(game);
+        
+        game.setPlayer(player);
+        
+//        Map map = mapControl.createMap();
+//        game.setMap(map);
     }
     
 }
