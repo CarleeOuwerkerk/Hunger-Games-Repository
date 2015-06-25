@@ -6,6 +6,7 @@
 package byui.cit260.hungerGames.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -17,6 +18,8 @@ public class Inventory implements Serializable{
     //class instance variable
     private String inventoryType;
     private int numberInStock;
+    
+    private ArrayList<Item> items = new ArrayList<>();
 
     public Inventory() {
     }
@@ -38,6 +41,15 @@ public class Inventory implements Serializable{
         this.numberInStock = numberInStock;
     }
 
+    public ArrayList<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(ArrayList<Item> items) {
+        this.items = items;
+    }
+
+    
     @Override
     public String toString() {
         return "Inventory{" + "inventoryType=" + inventoryType + ", numberInStock=" + numberInStock + '}';

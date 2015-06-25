@@ -6,6 +6,7 @@
 package byui.cit260.hungerGames.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -13,16 +14,39 @@ import java.util.Objects;
  * @author Zack
  */
 public class Item implements Serializable {
-    
+   
     //class instance variables
     private String description;
     private String type;
     private int stats;
     private int numberInStock;
+    
+    private Location[] location;
 
+ 
     public Item() {
     }
+
+    private Item(String fruit, int i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
+    public ArrayList<Item> addInventoryItems(){
+        
+        ArrayList<Item> items = new ArrayList<>();
+        
+        items.add(new Item("Fruit", 3));
+        items.add(new Item("Meat", 5));
+        items.add(new Item("Water", 2));
+        items.add(new Item("Knife", 3));
+        items.add(new Item("Bat", 3));
+        items.add(new Item("Sword", 5));
+        items.add(new Item("Bow & Arrow", 5));
+        items.add(new Item("Spear", 7));
+        items.add(new Item("Rope", 0));
+        
+        return items;
+    }
 
     public String getDescription() {
         return description;

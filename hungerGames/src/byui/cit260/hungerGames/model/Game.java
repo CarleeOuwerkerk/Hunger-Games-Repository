@@ -14,6 +14,7 @@ import java.io.Serializable;
 public class Game implements Serializable {
     
     private Map map;
+    private Player player;
    
 
     public Game() {
@@ -27,10 +28,15 @@ public class Game implements Serializable {
         this.map = map;
     }
 
-    public void setPlayer(Player player) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Player getPlayer() {
+        return player;
     }
-    
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+
     
     
 }

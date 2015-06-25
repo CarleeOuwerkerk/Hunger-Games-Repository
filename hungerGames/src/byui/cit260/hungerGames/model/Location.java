@@ -16,8 +16,12 @@ public class Location implements Serializable{
     private int row;
     private int column;
     private boolean visited;
+    private boolean trap;
     
     private Scene scene;
+    private Item item;
+    private Tribute tribute;
+    
 
     public Location() {
     }
@@ -46,6 +50,14 @@ public class Location implements Serializable{
         this.visited = visited;
     }
 
+    public boolean isTrap() {
+        return trap;
+    }
+
+    public void setTrap(boolean trap) {
+        this.trap = trap;
+    }
+
     public Scene getScene() {
         return scene;
     }
@@ -53,20 +65,42 @@ public class Location implements Serializable{
     public void setScene(Scene scene) {
         this.scene = scene;
     }
+
+    public Tribute getTribute() {
+        return tribute;
+    }
+
+    public void setTribute(Tribute tribute) {
+        this.tribute = tribute;
+    }
+
+    public Item getItem() {
+        return item;
+    }
+
+    public void setItem(Item item) {
+        this.item = item;
+    }
+    
+    
+    
+    
     
     
 
     @Override
     public String toString() {
-        return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + '}';
+        return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", trap=" + trap + '}';
     }
 
+ 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 59 * hash + this.row;
-        hash = 59 * hash + this.column;
-        hash = 59 * hash + (this.visited ? 1 : 0);
+        int hash = 5;
+        hash = 83 * hash + this.row;
+        hash = 83 * hash + this.column;
+        hash = 83 * hash + (this.visited ? 1 : 0);
+        hash = 83 * hash + (this.trap ? 1 : 0);
         return hash;
     }
 
@@ -86,6 +120,9 @@ public class Location implements Serializable{
             return false;
         }
         if (this.visited != other.visited) {
+            return false;
+        }
+        if (this.trap != other.trap) {
             return false;
         }
         return true;

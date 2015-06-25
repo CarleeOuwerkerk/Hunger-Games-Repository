@@ -31,6 +31,8 @@ public enum Tribute implements Serializable{
     private final Point location;
     private final String gender;
     
+    private Inventory inventory;
+    
 
     private Tribute(String name, int district, double stats, Point location, String gender) {
         this.name = name;
@@ -67,6 +69,15 @@ public enum Tribute implements Serializable{
         return gender;
     }
 
+    public Inventory getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(Inventory inventory) {
+        this.inventory = inventory;
+    }
+
+    
     
     @Override
     public String toString() {

@@ -14,24 +14,21 @@ import java.util.Objects;
  */
 public enum Scene implements Serializable {
     
-    sand("Sandy Area", "You look around you, and it's sandy.", false, 3.0, false),
-    forest("Forest Area", "You look around you, and it's a forest.", false, 5.0, true),
-    grass("Grassy Area", "You look around you, and it's grassy.", false, 4.0, false);
+    sand("Sandy Area", "You look around you, and it's sandy.", 3.0),
+    forest("Forest Area", "You look around you, and it's a forest.", 5.0),
+    grass("Grassy Area", "You look around you, and it's grassy.", 4.0);
         
         
     // class instance variables 
     private final String terrainType;
     private final String description;
-    private final boolean trap;
     private final double stats;
-    private final boolean blocked;
 
-    private Scene(String terrainType, String description, boolean trap, double stats, boolean blocked) {
+    private Scene(String terrainType, String description, double stats) {
         this.terrainType = terrainType;
         this.description = description;
-        this.trap = trap;
         this.stats = stats;
-        this.blocked = blocked;
+ 
     }
 
 //    public Scene() {
@@ -53,14 +50,6 @@ public enum Scene implements Serializable {
 //        this.terrainType = terrainType;
 //    }
 
-    public boolean isTrap() {
-        return trap;
-    }
-
-//    public void setTrap(boolean trap) {
-//        this.trap = trap;
-//    }
-
     public double getStats() {
         return stats;
     }
@@ -69,17 +58,10 @@ public enum Scene implements Serializable {
 //        this.stats = stats;
 //    }
 
-    public boolean isBlocked() {
-        return blocked;
-    }
-
-//    public void setBlocked(boolean blocked) {
-//        this.blocked = blocked;
-//    }
 
     @Override
     public String toString() {
-        return "Scene{" + "description=" + description + ", terrainType=" + terrainType + ", trap=" + trap + ", stats=" + stats + ", blocked=" + blocked + '}';
+        return "Scene{" + "description=" + description + ", terrainType=" + terrainType + ", stats=" + stats + '}';
     }
 
 //    @Override
