@@ -23,10 +23,12 @@ public class GameControl {
         
         game.setPlayer(player);
         
-        Item[] item = GameControl.createFoodList();
-        Item[] item = GameControl.createWeaponList();
-        Item[] item = GameControl.createSupplyList();
-        game.setItem(item);
+        Item[] foodItem = GameControl.createFoodList();
+        GameControl.createFoodList();
+        Item[] weaponItem = GameControl.createWeaponList();
+        GameControl.createWeaponList();
+        Item[] SupplyItem = GameControl.createSupplyList();
+        GameControl.createSupplyList();
         
         Map map = MapControl.createMap();
         game.setMap(map);
@@ -36,78 +38,78 @@ public class GameControl {
 
     public static Item[] createFoodList() {
         
-        Item[] item = new FoodItem[3];
+        Item[] item = new Item[3];
         
-        FoodItem fruit = new FoodItem();
+        Item fruit = new Item();
         fruit.setDescription("Fruit");
         fruit.setStats(3);
         fruit.setAmount(0);
         item[0] = fruit;
         
-        FoodItem meat = new FoodItem();
+        Item meat = new Item();
         meat.setDescription("Meat");
-        meat.setStats(3);
+        meat.setStats(5);
         meat.setAmount(0);
-        item[0] = meat;
+        item[1] = meat;
         
-        FoodItem water = new FoodItem();
+        Item water = new Item();
         water.setDescription("Water");
-        water.setStats(3);
+        water.setStats(2);
         water.setAmount(0);
-        item[0] = water;
+        item[2] = water;
         
-        return null;
+        return item;
         
     }
     
     public static Item[] createWeaponList() {
         
-        Item[] item = new WeaponItem[3];
+        Item[] item = new Item[5];
         
-        WeaponItem bat = new WeaponItem();
+        Item bat = new Item();
         bat.setDescription("Bat");
-        bat.setStats(3);
+        bat.setStats(1);
         bat.setAmount(0);
         item[0] = bat;
         
-        WeaponItem knife = new WeaponItem();
+        Item knife = new Item();
         knife.setDescription("Knife");
-        knife.setStats(3);
+        knife.setStats(1);
         knife.setAmount(0);
-        item[0] = knife;
+        item[1] = knife;
         
-        WeaponItem sword = new WeaponItem();
+        Item sword = new Item();
         sword.setDescription("Sword");
         sword.setStats(3);
         sword.setAmount(0);
-        item[0] = sword;
+        item[2] = sword;
         
-        WeaponItem bowAndArrow = new WeaponItem();
+        Item bowAndArrow = new Item();
         bowAndArrow.setDescription("Bow & Arrow");
         bowAndArrow.setStats(3);
         bowAndArrow.setAmount(0);
-        item[0] = bowAndArrow;
+        item[3] = bowAndArrow;
         
-        WeaponItem spear = new WeaponItem();
+        Item spear = new Item();
         spear.setDescription("Spear");
-        spear.setStats(3);
+        spear.setStats(5);
         spear.setAmount(0);
-        item[0] = spear;
+        item[4] = spear;
         
-        return null;
+        return item;
     }
     
         public static Item[] createSupplyList() {
         
-        Item[] item = new SupplyItem[3];
+        Item[] item = new Item[1];
         
-        SupplyItem bat = new SupplyItem();
+       Item rope = new Item();
         rope.setDescription("Rope");
-        rope.setStats(3);
+        rope.setStats(0);
         rope.setAmount(0);
         item[0] = rope;
         
-        return null;
+        return item;
 
     }
         
