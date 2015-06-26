@@ -14,9 +14,14 @@ import java.util.Objects;
  */
 public enum Scene implements Serializable {
     
-    sand("Sandy Area", "You look around you, and it's sandy.", 3.0),
+    start("Start Scene", "You're in a ship taking you to the arena", 0.0),
+    sand("Sandy Area", "You look around you, and it's sandy.", -3.0),
     forest("Forest Area", "You look around you, and it's a forest.", 5.0),
-    grass("Grassy Area", "You look around you, and it's grassy.", 4.0);
+    grass("Grassy Area", "You look around you, and it's grassy.", 4.0),
+    mountain("Mountain Area", "You look around you, and it's rocky.", 3.0),
+    marsh("Marsh Area", "You look around you, and it's marshy.", -2.0),
+    field("Field Area", "You look around you, and it's a field.", -4.0),
+    finish("Finish Scene", "You beat the last tribute!!!", 2.0);
         
         
     // class instance variables 

@@ -17,9 +17,7 @@ public class Game implements Serializable {
     private Map map;
     private Player player;
     
-    private Item[] foodItems = null;
-    private Item[] weaponItems = null;
-    private Item[] supplyItems = null;
+    private Item[] itemList = null;
    
 
     public Game() {
@@ -41,28 +39,17 @@ public class Game implements Serializable {
         this.player = player;
     }
 
-    public Item[] getFoodItems() {
-        return foodItems;
+    public Item[] getItemList() {
+        return itemList;
     }
 
-    public void setFoodItems(Item[] foodItems) {
-        this.foodItems = foodItems;
+    public void setItemList(Item[] itemList) {
+        this.itemList = itemList;
     }
 
-    public Item[] getWeaponItems() {
-        return weaponItems;
-    }
 
-    public void setWeaponItems(Item[] weaponItems) {
-        this.weaponItems = weaponItems;
-    }
-
-    public Item[] getSupplyItems() {
-        return supplyItems;
-    }
-
-    public void setSupplyItems(Item[] supplyItems) {
-        this.supplyItems = supplyItems;
+    public void setItem(Item[] item) {
+        System.out.println("\n*** setItem Stub Function called ***");
     }
 
     

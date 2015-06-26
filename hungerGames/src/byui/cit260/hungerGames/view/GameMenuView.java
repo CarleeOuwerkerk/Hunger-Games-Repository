@@ -5,6 +5,8 @@
  */
 package byui.cit260.hungerGames.view;
 
+import byui.cit260.hungerGames.control.GameControl;
+import byui.cit260.hungerGames.model.Item;
 import java.util.Scanner;
 
 /**
@@ -76,8 +78,23 @@ public class GameMenuView extends View {
     }
 
     private void viewInventoryMenu() {
-        InventoryMenuView inventoryMenuView = new InventoryMenuView();
-        inventoryMenuView.display();
+//        InventoryMenuView inventoryMenuView = new InventoryMenuView();
+//        inventoryMenuView.display();
+        Item[] item = GameControl.createItemList();
+        
+        System.out.println("\nList of Inventory Items");
+        System.out.println("Description:" + "\t" +
+                            "Skill Point increse:" + "\t" +
+                            "Amount in inventory:" + "\t" +);
+        
+        for (String item : Item) {
+            
+            System.out.println(item.getDescription() + "\t    " +
+                               item.getStats() + "\t     " + 
+                               item.getAmount());
+            
+        }
+        
     }
 
     private void setTrap() {
