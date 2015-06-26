@@ -17,35 +17,13 @@ public class Item implements Serializable {
    
     //class instance variables
     private String description;
-    private String type;
     private int stats;
-    private int numberInStock;
+    private int amount;
     
     private Location[] location;
 
  
     public Item() {
-    }
-
-    private Item(String fruit, int i) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    public ArrayList<Item> addInventoryItems(){
-        
-        ArrayList<Item> items = new ArrayList<>();
-        
-        items.add(new Item("Fruit", 3));
-        items.add(new Item("Meat", 5));
-        items.add(new Item("Water", 2));
-        items.add(new Item("Knife", 3));
-        items.add(new Item("Bat", 3));
-        items.add(new Item("Sword", 5));
-        items.add(new Item("Bow & Arrow", 5));
-        items.add(new Item("Spear", 7));
-        items.add(new Item("Rope", 0));
-        
-        return items;
     }
 
     public String getDescription() {
@@ -56,13 +34,6 @@ public class Item implements Serializable {
         this.description = description;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
 
     public int getStats() {
         return stats;
@@ -72,26 +43,25 @@ public class Item implements Serializable {
         this.stats = stats;
     }
 
-    public int getNumberInStock() {
-        return numberInStock;
+    public int getAmount() {
+        return amount;
     }
 
-    public void setNumberInStock(int numberInStock) {
-        this.numberInStock = numberInStock;
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
 
     @Override
     public String toString() {
-        return "Items{" + "description=" + description + ", type=" + type + ", stats=" + stats + ", numberInStock=" + numberInStock + '}';
+        return "Items{" + "description=" + description + ", stats=" + stats + ", amount=" + amount + '}';
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
         hash = 37 * hash + Objects.hashCode(this.description);
-        hash = 37 * hash + Objects.hashCode(this.type);
         hash = 37 * hash + this.stats;
-        hash = 37 * hash + this.numberInStock;
+        hash = 37 * hash + this.amount;
         return hash;
     }
 
@@ -107,19 +77,14 @@ public class Item implements Serializable {
         if (!Objects.equals(this.description, other.description)) {
             return false;
         }
-        if (!Objects.equals(this.type, other.type)) {
-            return false;
-        }
+
         if (this.stats != other.stats) {
             return false;
         }
-        if (this.numberInStock != other.numberInStock) {
+        if (this.amount != other.amount) {
             return false;
         }
         return true;
     }
-    
-    
-   
     
 }
