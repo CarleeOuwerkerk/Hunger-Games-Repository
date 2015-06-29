@@ -80,20 +80,20 @@ public class GameMenuView extends View {
     private void viewInventoryMenu() {
 //        InventoryMenuView inventoryMenuView = new InventoryMenuView();
 //        inventoryMenuView.display();
-        Item[] item = GameControl.createItemList();
-        
-        System.out.println("\nList of Inventory Items");
-        System.out.println("Description:" + "\t" +
-                            "Skill Point increse:" + "\t" +
-                            "Amount in inventory:" + "\t" );
-        
-        for (Item Item : item) {
-            
-            System.out.println(Item.getDescription() + "\t    " +
-                               Item.getStats() + "\t     " + 
-                               Item.getAmount());
-            
-        }
+//        Item[] item = Item();
+//        
+//        System.out.println("\nList of Inventory Items");
+//        System.out.println("Description:" + "\t" +
+//                            "Skill Point increase:" + "\t" +
+//                            "Amount in inventory:" + "\t" );
+//        
+//        for (Item Item : item) {
+//            
+//            System.out.println(Item.getDescription() + "\t    " +
+//                               Item.getStats() + "\t     " + 
+//                               Item.getAmount());
+//            
+//        }
         
     }
 

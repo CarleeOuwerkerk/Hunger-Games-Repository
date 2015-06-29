@@ -14,25 +14,27 @@ import java.util.Objects;
  */
 public enum Scene implements Serializable {
     
-    start("Start Scene", "You're in a ship taking you to the arena", 0.0),
-    sand("Sandy Area", "You look around you, and it's sandy.", -3.0),
-    forest("Forest Area", "You look around you, and it's a forest.", 5.0),
-    grass("Grassy Area", "You look around you, and it's grassy.", 4.0),
-    mountain("Mountain Area", "You look around you, and it's rocky.", 3.0),
-    marsh("Marsh Area", "You look around you, and it's marshy.", -2.0),
-    field("Field Area", "You look around you, and it's a field.", -4.0),
-    finish("Finish Scene", "You beat the last tribute!!!", 2.0);
+    start("Start Scene", "You're in a ship taking you to the arena", 0.0, "SS"),
+    sand("Sandy Area", "You look around you, and it's sandy.", -3.0, "SA"),
+    forest("Forest Area", "You look around you, and it's a forest.", 5.0, "FO"),
+    grass("Grassy Area", "You look around you, and it's grassy.", 4.0, "GR"),
+    mountain("Mountain Area", "You look around you, and it's rocky.", 3.0, "MO"),
+    marsh("Marsh Area", "You look around you, and it's marshy.", -2.0, "MA"),
+    field("Field Area", "You look around you, and it's a field.", -4.0, "FI"),
+    finish("Finish Scene", "You beat the last tribute!!!", 2.0, "FS");
         
         
     // class instance variables 
     private final String terrainType;
     private final String description;
     private final double stats;
+    private final String mapSymbol;
 
-    private Scene(String terrainType, String description, double stats) {
+    private Scene(String terrainType, String description, double stats, String mapSymbol) {
         this.terrainType = terrainType;
         this.description = description;
         this.stats = stats;
+        this.mapSymbol = mapSymbol;
  
     }
 

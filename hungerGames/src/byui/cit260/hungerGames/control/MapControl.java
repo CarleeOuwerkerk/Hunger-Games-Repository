@@ -5,9 +5,11 @@
  */
 package byui.cit260.hungerGames.control;
 
+import byui.cit260.hungerGames.model.Game;
 import byui.cit260.hungerGames.model.Location;
 import byui.cit260.hungerGames.model.Map;
 import byui.cit260.hungerGames.model.Scene;
+import hungergames.HungerGames;
 
 /**
  *
@@ -18,9 +20,8 @@ public class MapControl {
     static Map createMap() {
         Map map = new Map(5, 5);
         
-        Scene[] scenes = createScenes();
         
-        GameControl.assignScenesToLocations(map, scenes);
+        GameControl.assignScenesToLocations(map);
         
         return map;
     }
@@ -69,28 +70,6 @@ public class MapControl {
         locations[5][3].setScene(scenes[Scene.mountain.ordinal()]);
         locations[5][4].setScene(scenes[Scene.mountain.ordinal()]);
         locations[5][5].setScene(scenes[Scene.mountain.ordinal()]);
-    }
-
-    private static Scene[] createScenes() throws MapControlException {
-        
-        Game game = HungerGames.getCurrentGame();
-        
-        Scene[] scenes = new Scene[Scene.values().length];
-        
-        Scene startingScene = new Scene();
-        startingScene.setDescription(
-                "\n Welcome to the Hunger Games, let the games BEGIN!");
-        startingScene.setMapSymbol(" ST ");
-        startingScene.setTravelTime(100);
-        scenes[Scene.start.ordinal()] = startingScene;
-        
-        Scene finishScene = new Scene();
-        finishScene.setDescription(
-                "\n Congrats, you didn't die. You are numbered amogest the Victors");
-        finishScene.setMapSymbol(" FN ");
-        finishScene.setTravelTime(Double.POSITIVE_INFINITY);
-        scenes[Scene.finish.ordinal()] = finishScene;
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

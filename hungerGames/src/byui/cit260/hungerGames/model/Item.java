@@ -26,9 +26,9 @@ public enum Item implements Serializable {
             rope("Rope", 0.0, 0);
    
     //class instance variables
-    private String description;
-    private double stats;
-    private int amount;
+    public String description;
+    public double stats;
+    public int amount;
 
     private Item(String description, double stats, int amount) {
         this.description = description;
