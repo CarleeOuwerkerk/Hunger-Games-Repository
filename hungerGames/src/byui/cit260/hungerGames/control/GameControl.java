@@ -30,9 +30,6 @@ public class GameControl {
         MapControl.moveTributesToStartingLocation(map);
     }
         
-
-
-        
 //        Item[] foodItem = GameControl.createFoodList();
 //        GameControl.createFoodList();
 //        Item[] weaponItem = GameControl.createWeaponList();
@@ -54,7 +51,5 @@ public class GameControl {
     static void assignScenesToLocations(Map map) {
         System.out.println("\n **** assignScenesToLocations stub function called ***** ");
     }
-
-    
 
 }

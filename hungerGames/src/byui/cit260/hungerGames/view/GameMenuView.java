@@ -6,7 +6,9 @@
 package byui.cit260.hungerGames.view;
 
 import byui.cit260.hungerGames.control.GameControl;
+import byui.cit260.hungerGames.control.MapControl;
 import byui.cit260.hungerGames.model.Item;
+import byui.cit260.hungerGames.model.Location;
 import java.util.Scanner;
 
 /**
@@ -104,7 +106,20 @@ public class GameMenuView extends View {
     }
 
     private void viewMap() {
-        System.out.println("*** viewMap function called ***");
+//        
+//        Location[][] locations = MapControl.assignScenesToLocations();
+//        for(){
+//            
+//            
+//            for(){
+//
+//                
+//                if
+//                        
+//                    else
+//                    
+//            }
+//        }
     }
        
     private void viewRemainingTributes() {
