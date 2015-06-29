@@ -85,13 +85,13 @@ public class GameMenuView extends View {
         System.out.println("\nList of Inventory Items");
         System.out.println("Description:" + "\t" +
                             "Skill Point increse:" + "\t" +
-                            "Amount in inventory:" + "\t" +);
+                            "Amount in inventory:" + "\t" );
         
-        for (String item : Item) {
+        for (Item Item : item) {
             
-            System.out.println(item.getDescription() + "\t    " +
-                               item.getStats() + "\t     " + 
-                               item.getAmount());
+            System.out.println(Item.getDescription() + "\t    " +
+                               Item.getStats() + "\t     " + 
+                               Item.getAmount());
             
         }
         
