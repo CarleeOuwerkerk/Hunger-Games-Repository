@@ -42,13 +42,11 @@ public enum Tribute implements Serializable{
     }
 
     
-    
     public String getName() {
         return name;
     }
 
   
-
     public int getDistrict() {
         return district;
     }
@@ -68,7 +66,6 @@ public enum Tribute implements Serializable{
         return gender;
     }
 
-    
     
     @Override
     public String toString() {
