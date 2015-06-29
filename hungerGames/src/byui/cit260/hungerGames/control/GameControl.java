@@ -23,6 +23,13 @@ public class GameControl {
         
         game.setPlayer(player);
         
+        Item[] foodItem = GameControl.createFoodList();
+        GameControl.createFoodList();
+        Item[] weaponItem = GameControl.createWeaponList();
+        GameControl.createWeaponList();
+        Item[] SupplyItem = GameControl.createSupplyList();
+        GameControl.createSupplyList();
+        
         Map map = MapControl.createMap();
         game.setMap(map);
         
