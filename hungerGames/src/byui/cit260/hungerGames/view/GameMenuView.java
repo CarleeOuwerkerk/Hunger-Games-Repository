@@ -78,9 +78,10 @@ public class GameMenuView extends View {
     }
 
     private void viewInventoryMenu() {
+    }
 //        InventoryMenuView inventoryMenuView = new InventoryMenuView();
 //        inventoryMenuView.display();
-//        Item[] item = Item();
+//        Item[] item = Item;
 //        
 //        System.out.println("\nList of Inventory Items");
 //        System.out.println("Description:" + "\t" +
@@ -94,8 +95,8 @@ public class GameMenuView extends View {
 //                               Item.getAmount());
 //            
 //        }
-        
-    }
+//        
+//    }
 
     private void setTrap() {
         TrapView trapView = new TrapView();
