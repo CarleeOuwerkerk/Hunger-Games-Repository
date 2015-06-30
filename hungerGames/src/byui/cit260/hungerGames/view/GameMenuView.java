@@ -93,23 +93,23 @@ public class GameMenuView extends View {
     }
 
     private void viewMap() {
-
-        Location[][] locations = MapControl.assignScenesToLocations();
-        for(){
-            
-            
-            for(){
-
-                
-                if
-                        
-                else {
-                        
-                        }
-                    
-            }
-        }
     }
+//        Location[][] locations = MapControl.assignScenesToLocations();
+//        for(){
+//            
+//            
+//            for(){
+//
+//                
+//                if
+//                        
+//                else {
+//                        
+//                        }
+//                    
+//            }
+//        }
+//    }
        
     private void viewRemainingTributes() {
         System.out.println("*** viewRemainingTributes function called ***");
