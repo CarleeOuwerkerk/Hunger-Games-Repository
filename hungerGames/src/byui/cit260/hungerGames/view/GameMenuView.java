@@ -7,6 +7,7 @@ package byui.cit260.hungerGames.view;
 
 import byui.cit260.hungerGames.control.GameControl;
 import byui.cit260.hungerGames.control.MapControl;
+import byui.cit260.hungerGames.control.TributeControl;
 import byui.cit260.hungerGames.model.Item;
 import byui.cit260.hungerGames.model.Location;
 import byui.cit260.hungerGames.model.Map;
@@ -119,9 +120,10 @@ public class GameMenuView extends View {
         }
         System.out.println("\n---------------------------------------------------------");
     }
-       
+    
     private void viewRemainingTributes() {
-        System.out.println("*** viewRemainingTributes function called ***");
+        TributeControl tributeControl = new TributeControl(); 
+
     }
  
     private void saveGame() {
