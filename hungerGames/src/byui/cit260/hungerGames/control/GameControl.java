@@ -6,6 +6,7 @@
 package byui.cit260.hungerGames.control;
 
 import byui.cit260.hungerGames.model.Game;
+import byui.cit260.hungerGames.model.Item;
 import byui.cit260.hungerGames.model.Map;
 import byui.cit260.hungerGames.model.Player;
 import byui.cit260.hungerGames.model.Scene;
@@ -52,4 +53,19 @@ public class GameControl {
         System.out.println("\n **** assignScenesToLocations stub function called ***** ");
     }
 
+    public static Item [] items = Item.values(); {
+    
+    for(int i = 0; i < items.length - 1; i++) {
+        int index = 1;
+        for (int j = i + 1; j < items.length; j++)
+            if( items[j].compareToIgnoreCase(items[index]) < 0)
+            index = j;
+            
+        Item smaller = items[index];
+        items[index] = items[i];
+        items[i] = smaller;
+        
+    }
+    
+}
 }

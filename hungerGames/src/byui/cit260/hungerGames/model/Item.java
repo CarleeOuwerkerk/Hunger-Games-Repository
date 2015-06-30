@@ -70,6 +70,11 @@ public enum Item implements Serializable {
         return "Items{" + "description=" + description + ", stats=" + stats + ", amount=" + amount + '}';
     }
 
+    public int compareToIgnoreCase(Item item) {
+        System.out.println("\n *** I hope this is right ****");
+        return -1;
+    }
+
 }
 
 //    @Override

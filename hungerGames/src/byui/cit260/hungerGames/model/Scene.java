@@ -65,10 +65,15 @@ public enum Scene implements Serializable {
 //        this.stats = stats;
 //    }
 
+    public String getMapSymbol() {
+        return mapSymbol;
+    }
+
+    
 
     @Override
     public String toString() {
-        return "Scene{" + "description=" + description + ", terrainType=" + terrainType + ", stats=" + stats + '}';
+        return "Scene{" + "description=" + description + ", terrainType=" + terrainType + ", stats=" + stats + ", mapSymbol=" + mapSymbol + '}';
     }
 
 //    @Override
@@ -120,7 +125,8 @@ public enum Scene implements Serializable {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public void setTravelTime(int i) {
+    //int i??
+    public void setTravelTime() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

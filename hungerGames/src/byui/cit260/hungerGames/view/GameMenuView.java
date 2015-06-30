@@ -11,6 +11,7 @@ import byui.cit260.hungerGames.model.Item;
 import byui.cit260.hungerGames.model.Location;
 import byui.cit260.hungerGames.model.Map;
 import byui.cit260.hungerGames.model.Scene;
+import hungergames.HungerGames;
 import java.util.Scanner;
 
 /**
@@ -95,52 +96,29 @@ public class GameMenuView extends View {
     }
 
     private void viewMap() {
-//        
-//        Location[][] locations = MapControl.assignScenesToLocations(Map map, Scene[] scenes);
-//        System.out.println("\n"
-//            +"\n---------------------------------------------------------"
-//            +"\n|                          Map                          |"
-//            +"\n---------------------------------------------------------"
-//            +"\n|       |   0   |   1   |   2   |   3   |   4   |   5   |"
-//            +"\n|       |       |       |       |       |       |       |"
-//            +"\n|_______|_______|_______|_______|_______|_______|_______|"
-//            +"\n|       |       |       |       |       |       |       |"
-//            +"\n|   0   |       |       |       |       |       |       |"
-//            +"\n|_______|_______|_______|_______|_______|_______|_______|"
-//            +"\n|       |       |       |       |       |       |       |"
-//            +"\n|   1   |       |       |       |       |       |       |"
-//            +"\n|_______|_______|_______|_______|_______|_______|_______|"
-//            +"\n|       |       |       |       |       |       |       |"
-//            +"\n|   2   |       |       |       |       |       |       |"
-//            +"\n|_______|_______|_______|_______|_______|_______|_______|"
-//            +"\n|       |       |       |       |       |       |       |"
-//            +"\n|   3   |       |       |       |       |       |       |"
-//            +"\n|_______|_______|_______|_______|_______|_______|_______|"
-//            +"\n|       |       |       |       |       |       |       |"
-//            +"\n|   4   |       |       |       |       |       |       |"
-//            +"\n|_______|_______|_______|_______|_______|_______|_______|"
-//            +"\n|       |       |       |       |       |       |       |"
-//            +"\n|   5   |       |       |       |       |       |       |"
-//            +"\n|_______|_______|_______|_______|_______|_______|_______|"
-//            +"\n---------------------------------------------------------");
-//            
-//                
-//        for(){
-//            
-//            
-//            for(){
-//
-//                
+        
+        Location[][] locations = HungerGames.getCurrentGame().getMap().getLocations(); 
+        System.out.println("\n***** Welcome to the 67th Annual Hunger Games ******");
+        System.out.println("   | 0 | 1 | 2 | 3 | 4 | 5 |      ");
+                
+        for(int i = 0; i < locations.length; i++){
+            System.out.println("\n---------------------------------------------------------");
+            System.out.format("%2d", i);
+            for(int j = 0; j < locations[0].length; j++){
+                System.out.println(" | ");
+                System.out.println(locations[i][j].getScene());
 //                if (visited = true){
-//                    //display map symbol
+//                    
 //                    
 //                }
-//                    else
+//                else ()
 //                    //display ?
-//                    
-//            }
-//        }
-//    }
+                    
+            }
+            System.out.println(" | ");
+        }
+        System.out.println("\n---------------------------------------------------------");
+    }
        
     private void viewRemainingTributes() {
         System.out.println("*** viewRemainingTributes function called ***");
