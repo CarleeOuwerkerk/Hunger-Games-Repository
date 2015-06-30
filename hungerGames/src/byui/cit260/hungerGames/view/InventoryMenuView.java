@@ -5,6 +5,7 @@
  */
 package byui.cit260.hungerGames.view;
 
+import byui.cit260.hungerGames.model.Item;
 import java.util.Scanner;
 
 /**
@@ -13,40 +14,76 @@ import java.util.Scanner;
  */
 public class InventoryMenuView extends View{
     
-        public InventoryMenuView(){
-                super("\n"
+    
+    
+        public InventoryMenuView(String promptMessage){
+            
+            super(promptMessage);
+            
+            //promptMessage= Header Message
+            // go through all of the items inventory
+             //get first letter of item name
+             // create the item text
+             // add to the prompt message
+           // add the ending message to the prompt message
+            
+            
+            promptMessage = "\n"
             +"\n----------------------------------------------"
-            +"\n| Inventory Menu                                  |"
-            +"\n----------------------------------------------"
-            +"\nF - Food"
-            +"\nW - Weapons"
-            +"\nS - Supplies"
-            +"\nB - Back"
-            +"\n----------------------------------------------");
+            +"\n| Inventory Menu                              |"
+            +"\n----------------------------------------------";
+            
+            Item [] items = Item.values();
+            
+            for (Item item : items) {
+                String firstCharacter = item.getDescription().substring(0, 2);
+                String itemText = "\n" + firstCharacter + " - " + item.getDescription();
+                
+              promptMessage += itemText; 
+            }
+            
+            promptMessage += "\nB- Back                                     |" +
+                    "\n----------------------------------------------";
+            
+            this.setPromptMessage(promptMessage);
                 
         }
             
         @Override
     public boolean doAction(Object obj) {
         
-        String value = (String) obj;
-        char selection = value.charAt(0);
+        String selection = (String) obj;
+        selection = selection.toUpperCase();
         
         switch(selection){
-            case 'F':
-            case 'f':
-                this.viewFood();
+            case "FR":
+                this.viewFruit();
                 break;
-            case 'W':
-            case 'w':
-                this.viewWeapons();
+            case "ME":
+                this.viewMeat();
                 break;
-            case 'S':
-            case 's':
-                this.viewSupplies();
+            case "WA":
+                this.viewWater();
                 break;
-            case 'B':
-            case 'b':
+            case "BA":
+                this.viewBat();
+                break;
+            case "KN":
+                this.viewKnife();
+                break;
+            case "SW":
+                this.viewSword();
+                break;
+            case "BO":
+                this.viewBowAndArrow();
+                break;
+            case "SP":
+                this.viewSpear();
+                break;
+            case "RO":
+                this.viewRope();
+                break;
+            case "B":
                 return false;
             default:
                 System.out.println("\n*** Invalid selection, try again. ***");
@@ -69,6 +106,42 @@ public class InventoryMenuView extends View{
     private void viewSupplies() {
         SupplyItemsView supplyItemsView = new SupplyItemsView();
         supplyItemsView.display();
+    }
+
+    private void viewFruit() {
+        System.out.println("\n*** viewFruit Stub Function Called ***");
+    }
+
+    private void viewMeat() {
+       System.out.println("\n*** viewMeat Stub Function Called ***");
+    }
+
+    private void viewWater() {
+        System.out.println("\n*** viewWater Stub Function Called ***");
+    }
+
+    private void viewBat() {
+        System.out.println("\n*** viewBat Stub Function Called ***");
+    }
+
+    private void viewKnife() {
+        System.out.println("\n*** viewKnife Stub Function Called ***");
+    }
+
+    private void viewSword() {
+        System.out.println("\n*** viewSword Stub Function Called ***");
+    }
+
+    private void viewBowAndArrow() {
+        System.out.println("\n*** viewBowAndArrow Stub Function Called ***");
+    }
+
+    private void viewSpear() {
+       System.out.println("\n*** viewSpear Stub Function Called ***");
+    }
+
+    private void viewRope() {
+       System.out.println("\n*** viewRope Stub Function Called ***");
     }
     
 }

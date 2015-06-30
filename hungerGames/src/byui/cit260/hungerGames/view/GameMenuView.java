@@ -80,25 +80,12 @@ public class GameMenuView extends View {
     }
 
     private void viewInventoryMenu() {
-    }
-//        InventoryMenuView inventoryMenuView = new InventoryMenuView();
-//        inventoryMenuView.display();
-//        Item[] item = Item;
-//        
-//        System.out.println("\nList of Inventory Items");
-//        System.out.println("Description:" + "\t" +
-//                            "Skill Point increase:" + "\t" +
-//                            "Amount in inventory:" + "\t" );
-//        
-//        for (Item Item : item) {
-//            
-//            System.out.println(Item.getDescription() + "\t    " +
-//                               Item.getStats() + "\t     " + 
-//                               Item.getAmount());
-//            
-//        }
-//        
-//    }
+
+        InventoryMenuView inventoryMenuView = new InventoryMenuView(null);
+        inventoryMenuView.display();
+      
+        
+  }
 
     private void setTrap() {
         TrapView trapView = new TrapView();
@@ -106,20 +93,22 @@ public class GameMenuView extends View {
     }
 
     private void viewMap() {
-//        
-//        Location[][] locations = MapControl.assignScenesToLocations();
-//        for(){
-//            
-//            
-//            for(){
-//
-//                
-//                if
-//                        
-//                    else
-//                    
-//            }
-//        }
+
+        Location[][] locations = MapControl.assignScenesToLocations();
+        for(){
+            
+            
+            for(){
+
+                
+                if
+                        
+                else {
+                        
+                        }
+                    
+            }
+        }
     }
        
     private void viewRemainingTributes() {
