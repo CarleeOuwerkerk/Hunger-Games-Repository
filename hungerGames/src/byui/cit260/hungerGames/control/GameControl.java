@@ -64,7 +64,6 @@ public class GameControl {
         Item smaller = items[index];
         items[index] = items[i];
         items[i] = smaller;
-        
     }
     
 }
