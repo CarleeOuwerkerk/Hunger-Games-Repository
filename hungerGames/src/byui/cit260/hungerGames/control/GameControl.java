@@ -53,6 +53,12 @@ public class GameControl {
         System.out.println("\n **** assignScenesToLocations stub function called ***** ");
     }
 
+    //    public static Item[] sortItems() {
+    
+//        Item [] orginalItemList = HungerGames.getCurrentGame().getItemList();
+//        
+//        Item [] item
+    
     public static Item [] items = Item.values(); {
     
     for(int i = 0; i < items.length - 1; i++) {
@@ -65,7 +71,10 @@ public class GameControl {
         items[index] = items[i];
         items[i] = smaller;
         
+        }
+    
     }
     
-}
+   
+    
 }

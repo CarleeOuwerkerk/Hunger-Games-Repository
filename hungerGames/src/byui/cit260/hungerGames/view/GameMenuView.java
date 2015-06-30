@@ -99,9 +99,9 @@ public class GameMenuView extends View {
         
         Location[][] locations = HungerGames.getCurrentGame().getMap().getLocations(); 
         System.out.println("\n***** Welcome to the 67th Annual Hunger Games ******");
-        System.out.println("   | 0 | 1 | 2 | 3 | 4 | 5 |      ");
+        System.out.println("         |  0  |  1  |  2  |  3  |  4  |  5  |      ");
                 
-        for(int i = 0; i < locations.length; i++){
+        for(int i = 0; i < locations[0].length; i++){
             System.out.println("\n---------------------------------------------------------");
             System.out.format("%2d", i);
             for(int j = 0; j < locations[0].length; j++){
