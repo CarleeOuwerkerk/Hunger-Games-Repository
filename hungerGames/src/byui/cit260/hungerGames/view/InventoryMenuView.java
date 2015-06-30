@@ -20,14 +20,6 @@ public class InventoryMenuView extends View{
             
             super(promptMessage);
             
-            //promptMessage= Header Message
-            // go through all of the items inventory
-             //get first letter of item name
-             // create the item text
-             // add to the prompt message
-           // add the ending message to the prompt message
-            
-            
             promptMessage = "\n"
             +"\n----------------------------------------------"
             +"\n| Inventory Menu                              |"
@@ -40,13 +32,13 @@ public class InventoryMenuView extends View{
                 String itemText = "\n" + firstCharacter + " - " + item.getDescription();
                 
               promptMessage += itemText; 
-            }
             
             promptMessage += "\nB- Back                                     |" +
                     "\n----------------------------------------------";
             
             this.setPromptMessage(promptMessage);
-                
+            
+            }
         }
             
         @Override
