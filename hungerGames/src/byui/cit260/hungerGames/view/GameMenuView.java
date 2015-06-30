@@ -9,6 +9,8 @@ import byui.cit260.hungerGames.control.GameControl;
 import byui.cit260.hungerGames.control.MapControl;
 import byui.cit260.hungerGames.model.Item;
 import byui.cit260.hungerGames.model.Location;
+import byui.cit260.hungerGames.model.Map;
+import byui.cit260.hungerGames.model.Scene;
 import java.util.Scanner;
 
 /**
@@ -107,16 +109,47 @@ public class GameMenuView extends View {
 
     private void viewMap() {
 //        
-//        Location[][] locations = MapControl.assignScenesToLocations();
+//        Location[][] locations = MapControl.assignScenesToLocations(Map map, Scene[] scenes);
+//        System.out.println("\n"
+//            +"\n---------------------------------------------------------"
+//            +"\n|                          Map                          |"
+//            +"\n---------------------------------------------------------"
+//            +"\n|       |   0   |   1   |   2   |   3   |   4   |   5   |"
+//            +"\n|       |       |       |       |       |       |       |"
+//            +"\n|_______|_______|_______|_______|_______|_______|_______|"
+//            +"\n|       |       |       |       |       |       |       |"
+//            +"\n|   0   |       |       |       |       |       |       |"
+//            +"\n|_______|_______|_______|_______|_______|_______|_______|"
+//            +"\n|       |       |       |       |       |       |       |"
+//            +"\n|   1   |       |       |       |       |       |       |"
+//            +"\n|_______|_______|_______|_______|_______|_______|_______|"
+//            +"\n|       |       |       |       |       |       |       |"
+//            +"\n|   2   |       |       |       |       |       |       |"
+//            +"\n|_______|_______|_______|_______|_______|_______|_______|"
+//            +"\n|       |       |       |       |       |       |       |"
+//            +"\n|   3   |       |       |       |       |       |       |"
+//            +"\n|_______|_______|_______|_______|_______|_______|_______|"
+//            +"\n|       |       |       |       |       |       |       |"
+//            +"\n|   4   |       |       |       |       |       |       |"
+//            +"\n|_______|_______|_______|_______|_______|_______|_______|"
+//            +"\n|       |       |       |       |       |       |       |"
+//            +"\n|   5   |       |       |       |       |       |       |"
+//            +"\n|_______|_______|_______|_______|_______|_______|_______|"
+//            +"\n---------------------------------------------------------");
+//            
+//                
 //        for(){
 //            
 //            
 //            for(){
 //
 //                
-//                if
-//                        
+//                if (visited = true){
+//                    //display map symbol
+//                    
+//                }
 //                    else
+//                    //display ?
 //                    
 //            }
 //        }
