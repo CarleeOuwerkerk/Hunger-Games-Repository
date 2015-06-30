@@ -9,6 +9,8 @@ import byui.cit260.hungerGames.control.GameControl;
 import byui.cit260.hungerGames.control.MapControl;
 import byui.cit260.hungerGames.model.Item;
 import byui.cit260.hungerGames.model.Location;
+import byui.cit260.hungerGames.model.Map;
+import byui.cit260.hungerGames.model.Scene;
 import java.util.Scanner;
 
 /**
@@ -101,11 +103,12 @@ public class GameMenuView extends View {
 //            for(){
 //
 //                
-//                if
-//                        
-//                else {
-//                        
-//                        }
+//                if (visited = true){
+//                    //display map symbol
+//                    
+//                }
+//                    else
+//                    //display ?
 //                    
 //            }
 //        }
