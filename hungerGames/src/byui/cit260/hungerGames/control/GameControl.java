@@ -49,9 +49,6 @@ public class GameControl {
 //        return null;
 //    }
 
-    static void assignScenesToLocations(Map map) {
-        System.out.println("\n **** assignScenesToLocations stub function called ***** ");
-    }
 
     //    public static Item[] sortItems() {
     
@@ -73,4 +70,4 @@ public class GameControl {
         
         }
     }
-}
+    }

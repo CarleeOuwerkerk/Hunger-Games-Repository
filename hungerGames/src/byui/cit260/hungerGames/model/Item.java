@@ -72,7 +72,7 @@ public enum Item implements Serializable {
 
     public int compareToIgnoreCase(Item item) {
         System.out.println("\n *** I hope this is right ****");
-        return -1;
+        return 0;
     }
 
 }

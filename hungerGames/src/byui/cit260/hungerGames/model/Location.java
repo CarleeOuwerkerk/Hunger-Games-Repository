@@ -81,12 +81,6 @@ public class Location implements Serializable{
     public void setItem(Item item) {
         this.item = item;
     }
-    
-    
-    
-    
-    
-    
 
     @Override
     public String toString() {
@@ -127,5 +121,4 @@ public class Location implements Serializable{
         }
         return true;
     }
-
 }
