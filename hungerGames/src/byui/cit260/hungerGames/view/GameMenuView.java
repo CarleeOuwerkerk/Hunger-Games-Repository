@@ -12,6 +12,7 @@ import byui.cit260.hungerGames.model.Item;
 import byui.cit260.hungerGames.model.Location;
 import byui.cit260.hungerGames.model.Map;
 import byui.cit260.hungerGames.model.Scene;
+import byui.cit260.hungerGames.model.Tribute;
 import hungergames.HungerGames;
 import java.util.Scanner;
 
@@ -122,7 +123,7 @@ public class GameMenuView extends View {
     }
     
     private void viewRemainingTributes() {
-        TributeControl tributeControl = new TributeControl(); 
+        TributeControl.sortTribute();
 
     }
  

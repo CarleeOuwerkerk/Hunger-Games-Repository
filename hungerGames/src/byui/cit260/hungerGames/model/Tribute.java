@@ -72,10 +72,7 @@ public enum Tribute implements Serializable{
         return "Tributes{" + "name=" + name + ", district=" + district + ", stats=" + stats + ", location=" + location.toString() + ", gender=" + gender + '}';
     }
 
-    public int compareToIgnoreCase(Tribute tribute) {
-        System.out.println("\n *** I hope this is right ****");
-        return -1;
-    }
+
 
 
        
