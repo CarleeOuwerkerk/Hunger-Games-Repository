@@ -18,10 +18,9 @@ import hungergames.HungerGames;
 public class MapControl {
 
     static Map createMap() {
-        Map map = new Map(5, 5);
+        Map map = new Map(6, 6);
         
-        
-        GameControl.assignScenesToLocations(map);
+        MapControl.assignScenesToLocations(map);
         
         return map;
     }
@@ -31,7 +30,7 @@ public class MapControl {
     }
 
 
-    private static void assignScenesToLocations(Map map, Scene[] scenes) {
+    private static void assignScenesToLocations(Map map) {
         Location[][] locations = map.getLocations();
         
         locations[0][0].setScene(Scene.start);
