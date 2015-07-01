@@ -31,7 +31,7 @@ public class InventoryMenuView extends View{
                 String firstCharacter = item.getDescription().substring(0, 2);
                 String itemText = "\n" + firstCharacter + " - " + item.getDescription();
                 
-              promptMessage += itemText; 
+              promptMessage += itemText;
             
             promptMessage += "\nB- Back                                     |" +
                     "\n----------------------------------------------";

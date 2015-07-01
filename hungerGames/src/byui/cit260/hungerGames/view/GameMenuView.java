@@ -108,13 +108,7 @@ public class GameMenuView extends View {
             for(int j = 0; j < locations[0].length; j++){
                 System.out.println(" | ");
                 System.out.println(locations[i][j].getScene());
-//                if (visited = true){
-//                    
-//                    
-//                }
-//                else ()
-//                    //display ?
-                    
+
             }
             System.out.println(" | ");
         }
