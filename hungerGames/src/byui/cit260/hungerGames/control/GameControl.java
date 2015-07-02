@@ -28,7 +28,7 @@ public class GameControl {
         Map map = MapControl.createMap();
         game.setMap(map);
         
-        MapControl.moveTributesToStartingLocation(map);
+//        MapControl.moveTributesToStartingLocation(map);
     }
         
 //        Item[] foodItem = GameControl.createFoodList();

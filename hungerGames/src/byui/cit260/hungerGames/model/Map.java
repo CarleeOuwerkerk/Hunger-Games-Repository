@@ -50,6 +50,8 @@ public class Map implements Serializable{
         }
         
     }
+    
+    
     public int getRow() {
         return row;
     }
@@ -74,6 +76,23 @@ public class Map implements Serializable{
         this.locations = locations;
     }
 
+    public int getNoOfRows() {
+        return noOfRows;
+    }
+
+    public void setNoOfRows(int noOfRows) {
+        this.noOfRows = noOfRows;
+    }
+
+    public int getNoOfColumns() {
+        return noOfColumns;
+    }
+
+    public void setNoOfColumns(int noOfColumns) {
+        this.noOfColumns = noOfColumns;
+    }
+
+    
     @Override
     public String toString() {
         return "Map{" + "row=" + row + ", column=" + column + ", locations=" + locations + ", noOfRows=" + noOfRows + ", noOfColumns=" + noOfColumns + '}';

@@ -5,11 +5,15 @@
  */
 package byui.cit260.hungerGames.control;
 
+import byui.cit260.hungerGames.exceptions.MapControlException;
 import byui.cit260.hungerGames.model.Game;
 import byui.cit260.hungerGames.model.Location;
 import byui.cit260.hungerGames.model.Map;
+import byui.cit260.hungerGames.model.Player;
 import byui.cit260.hungerGames.model.Scene;
+import byui.cit260.hungerGames.model.Tribute;
 import hungergames.HungerGames;
+import java.awt.Point;
 
 /**
  *
@@ -24,10 +28,22 @@ public class MapControl {
         
         return map;
     }
-
-    static void moveTributesToStartingLocation(Map map) {
-        System.out.println("\n*** moveTributesToStartingLocation stub function called ***");
-    }
+//
+//    public static int moveTributesToStartingLocation(Map map) {
+//        
+//        Tribute[] tributes = Tribute.values();
+//        
+//        for (Tribute player : tributes) {
+//            Point coordinates = Tribute.getLocation();
+//            int returnValue = MapControl.movePlayerToLocation(player, coordinates);
+//            if (returnValue < 0){
+//                return returnValue;
+//            }
+//        }
+//        return 0;
+//    }
+    
+    
 
 
     private static void assignScenesToLocations(Map map) {
@@ -69,6 +85,24 @@ public class MapControl {
         locations[5][3].setScene(Scene.mountain);
         locations[5][4].setScene(Scene.mountain);
         locations[5][5].setScene(Scene.mountain);
+    }
+    
+    public static void movePlayerToLocation(Player player, Point coordinates)throws MapControlException{
+        
+        Map map = HungerGames.getCurrentGame().getMap();
+        int newRow = coordinates.x-1;
+        int newColumn = coordinates.y-1;
+        
+        //Player is moved to correct location of user's choosing
+        
+        
+        
+//        if (newRow < 0 || newRow >= map.getNoOfRows() || newColumn <0 || newColumn >= map.getNoOfColumns()){
+//            throw new MapControlException("Cannot move player to location."
+//                    + coordinates.x + ", " + coordinates.y
+//                    + " because that location is outside "
+//                    + "the bounds of the map.");
+//        }
     }
     
 }

@@ -8,12 +8,15 @@ package byui.cit260.hungerGames.view;
 import byui.cit260.hungerGames.control.GameControl;
 import byui.cit260.hungerGames.control.MapControl;
 import byui.cit260.hungerGames.control.TributeControl;
+import byui.cit260.hungerGames.exceptions.MapControlException;
 import byui.cit260.hungerGames.model.Item;
 import byui.cit260.hungerGames.model.Location;
 import byui.cit260.hungerGames.model.Map;
+import byui.cit260.hungerGames.model.Player;
 import byui.cit260.hungerGames.model.Scene;
 import byui.cit260.hungerGames.model.Tribute;
 import hungergames.HungerGames;
+import java.awt.Point;
 import java.util.Scanner;
 
 /**
@@ -100,6 +103,8 @@ public class GameMenuView extends View {
     private void viewMap() {
         
         Location[][] locations = HungerGames.getCurrentGame().getMap().getLocations(); 
+        
+                
         System.out.println("\n***** Welcome to the 67th Annual Hunger Games ******");
         System.out.println("   |  0 |  1 |  2 |  3 |  4 |  5 |");
                 
@@ -114,6 +119,9 @@ public class GameMenuView extends View {
             System.out.print(" | ");
         }
         System.out.println("\n----------------------------------");
+        
+        MapView mapView = new MapView();
+        mapView.display();
     }
     
     private void viewRemainingTributes() {
