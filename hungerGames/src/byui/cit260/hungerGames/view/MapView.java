@@ -34,7 +34,7 @@ public class MapView{
         do {
             System.out.println(MAP);
             
-            String input = this.getInput();
+            Double input = this.getInput();
 //            selection = input.StringAt(0);
             
             this.doAction(selection);
@@ -50,13 +50,13 @@ public class MapView{
 //        String coordinates = "";
         
         while(coordinates == null){
-            String value = this.getInput();
-            value = value.trim().toUpperCase();
+            Double value = this.getInput();
+//            value = value.trim().toUpperCase();
             
             if (value.equals("B"))
                 break;
         try{
-            coordinates = Double.parseDouble(value);
+//            coordinates = Double.parseDouble(value);
         }catch (NumberFormatException nf){
             System.out.println("\n You must enter a valid coordinate.");
         }
@@ -73,10 +73,9 @@ public class MapView{
 //                continue;
 //            }
 //            break;
-//        }
-//        return coordinates;
+        }
+        return coordinates;
     }
-        
     
     public void doAction(String choice) {
         try{
