@@ -3,86 +3,87 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package byui.cit260.hungerGames.view;
-
-import byui.cit260.hungerGames.control.MapControl;
-import byui.cit260.hungerGames.exceptions.MapControlException;
-import byui.cit260.hungerGames.model.Player;
-import java.awt.Point;
-import java.util.Scanner;
-
-/**
- *
- * @author Carlee Ouwerkerk
- */
-public class MapView{
-    
-    Player player = null;
-    Point coordinates = null;
-    
-    private final String MAP = "\n"
-            +"\n----------------------------------------------"
-            +"\nPlease enter the coordinates of a location on "
-            +"\nthe map. (row,(no space)column)"
-            +"\n----------------------------------------------";
-    
-    
-    
-    public void display(){
-        
-        String selection = " ";
-        do {
-            System.out.println(MAP);
-            
-            Double input = this.getInput();
-//            selection = input.StringAt(0);
-            
-            this.doAction(selection);
-        }
-        
-        while(selection != "B" || selection != "b");
-            
-    }
-    
-    private Double getInput(){
-        Double coordinates = null;
-//        Scanner keyboard = new Scanner(System.in);
-//        String coordinates = "";
-        
-        while(coordinates == null){
-            Double value = this.getInput();
-//            value = value.trim().toUpperCase();
-            
-            if (value.equals("B"))
-                break;
-        try{
-//            coordinates = Double.parseDouble(value);
-        }catch (NumberFormatException nf){
-            System.out.println("\n You must enter a valid coordinate.");
-        }
-        return coordinates;
-        
-            
-//            System.out.println("SOMETHINE ABOUT ENTERING COORDINATES.");
-            
-//            coordinates = keyboard.nextLine();
-//            coordinates = coordinates.trim();
+//package byui.cit260.hungerGames.view;
+//
+//import byui.cit260.hungerGames.control.MapControl;
+//import byui.cit260.hungerGames.exceptions.MapControlException;
+//import byui.cit260.hungerGames.model.Player;
+//import java.awt.Point;
+//import java.util.Scanner;
+//
+///**
+// *
+// * @author Carlee Ouwerkerk
+// */
+//public class MapView{
+//    
+//    Player player = null;
+//    Point coordinates = null;
+//    
+//    private final String MAP = "\n"
+//            +"\n----------------------------------------------"
+//            +"\nPlease enter the coordinates of a location on "
+//            +"\nthe map. (row,(no space)column)"
+//            +"\n----------------------------------------------";
+//    
+//    
+//    
+//    public void display(){
+//        
+//        String selection = " ";
+//        do {
+//            System.out.println(MAP);
 //            
-//            if(coordinates.length() < 2){
-//                System.out.println("Invalid selection, please try again.");
-//                continue;
-//            }
-//            break;
-        }
-        return coordinates;
-    }
-    
-    public void doAction(String choice) {
-        try{
-                    MapControl.movePlayerToLocation(player, coordinates);
-                } catch (MapControlException me){
-                    System.out.println(me.getMessage());
-                }
+//            String input = this.getInput();
+////            selection = input.StringAt(0);
+//            
+//            this.doAction(selection);
+//        }
+//        
+//        while(selection != "B" || selection != "b");
+//            
+//    }
+//    
+//    private Double getInput(){
+//        Double coordinates = null;
+////        Scanner keyboard = new Scanner(System.in);
+////        String coordinates = "";
+//        
+//        while(coordinates == null){
+//            String value = this.getInput();
+//            value = value.trim().toUpperCase();
+//            
+//            if (value.equals("B"))
+//                break;
+//        try{
+//            coordinates = Double.parseDouble(value);
+//        }catch (NumberFormatException nf){
+//            System.out.println("\n You must enter a valid coordinate.");
+//        }
+//        return coordinates;
+//        
+//            
+////            System.out.println("SOMETHINE ABOUT ENTERING COORDINATES.");
+//            
+////            coordinates = keyboard.nextLine();
+////            coordinates = coordinates.trim();
+////            
+////            if(coordinates.length() < 2){
+////                System.out.println("Invalid selection, please try again.");
+////                continue;
+////            }
+////            break;
+////        }
+////        return coordinates;
+//    }
+//        
+//    
+//    public void doAction(String choice) {
+//        try{
+//                    MapControl.movePlayerToLocation(player, coordinates);
+//                } catch (MapControlException me){
+//                    System.out.println(me.getMessage());
+//                }
         
 //        switch(choice){
 //            case "0, 0":
@@ -203,6 +204,6 @@ public class MapView{
 //                System.out.println("\n*** Invalid selection, try again. ***");
 //                break;
 //        }
-    }
-    
-}
+//    }
+//    
+//}
