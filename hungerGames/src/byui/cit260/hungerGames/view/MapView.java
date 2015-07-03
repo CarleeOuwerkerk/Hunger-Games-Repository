@@ -80,10 +80,10 @@ public class MapView{
     
     public void doAction(String choice) {
         try{
-                    MapControl.movePlayerToLocation(player, coordinates);
-                } catch (MapControlException me){
-                    System.out.println(me.getMessage());
-                }
+            MapControl.movePlayerToLocation(player, coordinates);
+        } catch (MapControlException me){
+            System.out.println(me.getMessage());
+        }
         
 //        switch(choice){
 //            case "0, 0":
