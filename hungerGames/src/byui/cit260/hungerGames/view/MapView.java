@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package byui.cit260.hungerGames.view;
 
 import byui.cit260.hungerGames.control.MapControl;
@@ -23,7 +18,7 @@ public class MapView{
     private final String MAP = "\n"
             +"\n----------------------------------------------"
             +"\nPlease enter the coordinates of a location on "
-            +"\nthe map. (row,(no space)column)"
+            +"\nthe map. (row(no space)column)"
             +"\n----------------------------------------------";
     
     
@@ -34,7 +29,7 @@ public class MapView{
         do {
             System.out.println(MAP);
             
-            Double input = this.getInput();
+            int coordinates = this.getInput();
 //            selection = input.StringAt(0);
             
             this.doAction(selection);
@@ -44,38 +39,41 @@ public class MapView{
             
     }
     
-    private Double getInput(){
-        Double coordinates = null;
+    private int getInput(){
+        int input = -1;
 //        Scanner keyboard = new Scanner(System.in);
 //        String coordinates = "";
         
-        while(coordinates == null){
-            Double value = this.getInput();
-//            value = value.trim().toUpperCase();
-            
-            if (value.equals("B"))
+        while(input == -1){
+            int coordinates = this.getInput();
+//            coordinates = coordinates.trim().toUpperCase();
+//                if (coordinates.equals("B"))
                 break;
+                
+//            int coordinates = input.parseInt(input);
+            
         try{
 //            coordinates = Double.parseDouble(value);
         }catch (NumberFormatException nf){
             System.out.println("\n You must enter a valid coordinate.");
         }
-        return coordinates;
         
-            
-//            System.out.println("SOMETHINE ABOUT ENTERING COORDINATES.");
-            
-//            coordinates = keyboard.nextLine();
-//            coordinates = coordinates.trim();
-//            
-//            if(coordinates.length() < 2){
-//                System.out.println("Invalid selection, please try again.");
-//                continue;
-//            }
-//            break;
+        return coordinates;
         }
         return coordinates;
     }
+    
+//    Range r = new Range(0,255);
+//Point<int,int> aPoint = new Point<int,int>(50,60,r);
+// 
+////Here we map the point to an int
+//int mappedPoint = aPoint.x + aPoint.y * (r.Upper + 1);
+// 
+////Here we map the int back to a point
+//int x = mappedPoint % (r.Upper + 1);
+//int y = mappedPoint / (r.Upper + 1);
+//Point<int,int> mappedPointFromInt = new Point<int,int>(x, y); 
+    
     
     public void doAction(String choice) {
         try{
@@ -206,3 +204,16 @@ public class MapView{
     }
     
 }
+
+//        double value = Double.parseDouble(text);
+            
+//            System.out.println("SOMETHINE ABOUT ENTERING COORDINATES.");
+            
+//            coordinates = keyboard.nextLine();
+//            coordinates = coordinates.trim();
+//            
+//            if(coordinates.length() < 2){
+//                System.out.println("Invalid selection, please try again.");
+//                continue;
+//            }
+//            break;
