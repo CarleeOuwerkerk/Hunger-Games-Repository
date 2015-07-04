@@ -6,6 +6,7 @@
 package byui.cit260.hungerGames.view;
 
 import byui.cit260.hungerGames.control.ProgramControl;
+import byui.cit260.hungerGames.exceptions.ProgramControlException;
 import byui.cit260.hungerGames.model.Player;
 import java.util.Scanner;
 
@@ -18,7 +19,7 @@ public class StartProgramView {
     public StartProgramView() {
     }
     
-    public void startProgram(){
+    public void startProgram() throws ProgramControlException{
         
             //Display the banner scren
             this.displayBanner();
@@ -84,7 +85,12 @@ public class StartProgramView {
             playersName = playersName.trim();
             
             if(playersName.length()< 2) {
-                System.out.println("Invalid name, please try again.");
+              try {
+            ProgramControl.createPlayer(playersName);
+                }
+        catch (ProgramControlException pe) {
+            System.out.println(pe.getMessage());
+        }
                 continue;
             }
             break;

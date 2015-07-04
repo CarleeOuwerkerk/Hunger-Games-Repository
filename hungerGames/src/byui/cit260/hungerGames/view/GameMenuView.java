@@ -120,8 +120,8 @@ public class GameMenuView extends View {
         }
         System.out.println("\n----------------------------------");
         
-        MapView mapView = new MapView();
-        mapView.display();
+//        MapView mapView = new MapView();
+//        mapView.display();
     }
     
     private void viewRemainingTributes() {

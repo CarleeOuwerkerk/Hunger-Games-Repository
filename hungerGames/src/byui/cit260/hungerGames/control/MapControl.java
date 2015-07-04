@@ -87,7 +87,8 @@ public class MapControl {
         locations[5][5].setScene(Scene.mountain);
     }
     
-    public static void movePlayerToLocation(Player player, Point coordinates)throws MapControlException{
+    public static int movePlayerToLocation(Player player, Point coordinates)
+            throws MapControlException{
         
         Map map = HungerGames.getCurrentGame().getMap();
         int newRow = coordinates.x-1;
@@ -97,12 +98,13 @@ public class MapControl {
         
         
         
-//        if (newRow < 0 || newRow >= map.getNoOfRows() || newColumn <0 || newColumn >= map.getNoOfColumns()){
-//            throw new MapControlException("Cannot move player to location."
-//                    + coordinates.x + ", " + coordinates.y
-//                    + " because that location is outside "
-//                    + "the bounds of the map.");
-//        }
+        if (newRow < 0 || newRow >= map.getNoOfRows() || newColumn <0 || newColumn >= map.getNoOfColumns()){
+            throw new MapControlException("Cannot move player to location."
+                    + coordinates.x + ", " + coordinates.y
+                    + " because that location is outside "
+                    + "the bounds of the map.");
+        }
+        return 0;
     }
     
 }

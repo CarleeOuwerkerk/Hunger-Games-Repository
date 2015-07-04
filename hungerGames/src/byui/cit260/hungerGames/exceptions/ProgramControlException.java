@@ -7,15 +7,18 @@ package byui.cit260.hungerGames.exceptions;
 
 /**
  *
- * @author Carlee Ouwerkerk
+ * @author Zack
  */
-public class ProgramControlException extends Exception{
+public class ProgramControlException extends Exception {
 
     public ProgramControlException() {
     }
 
     public ProgramControlException(String message) {
-        super(message);
+        super();
+//                "Player's name is not valid."
+//             +" Please enter a name with atleast"
+//             +" two characters in it.");
     }
 
     public ProgramControlException(String message, Throwable cause) {
@@ -29,6 +32,7 @@ public class ProgramControlException extends Exception{
     public ProgramControlException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
     }
+    
     
     
 }
