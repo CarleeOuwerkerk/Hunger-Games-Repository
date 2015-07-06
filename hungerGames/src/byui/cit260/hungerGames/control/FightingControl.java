@@ -5,6 +5,7 @@
  */
 package byui.cit260.hungerGames.control;
 
+import byui.cit260.hungerGames.exceptions.FightingControlException;
 import java.util.Random;
 
 /**
@@ -14,15 +15,19 @@ import java.util.Random;
 public class FightingControl {
           
         
-    static public boolean calculateSneak(double player, double scene, double tribute){
+    static public boolean calculateSneak(double player, double scene, double tribute) throws FightingControlException{
 
         //Sneak paramaters
         if (player < 0 || player >= 51) {
-            return false;
-        }
+            throw new FightingControlException("The player's stats have to be greater "
+                                              + "than zero and less than or equal to "
+                                              + "fifty-one.");
+        }                                       // There is no other function calling this function yet, so I 
+                                                // couldn't add any throws or catch statements anywhere else.
         
         if (scene < -3 || scene > 3) {
-            return false;
+            throw new FightingControlException("The environment factor has to be greater "
+                                              + "than three and less than negative three.");
         }
         
         if (tribute < 5 || tribute >= 45) {

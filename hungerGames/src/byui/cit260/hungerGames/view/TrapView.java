@@ -6,6 +6,7 @@
 package byui.cit260.hungerGames.view;
 
 import byui.cit260.hungerGames.control.TrapControl;
+import byui.cit260.hungerGames.exceptions.TrapControlException;
 import java.util.Scanner;
 
 /**
@@ -64,8 +65,9 @@ public class TrapView {
 }
 
 
-public boolean doAction(String choice) {
+public boolean doAction(String choice){
         
+    try{
         int guess = Integer.parseInt(choice);
         if ( TrapControl.calculateAngle(8, 6, guess)) {
             System.out.println("\n Trap was SUCESSFUL!");
@@ -76,4 +78,9 @@ public boolean doAction(String choice) {
              return false;
         }        
     }
+    catch (TrapControlException te){
+                    System.out.println(te.getMessage());
+    }
+   
+
 }
