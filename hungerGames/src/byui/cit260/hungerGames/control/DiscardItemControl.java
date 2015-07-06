@@ -9,7 +9,7 @@ package byui.cit260.hungerGames.control;
  *
  * @author Zack
  */
-public class DiscardItem {
+public class DiscardItemControl {
     
     public static void discardItem(Object obj) {
         System.out.println("\n*** discardItem stub function called ***");

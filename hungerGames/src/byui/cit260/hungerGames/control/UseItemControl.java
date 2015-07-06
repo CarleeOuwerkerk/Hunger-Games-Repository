@@ -9,9 +9,9 @@ package byui.cit260.hungerGames.control;
  *
  * @author Zack
  */
-public class EquipItem {
+public class UseItemControl {
     
-    public static void equipItem(Object obj) {
-        System.out.println("\n*** equipItem stub function called ***");
+    public static void useItem(Object obj) {
+        System.out.println("\n*** useItem stub function called ***");
     }
 }

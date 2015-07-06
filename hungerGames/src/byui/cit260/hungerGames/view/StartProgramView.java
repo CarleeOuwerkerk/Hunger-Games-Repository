@@ -72,7 +72,7 @@ public class StartProgramView {
        System.out.println("************************************************************");
     }
 
-    private String getPlayersName() {
+    private String getPlayersName() throws ProgramControlException {
         boolean valid = false;
         String playersName = null;
         Scanner keyboard = new Scanner(System.in);
@@ -85,6 +85,7 @@ public class StartProgramView {
             playersName = playersName.trim();
             
             if(playersName.length()< 2) {
+                System.out.println("Invalid Name, please try again");
               try {
             ProgramControl.createPlayer(playersName);
                 }

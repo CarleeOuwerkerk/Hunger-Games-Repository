@@ -7,6 +7,7 @@ package hungergames;
 
 //import byui.cit260.hungerGames.model.Inventory;
 
+import byui.cit260.hungerGames.exceptions.ProgramControlException;
 import byui.cit260.hungerGames.model.Player;
 import byui.cit260.hungerGames.model.Game;
 import byui.cit260.hungerGames.view.StartProgramView;
@@ -45,7 +46,7 @@ public class HungerGames {
     }
     private static Player player = null;
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ProgramControlException {
         // create StartProgramView and start the program
         StartProgramView startProgramView = new StartProgramView();
         try{

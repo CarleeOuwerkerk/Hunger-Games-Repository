@@ -5,6 +5,8 @@
  */
 package byui.cit260.hungerGames.view;
 
+import byui.cit260.hungerGames.control.DiscardItemControl;
+import byui.cit260.hungerGames.control.UseItemControl;
 import byui.cit260.hungerGames.model.Item;
 import java.util.Scanner;
 
@@ -49,31 +51,31 @@ public class InventoryMenuView extends View{
         
         switch(selection){
             case "FR":
-                this.viewFruit();
+                this.view();
                 break;
             case "ME":
-                this.viewMeat();
+                this.view();
                 break;
             case "WA":
-                this.viewWater();
+                this.view();
                 break;
             case "BA":
-                this.viewBat();
+                this.view();
                 break;
             case "KN":
-                this.viewKnife();
+                this.view();
                 break;
             case "SW":
-                this.viewSword();
+                this.view();
                 break;
             case "BO":
-                this.viewBowAndArrow();
+                this.view();
                 break;
             case "SP":
-                this.viewSpear();
+                this.view();
                 break;
             case "RO":
-                this.viewRope();
+                this.view();
                 break;
             case "B":
                 return false;
@@ -84,56 +86,69 @@ public class InventoryMenuView extends View{
         return true;
     }
 
-    private void viewFood() {
-        FoodItemsView foodItemsView = new FoodItemsView();
-        foodItemsView.display();
+//    private void viewFood() {
+//        FoodItemsView foodItemsView = new FoodItemsView();
+//        foodItemsView.display();
+//    }
+//
+//    private void viewWeapons() {
+//        WeaponsView weaponsView = new WeaponsView();
+//        weaponsView.display();
+//        
+//    }
+//        
+//    private void viewSupplies() {
+//        SupplyItemsView supplyItemsView = new SupplyItemsView();
+//        supplyItemsView.display();
+//    }
+
+        private void view() {
+                
+        ViewItem viewItem = new ViewItem("\n Do you want to equip or discard item?");
+        viewItem.display();
     }
 
-    private void viewWeapons() {
-        WeaponsView weaponsView = new WeaponsView();
-        weaponsView.display();
+
+
+    class ViewItem extends View {
+
         
-    }
+        public ViewItem(String promptMessage) {
+            super("\n\n********************************************"
+                   +"\n* Do you wish to use or discard item?    *"
+                   +"\n*                                          *"
+                   +"\n* U- Use                                 *"
+                   +"\n* D- Discard                               *"
+                   +"\n* B- Back                                  *"
+                   +"\n********************************************");
+        }
+
+        @Override
+        public boolean doAction(Object obj) {
+            
+            String selectedItem = (String) obj;
+            selectedItem = selectedItem.toUpperCase();
+            
+            
+           
+            switch (selectedItem) {
+                case "U":
+                  UseItemControl.useItem(obj);
+                  System.out.println("Item was used");  
+                    break;
+                case "D":
+                  DiscardItemControl.discardItem(obj);
+                  System.out.println("Item was discarded");  
+                    break;
+                case "B":
+                    return false;
+                default:
+                    System.out.println("\n*** Invalid selection, please try again. ***");
+                    break;
+            }
         
-    private void viewSupplies() {
-        SupplyItemsView supplyItemsView = new SupplyItemsView();
-        supplyItemsView.display();
-    }
-
-    private void viewFruit() {
-        System.out.println("\n*** viewFruit Stub Function Called ***");
-    }
-
-    private void viewMeat() {
-       System.out.println("\n*** viewMeat Stub Function Called ***");
-    }
-
-    private void viewWater() {
-        System.out.println("\n*** viewWater Stub Function Called ***");
-    }
-
-    private void viewBat() {
-        System.out.println("\n*** viewBat Stub Function Called ***");
-    }
-
-    private void viewKnife() {
-        System.out.println("\n*** viewKnife Stub Function Called ***");
-    }
-
-    private void viewSword() {
-        System.out.println("\n*** viewSword Stub Function Called ***");
-    }
-
-    private void viewBowAndArrow() {
-        System.out.println("\n*** viewBowAndArrow Stub Function Called ***");
-    }
-
-    private void viewSpear() {
-       System.out.println("\n*** viewSpear Stub Function Called ***");
-    }
-
-    private void viewRope() {
-       System.out.println("\n*** viewRope Stub Function Called ***");
+        return true;
+        }
     }
     
 }
