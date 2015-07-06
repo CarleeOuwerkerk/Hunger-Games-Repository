@@ -5,8 +5,8 @@
  */
 package byui.cit260.hungerGames.view;
 
-import byui.cit260.hungerGames.control.DiscardItem;
-import byui.cit260.hungerGames.control.EquipItem;
+import byui.cit260.hungerGames.control.DiscardItemControl;
+import byui.cit260.hungerGames.control.UseItemControl;
 import hungergames.HungerGames;
 
 /**
@@ -113,11 +113,11 @@ public class WeaponsView extends View{
            
             switch (selectedItem) {
                 case "E":
-                  EquipItem.equipItem(obj);
+                  UseItemControl.useItem(obj);
                   System.out.println("Item was equipped");  
                     break;
                 case "D":
-                  DiscardItem.discardItem(obj);
+                  DiscardItemControl.discardItem(obj);
                   System.out.println("Item was discarded");  
                     break;
                 case "B":
