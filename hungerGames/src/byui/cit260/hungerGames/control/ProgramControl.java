@@ -17,7 +17,7 @@ public class ProgramControl {
 
     public static Player createPlayer(String playersName) throws ProgramControlException {
         
-        if (playersName == null){
+        if (playersName == null || playersName.length() < 2){
             throw new ProgramControlException("Player's name is not valid."
                                             +" Please enter a name with atleast"
                                             +" two characters in it.");

@@ -10,7 +10,6 @@ package byui.cit260.hungerGames.exceptions;
  * @author Zack
  */
 public class UseItemException extends Exception {
-    
 
     public UseItemException() {
     }
