@@ -15,10 +15,8 @@ public class ProgramControlException extends Exception {
     }
 
     public ProgramControlException(String message) {
-        super();
-//                "Player's name is not valid."
-//             +" Please enter a name with atleast"
-//             +" two characters in it.");
+        super(message);
+
     }
 
     public ProgramControlException(String message, Throwable cause) {
