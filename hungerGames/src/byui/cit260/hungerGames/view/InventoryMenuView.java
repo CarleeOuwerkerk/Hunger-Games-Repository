@@ -7,8 +7,12 @@ package byui.cit260.hungerGames.view;
 
 import byui.cit260.hungerGames.control.DiscardItemControl;
 import byui.cit260.hungerGames.control.UseItemControl;
+import byui.cit260.hungerGames.exceptions.DiscardItemException;
+import byui.cit260.hungerGames.exceptions.UseItemException;
 import byui.cit260.hungerGames.model.Item;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -25,7 +29,6 @@ public class InventoryMenuView extends View {
                 + "\n| Inventory Menu                              |"
                 + "\n----------------------------------------------";
 
-//            Item [] items = Item.values();
         Item[] items = sortItem();
 
         for (Item item : items) {
@@ -128,44 +131,50 @@ public class InventoryMenuView extends View {
         return item;
     }
 
+    class ViewItem extends View {
 
-
-class ViewItem extends View {
-
-    public ViewItem(String promptMessage) {
-        super("\n\n********************************************"
-                + "\n* Do you wish to use or discard item?    *"
-                + "\n*                                          *"
-                + "\n* U- Use                                 *"
-                + "\n* D- Discard                               *"
-                + "\n* B- Back                                  *"
-                + "\n********************************************");
-    }
-
-    @Override
-    public boolean doAction(Object obj) {
-
-        String selectedItem = (String) obj;
-        selectedItem = selectedItem.toUpperCase();
-
-        switch (selectedItem) {
-            case "U":
-                UseItemControl.useItem(obj);
-                System.out.println("Item was used");
-                break;
-            case "D":
-                DiscardItemControl.discardItem(obj);
-                System.out.println("Item was discarded");
-                break;
-            case "B":
-                return false;
-            default:
-                System.out.println("\n*** Invalid selection, please try again. ***");
-                break;
+        public ViewItem(String promptMessage) {
+            super("\n\n********************************************"
+                    + "\n* Do you wish to use or discard item?    *"
+                    + "\n*                                          *"
+                    + "\n* U- Use                                 *"
+                    + "\n* D- Discard                               *"
+                    + "\n* B- Back                                  *"
+                    + "\n********************************************");
         }
 
-        return true;
+        @Override
+        public boolean doAction(Object obj) {
+
+            String selectedItem = (String) obj;
+            selectedItem = selectedItem.toUpperCase();
+
+            switch (selectedItem) {
+                case "U": {
+                    try {
+                        UseItemControl.useItem(obj);
+                    } catch (UseItemException ex) {
+                        Logger.getLogger(InventoryMenuView.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+                break;
+                case "D": {
+                    try {
+                        DiscardItemControl.discardItem(obj);
+                    } catch (DiscardItemException ex) {
+                        Logger.getLogger(InventoryMenuView.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+                break;
+                case "B":
+                    return false;
+                default:
+                    System.out.println("\n*** Invalid selection, please try again. ***");
+                    break;
+            }
+
+            return true;
+        }
     }
-}
 
 }
