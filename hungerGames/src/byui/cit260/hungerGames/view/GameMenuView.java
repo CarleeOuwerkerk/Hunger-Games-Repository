@@ -24,23 +24,23 @@ import java.util.Scanner;
  * @author Zack
  */
 public class GameMenuView extends View {
-    
-           public GameMenuView() {
-               super("\n"
-            +"\n----------------------------------------------"
-            +"\n| Game Play Menu                             |"
-            +"\n----------------------------------------------"
-            +"\nI - Inventory"
-            +"\nT - Set Trap"
-            +"\nM - Map"
-            +"\nR - Remaining Tributes"
-            +"\nS - Save Game"   
-            +"\nH - Help"
-            +"\nQ - Quit"
-            +"\n----------------------------------------------");
-            
-           }
-             
+
+    public GameMenuView() {
+        super("\n"
+                + "\n----------------------------------------------"
+                + "\n| Game Play Menu                             |"
+                + "\n----------------------------------------------"
+                + "\nI - Inventory"
+                + "\nT - Set Trap"
+                + "\nM - Map"
+                + "\nR - Remaining Tributes"
+                + "\nS - Save Game"
+                + "\nH - Help"
+                + "\nQ - Quit"
+                + "\n----------------------------------------------");
+
+    }
+
     /**
      *
      * @param obj
@@ -48,11 +48,11 @@ public class GameMenuView extends View {
      */
     @Override
     public boolean doAction(Object obj) {
-        
+
         String value = (String) obj;
         char selection = value.charAt(0);
-        
-        switch(selection){
+
+        switch (selection) {
             case 'I':
             case 'i':
                 this.viewInventoryMenu();
@@ -91,9 +91,8 @@ public class GameMenuView extends View {
 
         InventoryMenuView inventoryMenuView = new InventoryMenuView(null);
         inventoryMenuView.display();
-      
-        
-  }
+
+    }
 
     private void setTrap() {
         TrapView trapView = new TrapView();
@@ -101,17 +100,16 @@ public class GameMenuView extends View {
     }
 
     private void viewMap() {
-        
-        Location[][] locations = HungerGames.getCurrentGame().getMap().getLocations(); 
-        
-                
+
+        Location[][] locations = HungerGames.getCurrentGame().getMap().getLocations();
+
         System.out.println("\n***** Welcome to the 67th Annual Hunger Games ******");
         System.out.println("   |  0 |  1 |  2 |  3 |  4 |  5 |");
-                
-        for(int i = 0; i < locations[0].length; i++){
+
+        for (int i = 0; i < locations[0].length; i++) {
             System.out.println("\n----------------------------------");
             System.out.format("%2d", i);
-            for(int j = 0; j < locations[0].length; j++){
+            for (int j = 0; j < locations[0].length; j++) {
                 System.out.print(" | ");
                 System.out.print(locations[i][j].getScene().getMapSymbol());
 
@@ -119,24 +117,24 @@ public class GameMenuView extends View {
             System.out.print(" | ");
         }
         System.out.println("\n----------------------------------");
-        
-//        MapView mapView = new MapView();
-//        mapView.display();
+
+        MapView mapView = new MapView();
+        mapView.display();
     }
-    
+
     private void viewRemainingTributes() {
         TributeControl.sortTribute();
 
     }
- 
+
     private void saveGame() {
         System.out.println("*** saveGame function called ***");
     }
 
     private void displayHelpMenu() {
-        
+
         HelpMenuView helpMenuView = new HelpMenuView();
         helpMenuView.display();
     }
-    
+
 }

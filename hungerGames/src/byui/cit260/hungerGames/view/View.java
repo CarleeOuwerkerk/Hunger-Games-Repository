@@ -5,7 +5,13 @@
  */
 package byui.cit260.hungerGames.view;
 
+import hungergames.HungerGames;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -14,6 +20,9 @@ import java.util.Scanner;
 public abstract class View implements ViewInterface {
     
     private String promptMessage;
+    
+    protected final BufferedReader keyboard = HungerGames.getInFile();
+    protected final PrintWriter console = HungerGames.getOutFile();
     
     public View(String promptMessage) {
         this.promptMessage= promptMessage;
@@ -47,21 +56,24 @@ public void display() {
     @Override
     public String getInput() {
         boolean valid = false;
-        Scanner keyboard=new Scanner(System.in);
         String menuItem ="";
         
         while(!valid) {
             
-            System.out.println("Please make a selection.");
-
-            menuItem = keyboard.nextLine();
-            menuItem = menuItem.trim();
-            
-            if(menuItem.length()< 1) {
-                System.out.println("Invalid option, please try again");
-                continue;
+            try {
+                System.out.println("Please make a selection.");
+                
+                menuItem = this.keyboard.readLine();
+                menuItem = menuItem.trim();
+                
+                if(menuItem.length()< 1) {
+                    System.out.println("Invalid option, please try again");
+                    continue;
+                }
+                break;
+            } catch (Exception e) {
+                System.out.println("Error reading input: " + e.getMessage());
             }
-            break;
         }
         
         return menuItem;

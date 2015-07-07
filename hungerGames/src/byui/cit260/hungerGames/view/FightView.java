@@ -45,14 +45,13 @@ public class FightView {
     
     private String getInput() {
     boolean valid = false;
-    Scanner keyboard = new Scanner(System.in);
     String menuItem = "";
 
     while(!valid) {
 
         System.out.println("What do you choose?");
 
-        menuItem = keyboard.nextLine();
+        menuItem = this.keyboard.readLine();
         menuItem = menuItem.trim();
 
         if(menuItem.length()< 1) {

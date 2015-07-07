@@ -12,21 +12,19 @@ import java.util.Arrays;
  *
  * @author Carlee Ouwerkerk
  */
-public class Map implements Serializable{
-    
+public class Map implements Serializable {
+
     private int row;
     private int column;
     private Location[][] locations;
     private int noOfRows;
     private int noOfColumns;
-    
-
 
     public Map() {
     }
 
     public Map(int noOfRows, int noOfColumns) {
-        
+
         if (noOfRows < 1 || noOfColumns < 1) {
             System.out.println("The number of columns and rows must be > than 0");
             return;
@@ -34,24 +32,23 @@ public class Map implements Serializable{
 
         this.noOfRows = noOfRows;
         this.noOfColumns = noOfColumns;
-                
-        this.locations = new Location [noOfRows][noOfColumns];
-        
+
+        this.locations = new Location[noOfRows][noOfColumns];
+
         for (int row = 0; row < noOfRows; row++) {
             for (int column = 0; column < noOfColumns; column++) {
-                
+
                 Location location = new Location();
                 location.setColumn(column);
                 location.setRow(row);
                 location.setVisited(false);
-                
+
                 locations[row][column] = location;
             }
         }
-        
+
     }
-    
-    
+
     public int getRow() {
         return row;
     }
@@ -92,7 +89,6 @@ public class Map implements Serializable{
         this.noOfColumns = noOfColumns;
     }
 
-    
     @Override
     public String toString() {
         return "Map{" + "row=" + row + ", column=" + column + ", locations=" + locations + ", noOfRows=" + noOfRows + ", noOfColumns=" + noOfColumns + '}';
@@ -137,4 +133,3 @@ public class Map implements Serializable{
     }
 
 }
-    

@@ -75,13 +75,12 @@ public class StartProgramView {
     private String getPlayersName() throws ProgramControlException {
         boolean valid = false;
         String playersName = null;
-        Scanner keyboard = new Scanner(System.in);
 
         while (!valid) {
 
             System.out.println("Enter your name");
 
-            playersName = keyboard.nextLine();
+            playersName = this.keyboard.readLine();
             playersName = playersName.trim();
 
             if (playersName.length() < 2) {

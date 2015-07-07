@@ -44,14 +44,13 @@ public class TrapView {
 
     private String getInput() {
         boolean valid = false;
-        Scanner keyboard = new Scanner(System.in);
         String menuItem = "";
 
         while (!valid) {
 
             System.out.println("What is the slant?");
 
-            menuItem = keyboard.nextLine();
+            menuItem = this.keyboard.readLine();
             menuItem = menuItem.trim();
 
             if (menuItem.length() < 1) {
