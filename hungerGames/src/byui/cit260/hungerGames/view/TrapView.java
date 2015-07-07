@@ -80,7 +80,9 @@ public boolean doAction(String choice){
     }
     catch (TrapControlException te){
                     System.out.println(te.getMessage());
+                    
+                    return false;
     }
    
-
+    }
 }
