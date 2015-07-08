@@ -18,14 +18,14 @@ import java.util.logging.Logger;
  * @author Zack
  */
 public abstract class View implements ViewInterface {
-    
+
     private String promptMessage;
-    
+
     protected final BufferedReader keyboard = HungerGames.getInFile();
     protected final PrintWriter console = HungerGames.getOutFile();
-    
+
     public View(String promptMessage) {
-        this.promptMessage= promptMessage;
+        this.promptMessage = promptMessage;
     }
 
     public String getPromptMessage() {
@@ -35,38 +35,38 @@ public abstract class View implements ViewInterface {
     public void setPromptMessage(String promptMessage) {
         this.promptMessage = promptMessage;
     }
-    
-@Override
-public void display() {
-        
+
+    @Override
+    public void display() {
+
         char firstLetter;
 
         do {
             System.out.println(promptMessage);
-            
+
             String selection = this.getInput();
             firstLetter = selection.toUpperCase().charAt(0);
-            
+
             this.doAction(selection);
-            
-        } while(firstLetter != 'B' && firstLetter != 'Q');
-        
+
+        } while (firstLetter != 'B' && firstLetter != 'Q');
+
     }
-        
+
     @Override
     public String getInput() {
         boolean valid = false;
-        String menuItem ="";
-        
-        while(!valid) {
-            
+        String menuItem = "";
+
+        while (!valid) {
+
             try {
                 System.out.println("Please make a selection.");
-                
+
                 menuItem = this.keyboard.readLine();
                 menuItem = menuItem.trim();
-                
-                if(menuItem.length()< 1) {
+
+                if (menuItem.length() < 1) {
                     System.out.println("Invalid option, please try again");
                     continue;
                 }
@@ -75,7 +75,7 @@ public void display() {
                 System.out.println("Error reading input: " + e.getMessage());
             }
         }
-        
+
         return menuItem;
     }
 }

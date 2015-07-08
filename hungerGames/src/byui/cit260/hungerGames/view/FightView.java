@@ -12,75 +12,73 @@ import java.util.Scanner;
  *
  * @author Carlee Ouwerkerk
  */
-
 public class FightView {
-    
+
     private final String SNEAK_OR_FIGHT = "\n"
-            +"\n----------------------------------------------"
-            +"\n| As you examine your location, you notice   |"
-            +"\n| another tribute. They don't see you,       |"
-            +"\n| however. Their skill point level is +       |"
-            +"\n| skillPointLevel + .  You have the option   |"
-            +"\n| to either fight them or to try to sneak    |"
-            +"\n| past them.                                 |"
-            +"\n|                                            |"
-            +"\n| F - I want to fight the other tribute.     |"
-            +"\n| S - I want to try to sneak past.           |"
-            +"\n----------------------------------------------";
-    
+            + "\n----------------------------------------------"
+            + "\n| As you examine your location, you notice   |"
+            + "\n| another tribute. They don't see you,       |"
+            + "\n| however. Their skill point level is +       |"
+            + "\n| skillPointLevel + .  You have the option   |"
+            + "\n| to either fight them or to try to sneak    |"
+            + "\n| past them.                                 |"
+            + "\n|                                            |"
+            + "\n| F - I want to fight the other tribute.     |"
+            + "\n| S - I want to try to sneak past.           |"
+            + "\n----------------------------------------------";
+
     public void displaySneakOrFight() {
-        
+
         char selection = ' ';
         do {
             System.out.println(SNEAK_OR_FIGHT);
-            
+
             String input = this.getInput();
             selection = input.charAt(0);
-            
+
             this.doAction(selection);
-            
-        } while(selection != 'F' && selection !='f' && selection !='S' && selection !='s' );
-        
+
+        } while (selection != 'F' && selection != 'f' && selection != 'S' && selection != 's');
+
     }
-    
+
     private String getInput() {
-    boolean valid = false;
-    String menuItem = "";
+        boolean valid = false;
+        String menuItem = "";
 
-    while(!valid) {
+        while (!valid) {
 
-        System.out.println("What do you choose?");
+            System.out.println("What do you choose?");
 
-        menuItem = this.keyboard.readLine();
-        menuItem = menuItem.trim();
+            menuItem = this.keyboard.readLine();
+            menuItem = menuItem.trim();
 
-        if(menuItem.length()< 1) {
-            System.out.println("Invalid selection, please try again.");
-            continue;
+            if (menuItem.length() < 1) {
+                System.out.println("Invalid selection, please try again.");
+                continue;
+            }
+            break;
         }
-        break;
+
+        return menuItem;
     }
 
-    return menuItem;
-}
+    public void doAction(char choice) {
 
-
-public void doAction(char choice) {
-
-    switch(choice){
-        case 'F':
-        case 'f':
-            this.fightTribute();
-            break;
-        case 'S':
-        case 's':
-            this.sneakPast();
-            break;
-        default:
-            System.out.println("\n*** Invalid selection, please try again. ***");
-            break;
+        switch (choice) {
+            case 'F':
+            case 'f':
+                this.fightTribute();
+                break;
+            case 'S':
+            case 's':
+                this.sneakPast();
+                break;
+            default:
+                System.out.println("\n*** Invalid selection, please try again. ***");
+                break;
+        }
     }
-}
 
     private void fightTribute() {
         System.out.println("*** fightTribute function called ***");
@@ -91,5 +89,5 @@ public void doAction(char choice) {
         System.out.println("*** sneakPast function called ***");
 //        FightingControl.calculateSneak(player, scene, tribute);
     }
-    
+
 }

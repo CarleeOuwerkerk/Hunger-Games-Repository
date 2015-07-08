@@ -84,7 +84,7 @@ public class HungerGames {
                 if (HungerGames.outFile != null) {
                     HungerGames.outFile.close();
                 }
-                if (HungerGames.logFile != null){
+                if (HungerGames.logFile != null) {
                     HungerGames.logFile.close();
                 }
             } catch (IOException ex) {

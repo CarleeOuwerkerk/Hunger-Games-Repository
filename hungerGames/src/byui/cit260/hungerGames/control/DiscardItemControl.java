@@ -12,8 +12,8 @@ import byui.cit260.hungerGames.exceptions.DiscardItemException;
  * @author Zack
  */
 public class DiscardItemControl {
-    
-    public static void discardItem(Object obj) throws DiscardItemException  {
-       System.out.println("\n Could not discard item because you do not have one");
+
+    public static void discardItem(Object obj) throws DiscardItemException {
+        System.out.println("\n Could not discard item because you do not have one");
     }
 }

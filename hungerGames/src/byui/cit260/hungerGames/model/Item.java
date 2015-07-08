@@ -14,17 +14,17 @@ import java.util.Objects;
  * @author Zack
  */
 public enum Item implements Serializable {
-    
-            fruit("Fruit", 3.0, 0),
-            meat("Meat", 5.0, 0),
-            water("Water", 2.0, 0),
-            bat("Bat", 1.0, 0),
-            knife("Knife", 1.0, 0),
-            sword("Sword", 3.0, 0),
-            bowAndArrow("Bow & Arrow", 5.0, 0),
-            spear("Spear", 5.0, 0),
-            rope("Rope", 0.0, 0);
-   
+
+    fruit("Fruit", 3.0, 0),
+    meat("Meat", 5.0, 0),
+    water("Water", 2.0, 0),
+    bat("Bat", 1.0, 0),
+    knife("Knife", 1.0, 0),
+    sword("Sword", 3.0, 0),
+    bowAndArrow("Bow & Arrow", 5.0, 0),
+    spear("Spear", 5.0, 0),
+    rope("Rope", 0.0, 0);
+
     //class instance variables
     public String description;
     public double stats;
@@ -34,11 +34,9 @@ public enum Item implements Serializable {
         this.description = description;
         this.stats = stats;
         this.amount = amount;
-}
-    
-    private Location[] location;
+    }
 
- 
+    private Location[] location;
 
     public String getDescription() {
         return description;
@@ -47,8 +45,6 @@ public enum Item implements Serializable {
 //    public void setDescription(String description) {
 //        this.description = description;
 //    }
-
-
     public double getStats() {
         return stats;
     }
@@ -56,7 +52,6 @@ public enum Item implements Serializable {
 //    public void setStats(int stats) {
 //        this.stats = stats;
 //    }
-
     public int getAmount() {
         return amount;
     }
@@ -64,7 +59,6 @@ public enum Item implements Serializable {
 //    public void setAmount(int amount) {
 //        this.amount = amount;
 //    }
-
     @Override
     public String toString() {
         return "Items{" + "description=" + description + ", stats=" + stats + ", amount=" + amount + '}';
@@ -107,4 +101,4 @@ public enum Item implements Serializable {
 //        }
 //        return true;
 //    }
-    
+

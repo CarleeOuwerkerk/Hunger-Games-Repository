@@ -9,6 +9,7 @@ import byui.cit260.hungerGames.exceptions.ProgramControlException;
 import byui.cit260.hungerGames.model.Player;
 import hungergames.HungerGames;
 import java.lang.String;
+
 /**
  *
  * @author Zack
@@ -16,19 +17,18 @@ import java.lang.String;
 public class ProgramControl {
 
     public static Player createPlayer(String playersName) throws ProgramControlException {
-        
-        if (playersName == null || playersName.length() < 2){
+
+        if (playersName == null || playersName.length() < 2) {
             throw new ProgramControlException("Player's name is not valid."
-                                            +" Please enter a name with atleast"
-                                            +" two characters in it.");
+                    + " Please enter a name with atleast"
+                    + " two characters in it.");
         }
-     
-        Player player= new Player();
+
+        Player player = new Player();
         player.setName(playersName);
-        
+
         HungerGames.setPlayer(player);
-        
+
         return player;
     }
 }
-    

@@ -29,5 +29,5 @@ public class DiscardItemException extends Exception {
     public DiscardItemException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
     }
-    
+
 }

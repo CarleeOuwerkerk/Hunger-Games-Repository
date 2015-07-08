@@ -23,9 +23,9 @@ public class MapControl {
 
     static Map createMap() {
         Map map = new Map(6, 6);
-        
+
         MapControl.assignScenesToLocations(map);
-        
+
         return map;
     }
 //
@@ -42,13 +42,10 @@ public class MapControl {
 //        }
 //        return 0;
 //    }
-    
-    
-
 
     private static void assignScenesToLocations(Map map) {
         Location[][] locations = map.getLocations();
-        
+
         locations[0][0].setScene(Scene.start);
         locations[0][1].setScene(Scene.field);
         locations[0][2].setScene(Scene.marsh);
@@ -86,19 +83,16 @@ public class MapControl {
         locations[5][4].setScene(Scene.mountain);
         locations[5][5].setScene(Scene.mountain);
     }
-    
+
     public static int movePlayerToLocation(Player player, Point coordinates)
-            throws MapControlException{
-        
+            throws MapControlException {
+
         Map map = HungerGames.getCurrentGame().getMap();
-        int newRow = coordinates.x-1;
-        int newColumn = coordinates.y-1;
-        
+        int newRow = coordinates.x - 1;
+        int newColumn = coordinates.y - 1;
+
         //Player is moved to correct location of user's choosing
-        
-        
-        
-        if (newRow < 0 || newRow >= map.getNoOfRows() || newColumn <0 || newColumn >= map.getNoOfColumns()){
+        if (newRow < 0 || newRow >= map.getNoOfRows() || newColumn < 0 || newColumn >= map.getNoOfColumns()) {
             throw new MapControlException("Cannot move player to location."
                     + coordinates.x + ", " + coordinates.y
                     + " because that location is outside "
@@ -106,5 +100,5 @@ public class MapControl {
         }
         return 0;
     }
-    
+
 }

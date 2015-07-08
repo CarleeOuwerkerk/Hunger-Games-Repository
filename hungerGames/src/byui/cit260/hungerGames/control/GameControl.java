@@ -21,16 +21,15 @@ public class GameControl {
     public static void createNewGame(Player player) {
         Game game = new Game();
         HungerGames.setCurrentGame(game);
-        
+
         game.setPlayer(player);
-        
-        
+
         Map map = MapControl.createMap();
         game.setMap(map);
-        
+
 //        MapControl.moveTributesToStartingLocation(map);
     }
-        
+
 //        Item[] foodItem = GameControl.createFoodList();
 //        GameControl.createFoodList();
 //        Item[] weaponItem = GameControl.createWeaponList();
@@ -48,34 +47,27 @@ public class GameControl {
 //        System.out.println("\n*** Created a New Game ***");
 //        return null;
 //    }
-
-
     //    public static Item[] sortItems() {
-    
 //        Item [] orginalItemList = HungerGames.getCurrentGame().getItemList();
 //        
 //        Item [] item
-    
-    public static Item [] items = Item.values(); {
-    
-    for(int i = 0; i < items.length - 1; i++) {
-        int index = 1;
-        for (int j = i + 1; j < items.length; j++)
-            if( items[j].compareToIgnoreCase(items[index]) < 0)
-            index = j;
-            
-        Item smaller = items[index];
-        items[index] = items[i];
-        items[i] = smaller;
-        
+    public static Item[] items = Item.values();
+
+    {
+
+        for (int i = 0; i < items.length - 1; i++) {
+            int index = 1;
+            for (int j = i + 1; j < items.length; j++) {
+                if (items[j].compareToIgnoreCase(items[index]) < 0) {
+                    index = j;
+                }
+            }
+
+            Item smaller = items[index];
+            items[index] = items[i];
+            items[i] = smaller;
+
         }
     }
-    
-    
-    
-    }
 
-            
-   
-    
-
+}

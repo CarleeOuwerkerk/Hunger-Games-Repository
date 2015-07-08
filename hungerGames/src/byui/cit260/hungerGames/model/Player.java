@@ -12,15 +12,15 @@ import java.util.Objects;
  *
  * @author Carlee Ouwerkerk
  */
-public class Player implements Serializable{
-    
+public class Player implements Serializable {
+
     private String name;
-    
+
     private Tribute tribute;
 
     public Player() {
     }
-    
+
     public String getName() {
         return name;
     }
@@ -36,7 +36,6 @@ public class Player implements Serializable{
     public void setTribute(Tribute tribute) {
         this.tribute = tribute;
     }
-    
 
     @Override
     public String toString() {
@@ -64,10 +63,5 @@ public class Player implements Serializable{
         }
         return true;
     }
-   
-    
-  
-    
-    
-    
+
 }

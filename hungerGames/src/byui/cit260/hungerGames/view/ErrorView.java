@@ -13,17 +13,17 @@ import java.io.PrintWriter;
  * @author Carlee Ouwerkerk
  */
 public class ErrorView {
-    
+
     private static final PrintWriter errorFile = HungerGames.getOutFile();
     private static final PrintWriter logFile = HungerGames.getLogFile();
-    
-    public static void display(String className, String errorMessage){
-        
+
+    public static void display(String className, String errorMessage) {
+
         errorFile.println(
-                        "--------------------------------------------------------"
-                       +"\n- Error - " + errorMessage
-                       +"--------------------------------------------------------");
-        
+                "--------------------------------------------------------"
+                + "\n- Error - " + errorMessage
+                + "--------------------------------------------------------");
+
         logFile.println(className + " - " + errorMessage);
     }
 }

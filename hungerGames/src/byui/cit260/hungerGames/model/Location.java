@@ -11,17 +11,16 @@ import java.io.Serializable;
  *
  * @author Carlee Ouwerkerk
  */
-public class Location implements Serializable{
-    
+public class Location implements Serializable {
+
     private int row;
     private int column;
     private boolean visited;
     private boolean trap;
-    
+
     private Scene scene;
     private Item item;
     private Tribute tribute;
-    
 
     public Location() {
     }
@@ -87,7 +86,6 @@ public class Location implements Serializable{
         return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", trap=" + trap + '}';
     }
 
- 
     @Override
     public int hashCode() {
         int hash = 5;
