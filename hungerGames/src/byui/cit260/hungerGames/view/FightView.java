@@ -78,15 +78,16 @@ public class FightView {
 }
 
 
-public void doAction(char choice) {
-
-    switch(choice){
-        case 'F':
-        case 'f':
+public void doAction(Object obj) {
+    
+    String selection = (String) obj;
+    selection = selection.toUpperCase();
+    
+    switch(selection){
+        case "F":
             this.fightTribute();
             break;
-        case 'S':
-        case 's':
+        case "S":
             this.sneakPast();
             break;
         default:

@@ -49,36 +49,29 @@ public class GameMenuView extends View {
     @Override
     public boolean doAction(Object obj) {
 
-        String value = (String) obj;
-        char selection = value.charAt(0);
+        String selection = (String) obj;
+        selection = selection.toUpperCase();
 
         switch (selection) {
-            case 'I':
-            case 'i':
+            case "I":
                 this.viewInventoryMenu();
                 break;
-            case 'T':
-            case 't':
+            case "T":
                 this.setTrap();
                 break;
-            case 'M':
-            case 'm':
+            case "M":
                 this.viewMap();
                 break;
-            case 'R':
-            case 'r':
+            case "R":
                 this.viewRemainingTributes();
                 break;
-            case 'S':
-            case 's':
+            case "S":
                 this.saveGame();
                 break;
-            case 'H':
-            case 'h':
+            case "H":
                 this.displayHelpMenu();
                 break;
-            case 'Q':
-            case 'q':
+            case "Q":
                 return false;
             default:
                 System.out.println("\n*** Invalid selection, please try again. ***");
