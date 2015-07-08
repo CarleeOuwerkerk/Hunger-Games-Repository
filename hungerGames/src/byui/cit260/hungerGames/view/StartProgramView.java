@@ -8,7 +8,12 @@ package byui.cit260.hungerGames.view;
 import byui.cit260.hungerGames.control.ProgramControl;
 import byui.cit260.hungerGames.exceptions.ProgramControlException;
 import byui.cit260.hungerGames.model.Player;
+import hungergames.HungerGames;
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -71,6 +76,8 @@ public class StartProgramView {
 
         System.out.println("************************************************************");
     }
+    
+    protected final BufferedReader keyboard = HungerGames.getInFile();
 
     private String getPlayersName() throws ProgramControlException {
         boolean valid = false;
@@ -80,7 +87,11 @@ public class StartProgramView {
 
             System.out.println("Enter your name");
 
-            playersName = this.keyboard.readLine();
+            try {
+                playersName = this.keyboard.readLine();
+            } catch (IOException ex) {
+                Logger.getLogger(StartProgramView.class.getName()).log(Level.SEVERE, null, ex);
+            }
             playersName = playersName.trim();
 
             if (playersName.length() < 2) {

@@ -6,7 +6,12 @@
 package byui.cit260.hungerGames.view;
 
 import byui.cit260.hungerGames.control.FightingControl;
+import hungergames.HungerGames;
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -15,18 +20,22 @@ import java.util.Scanner;
 public class FightView {
 
     private final String SNEAK_OR_FIGHT = "\n"
-            + "\n----------------------------------------------"
-            + "\n| As you examine your location, you notice   |"
-            + "\n| another tribute. They don't see you,       |"
-            + "\n| however. Their skill point level is +       |"
-            + "\n| skillPointLevel + .  You have the option   |"
-            + "\n| to either fight them or to try to sneak    |"
-            + "\n| past them.                                 |"
-            + "\n|                                            |"
-            + "\n| F - I want to fight the other tribute.     |"
-            + "\n| S - I want to try to sneak past.           |"
-            + "\n----------------------------------------------";
-
+            +"\n----------------------------------------------"
+            +"\n| As you examine your location, you notice   |"
+            +"\n| another tribute. They don't see you,       |"
+            +"\n| however. Their skill point level is +       |"
+            +"\n| skillPointLevel + .  You have the option   |"
+            +"\n| to either fight them or to try to sneak    |"
+            +"\n| past them.                                 |"
+            +"\n|                                            |"
+            +"\n| F - I want to fight the other tribute.     |"
+            +"\n| S - I want to try to sneak past.           |"
+            +"\n----------------------------------------------";
+    
+    
+    protected final BufferedReader keyboard = HungerGames.getInFile();
+    
+    
     public void displaySneakOrFight() {
 
         char selection = ' ';
@@ -50,8 +59,12 @@ public class FightView {
 
             System.out.println("What do you choose?");
 
+        try {
             menuItem = this.keyboard.readLine();
-            menuItem = menuItem.trim();
+        } catch (IOException ex) {
+            Logger.getLogger(FightView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        menuItem = menuItem.trim();
 
             if (menuItem.length() < 1) {
                 System.out.println("Invalid selection, please try again.");
