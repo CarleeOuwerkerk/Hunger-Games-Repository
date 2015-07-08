@@ -6,7 +6,12 @@
 package byui.cit260.hungerGames.view;
 
 import byui.cit260.hungerGames.control.FightingControl;
+import hungergames.HungerGames;
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -27,6 +32,10 @@ public class FightView {
             +"\n| F - I want to fight the other tribute.     |"
             +"\n| S - I want to try to sneak past.           |"
             +"\n----------------------------------------------";
+    
+    
+    protected final BufferedReader keyboard = HungerGames.getInFile();
+    
     
     public void displaySneakOrFight() {
         
@@ -51,7 +60,11 @@ public class FightView {
 
         System.out.println("What do you choose?");
 
-        menuItem = this.keyboard.readLine();
+        try {
+            menuItem = this.keyboard.readLine();
+        } catch (IOException ex) {
+            Logger.getLogger(FightView.class.getName()).log(Level.SEVERE, null, ex);
+        }
         menuItem = menuItem.trim();
 
         if(menuItem.length()< 1) {

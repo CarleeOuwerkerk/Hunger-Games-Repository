@@ -24,6 +24,7 @@ public class MapView extends View {
 
     }
 
+    
     @Override
     public boolean doAction(Object obj) {
         String input = (String) obj;

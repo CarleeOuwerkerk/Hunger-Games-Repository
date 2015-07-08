@@ -7,7 +7,12 @@ package byui.cit260.hungerGames.view;
 
 import byui.cit260.hungerGames.control.TrapControl;
 import byui.cit260.hungerGames.exceptions.TrapControlException;
+import hungergames.HungerGames;
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -26,6 +31,10 @@ public class TrapView {
             + "\n| Hint: Think of the equation A^2 + B^2 = ?? |"
             + "\n----------------------------------------------";
 
+    
+    protected final BufferedReader keyboard = HungerGames.getInFile();
+    
+    
     public void displayTrapView() {
 
         boolean result = false;
@@ -50,7 +59,11 @@ public class TrapView {
 
             System.out.println("What is the slant?");
 
-            menuItem = this.keyboard.readLine();
+            try {
+                menuItem = this.keyboard.readLine();
+            } catch (IOException ex) {
+                Logger.getLogger(TrapView.class.getName()).log(Level.SEVERE, null, ex);
+            }
             menuItem = menuItem.trim();
 
             if (menuItem.length() < 1) {
