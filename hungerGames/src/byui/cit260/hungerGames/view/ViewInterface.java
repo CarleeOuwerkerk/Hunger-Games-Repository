@@ -10,10 +10,11 @@ package byui.cit260.hungerGames.view;
  * @author Zack
  */
 public interface ViewInterface {
-    
+
     public void display();
+
     public String getInput();
-    public boolean doAction (Object obj);
-    
-    
+
+    public boolean doAction(Object obj);
+
 }

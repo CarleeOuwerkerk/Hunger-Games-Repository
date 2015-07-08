@@ -9,7 +9,7 @@ package byui.cit260.hungerGames.exceptions;
  *
  * @author Carlee Ouwerkerk
  */
-public class FightingControlException extends Exception{
+public class FightingControlException extends Exception {
 
     public FightingControlException() {
     }
@@ -29,7 +29,5 @@ public class FightingControlException extends Exception{
     public FightingControlException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
     }
-    
-    
-    
+
 }

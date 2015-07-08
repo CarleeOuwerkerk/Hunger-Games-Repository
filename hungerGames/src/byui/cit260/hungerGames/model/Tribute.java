@@ -13,25 +13,22 @@ import java.util.Objects;
  *
  * @author Carlee Ouwerkerk
  */
-public enum Tribute implements Serializable{
-    
-    george("George", 1, 10.0, new Point(3,3), "Male"),
-    fred("Fred", 1, 10.0,new Point(3,3), "Male"),
-    bill("Bill", 1, 10.1, new Point(3,3), "Male"),
-    ted("Ted", 1, 10.1, new Point(3,3), "Male"),
-    amber("Amber", 2, 10.5, new Point (2,2), "Female"),
-    ali("Ali", 2, 10.5, new Point (2,2), "Female"),
-    kate("Kate", 2, 10.5, new Point (2,2), "Female"),
-    suzy("Suzy", 2, 10.5, new Point (2,2), "Female");
-    
-    
+public enum Tribute implements Serializable {
+
+    george("George", 1, 10.0, new Point(3, 3), "Male"),
+    fred("Fred", 1, 10.0, new Point(3, 3), "Male"),
+    bill("Bill", 1, 10.1, new Point(3, 3), "Male"),
+    ted("Ted", 1, 10.1, new Point(3, 3), "Male"),
+    amber("Amber", 2, 10.5, new Point(2, 2), "Female"),
+    ali("Ali", 2, 10.5, new Point(2, 2), "Female"),
+    kate("Kate", 2, 10.5, new Point(2, 2), "Female"),
+    suzy("Suzy", 2, 10.5, new Point(2, 2), "Female");
+
     private final String name;
     private final int district;
     private final double stats;
     private final Point location;
     private final String gender;
-   
-    
 
     private Tribute(String name, int district, double stats, Point location, String gender) {
         this.name = name;
@@ -41,39 +38,29 @@ public enum Tribute implements Serializable{
         this.gender = gender;
     }
 
-    
     public String getName() {
         return name;
     }
 
-  
     public int getDistrict() {
         return district;
     }
-
 
     public double getStats() {
         return stats;
     }
 
-
     public Point getLocation() {
         return location;
     }
-
 
     public String getGender() {
         return gender;
     }
 
-    
     @Override
     public String toString() {
         return "Tributes{" + "name=" + name + ", district=" + district + ", stats=" + stats + ", location=" + location.toString() + ", gender=" + gender + '}';
     }
 
-
-
-
-       
 }

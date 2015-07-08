@@ -13,7 +13,7 @@ import java.util.Objects;
  * @author Zack
  */
 public enum Scene implements Serializable {
-    
+
     start("Start Scene", "You're in a ship taking you to the arena", 0.0, "SS"),
     sand("Sandy Area", "You look around you, and it's sandy.", -3.0, "SA"),
     forest("Forest Area", "You look around you, and it's a forest.", 5.0, "FO"),
@@ -22,8 +22,7 @@ public enum Scene implements Serializable {
     marsh("Marsh Area", "You look around you, and it's marshy.", -2.0, "MA"),
     field("Field Area", "You look around you, and it's a field.", -4.0, "FI"),
     finish("Finish Scene", "You beat the last tribute!!!", 2.0, "FS");
-        
-        
+
     // class instance variables 
     private final String terrainType;
     private final String description;
@@ -35,12 +34,11 @@ public enum Scene implements Serializable {
         this.description = description;
         this.stats = stats;
         this.mapSymbol = mapSymbol;
- 
+
     }
 
 //    public Scene() {
 //    }
-    
     public String getDescription() {
         return description;
     }
@@ -48,7 +46,6 @@ public enum Scene implements Serializable {
 //    public void setDescription(String description) {
 //        this.description = description;
 //    }
-
     public String getTerrainType() {
         return terrainType;
     }
@@ -64,12 +61,9 @@ public enum Scene implements Serializable {
 //    public void setStats(double stats) {
 //        this.stats = stats;
 //    }
-
     public String getMapSymbol() {
         return mapSymbol;
     }
-
-    
 
     @Override
     public String toString() {
@@ -116,7 +110,6 @@ public enum Scene implements Serializable {
 //    
 //    
 //    
-
     public void setDescription(String _Welcome_to_the_Hunger_Games_let_the_game) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

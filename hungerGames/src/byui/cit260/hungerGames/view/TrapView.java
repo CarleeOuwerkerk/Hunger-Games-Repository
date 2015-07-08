@@ -31,10 +31,8 @@ public class TrapView {
             + "\n| Hint: Think of the equation A^2 + B^2 = ?? |"
             + "\n----------------------------------------------";
 
-    
     protected final BufferedReader keyboard = HungerGames.getInFile();
-    
-    
+
     public void displayTrapView() {
 
         boolean result = false;
@@ -92,7 +90,7 @@ public class TrapView {
 
             return false;
         }
-    
+
     }
-    
+
 }

@@ -13,12 +13,11 @@ import java.util.ArrayList;
  * @author Zack
  */
 public class Game implements Serializable {
-    
+
     private Map map;
     private Player player;
-    
+
     private Item[] itemList = null;
-   
 
     public Game() {
     }
@@ -47,11 +46,8 @@ public class Game implements Serializable {
         this.itemList = itemList;
     }
 
-
     public void setItem(Item[] item) {
         System.out.println("\n*** setItem Stub Function called ***");
     }
 
-    
-    
 }

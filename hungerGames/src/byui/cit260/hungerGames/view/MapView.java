@@ -24,7 +24,6 @@ public class MapView extends View {
 
     }
 
-    
     @Override
     public boolean doAction(Object obj) {
         String input = (String) obj;
@@ -34,7 +33,7 @@ public class MapView extends View {
 
         int row = Integer.parseInt(inputOne);
         int col = Integer.parseInt(inputTwo);
-        
+
         MapControl.movePlayerToLocation(row, col);
 
     }

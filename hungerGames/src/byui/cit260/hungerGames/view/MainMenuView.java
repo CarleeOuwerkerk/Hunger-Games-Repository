@@ -14,26 +14,26 @@ import java.util.Scanner;
  * @author Zack
  */
 public class MainMenuView extends View {
-    
+
     public MainMenuView() {
         super("\n"
-            +"\n----------------------------------------------"
-            +"\n| Main Menu                                  |"
-            +"\n----------------------------------------------"
-            +"\nN - New Game"
-            +"\nC - Continue Saved Game"
-            +"\nH - Help"
-            +"\nQ - Quit"
-            +"\n----------------------------------------------");
+                + "\n----------------------------------------------"
+                + "\n| Main Menu                                  |"
+                + "\n----------------------------------------------"
+                + "\nN - New Game"
+                + "\nC - Continue Saved Game"
+                + "\nH - Help"
+                + "\nQ - Quit"
+                + "\n----------------------------------------------");
     }
 
     @Override
     public boolean doAction(Object obj) {
-        
+
         String selection = (String) obj;
         selection = selection.toUpperCase();
 
-        switch(selection){
+        switch (selection) {
             case "N":
                 this.startNewGame();
                 break;
@@ -49,16 +49,16 @@ public class MainMenuView extends View {
                 System.out.println("\n*** Invalid selection, please try again. ***");
                 break;
         }
-        
+
         return true;
     }
+
     private void startNewGame() {
         GameControl.createNewGame(HungerGames.getPlayer());
-        
+
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
     }
-
 
     private void continueExistingGame() {
         System.out.println("*** continueExistingGame function called ***");
@@ -68,6 +68,5 @@ public class MainMenuView extends View {
         HelpMenuView helpMenuView = new HelpMenuView();
         helpMenuView.display();
     }
- 
-    
+
 }

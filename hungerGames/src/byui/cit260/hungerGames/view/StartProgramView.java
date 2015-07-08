@@ -76,7 +76,7 @@ public class StartProgramView {
 
         System.out.println("************************************************************");
     }
-    
+
     protected final BufferedReader keyboard = HungerGames.getInFile();
 
     private String getPlayersName() throws ProgramControlException {

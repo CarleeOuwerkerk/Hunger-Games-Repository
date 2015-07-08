@@ -9,7 +9,7 @@ package byui.cit260.hungerGames.exceptions;
  *
  * @author Carlee Ouwerkerk
  */
-public class TributeControlException extends Exception{
+public class TributeControlException extends Exception {
 
     public TributeControlException() {
     }
@@ -29,6 +29,5 @@ public class TributeControlException extends Exception{
     public TributeControlException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
     }
-    
-    
+
 }
