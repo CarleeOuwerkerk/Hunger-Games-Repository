@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  *
  * @author Carlee Ouwerkerk
  */
-public class FightView {
+public class FightView extends View {
 
     private final String SNEAK_OR_FIGHT = "\n"
             + "\n----------------------------------------------"
@@ -32,48 +32,7 @@ public class FightView {
             + "\n| S - I want to try to sneak past.           |"
             + "\n----------------------------------------------";
 
-    protected final BufferedReader keyboard = HungerGames.getInFile();
-
-    public void displaySneakOrFight() {
-
-        char selection = ' ';
-        do {
-            System.out.println(SNEAK_OR_FIGHT);
-
-            String input = this.getInput();
-            selection = input.charAt(0);
-
-            this.doAction(selection);
-
-        } while (selection != 'F' && selection != 'f' && selection != 'S' && selection != 's');
-
-    }
-
-    private String getInput() {
-        boolean valid = false;
-        String menuItem = "";
-
-        while (!valid) {
-
-            System.out.println("What do you choose?");
-
-            try {
-                menuItem = this.keyboard.readLine();
-            } catch (IOException ex) {
-                Logger.getLogger(FightView.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            menuItem = menuItem.trim();
-
-            if (menuItem.length() < 1) {
-                System.out.println("Invalid selection, please try again.");
-                continue;
-            }
-            break;
-        }
-
-        return menuItem;
-    }
-
+    @Override
     public void doAction(Object obj) {
 
         String selection = (String) obj;
