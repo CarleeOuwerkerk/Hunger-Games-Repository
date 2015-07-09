@@ -5,19 +5,9 @@
  */
 package byui.cit260.hungerGames.view;
 
-import byui.cit260.hungerGames.control.GameControl;
-import byui.cit260.hungerGames.control.MapControl;
 import byui.cit260.hungerGames.control.TributeControl;
-import byui.cit260.hungerGames.exceptions.MapControlException;
-import byui.cit260.hungerGames.model.Item;
 import byui.cit260.hungerGames.model.Location;
-import byui.cit260.hungerGames.model.Map;
-import byui.cit260.hungerGames.model.Player;
-import byui.cit260.hungerGames.model.Scene;
-import byui.cit260.hungerGames.model.Tribute;
 import hungergames.HungerGames;
-import java.awt.Point;
-import java.util.Scanner;
 
 /**
  *
@@ -54,34 +44,27 @@ public class GameMenuView extends View {
 
         switch (selection) {
             case 'I':
-            case 'i':
                 this.viewInventoryMenu();
                 break;
             case 'T':
-            case 't':
                 this.setTrap();
                 break;
             case 'M':
-            case 'm':
                 this.viewMap();
                 break;
             case 'R':
-            case 'r':
                 this.viewRemainingTributes();
                 break;
             case 'S':
-            case 's':
                 this.saveGame();
                 break;
             case 'H':
-            case 'h':
                 this.displayHelpMenu();
                 break;
             case 'Q':
-            case 'q':
                 return false;
             default:
-                System.out.println("\n*** Invalid selection, please try again. ***");
+                this.console.println("\n*** Invalid selection, please try again. ***");
                 break;
         }
         return true;
@@ -96,27 +79,27 @@ public class GameMenuView extends View {
 
     private void setTrap() {
         TrapView trapView = new TrapView();
-        trapView.displayTrapView();
+        trapView.display();
     }
 
     private void viewMap() {
 
         Location[][] locations = HungerGames.getCurrentGame().getMap().getLocations();
 
-        System.out.println("\n***** Welcome to the 67th Annual Hunger Games ******");
-        System.out.println("   |  0 |  1 |  2 |  3 |  4 |  5 |");
+        this.console.println("\n***** Welcome to the 67th Annual Hunger Games ******");
+        this.console.println("   |  0 |  1 |  2 |  3 |  4 |  5 |");
 
         for (int i = 0; i < locations[0].length; i++) {
-            System.out.println("\n----------------------------------");
-            System.out.format("%2d", i);
+            this.console.println("\n----------------------------------");
+            this.console.format("%2d", i);
             for (int j = 0; j < locations[0].length; j++) {
-                System.out.print(" | ");
-                System.out.print(locations[i][j].getScene().getMapSymbol());
+                this.console.print(" | ");
+               this.console.print(locations[i][j].getScene().getMapSymbol());
 
             }
-            System.out.print(" | ");
+            this.console.print(" | ");
         }
-        System.out.println("\n----------------------------------");
+        this.console.println("\n----------------------------------");
 
         MapView mapView = new MapView();
         mapView.display();

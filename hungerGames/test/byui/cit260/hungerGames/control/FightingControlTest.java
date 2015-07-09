@@ -33,12 +33,12 @@ public class FightingControlTest {
     @Test
     public void testCalculateSneak() {
         
-        System.out.println("calculateSneak");
+        this.console.println("calculateSneak");
         
         /*************************
          * Test Case #1
          *************************/
-        System.out.println("\tTest Case #1");
+        this.console.println("\tTest Case #1");
                 
         //input values for test case 1
         double player = 25.0;
@@ -60,7 +60,7 @@ public class FightingControlTest {
         /*************************
          * Test Case #2
          *************************/
-        System.out.println("\tTest Case #2");
+        this.console.println("\tTest Case #2");
                 
         //input values for test case 2
         // Erase the "double" for test cases 2-7
@@ -80,7 +80,7 @@ public class FightingControlTest {
          /*************************
          * Test Case #3
          *************************/
-        System.out.println("\tTest Case #3");
+        this.console.println("\tTest Case #3");
                 
         //input values for test case 3
         // Erase the "double" for test cases 2-7
@@ -101,7 +101,7 @@ public class FightingControlTest {
         /*************************
          * Test Case #4
          *************************/
-        System.out.println("\tTest Case #4");
+        this.console.println("\tTest Case #4");
                 
         //input values for test case 4
         // Erase the "double" for test cases 2-7
@@ -122,7 +122,7 @@ public class FightingControlTest {
         /*************************
          * Test Case #5
          *************************/
-        System.out.println("\tTest Case #5");
+        this.console.println("\tTest Case #5");
                 
         //input values for test case 5
         // Erase the "double" for test cases 2-7
@@ -143,7 +143,7 @@ public class FightingControlTest {
          /*************************
          * Test Case #6
          *************************/
-        System.out.println("\tTest Case #6");
+        this.console.println("\tTest Case #6");
                 
         //input values for test case 6
         // Erase the "double" for test cases 2-7
@@ -164,7 +164,7 @@ public class FightingControlTest {
          /*************************
          * Test Case #7
          *************************/
-        System.out.println("\tTest Case #7");
+        this.console.println("\tTest Case #7");
                 
         //input values for test case 7
         // Erase the "double" for test cases 2-7
@@ -188,13 +188,13 @@ public class FightingControlTest {
     @Test
     public void testCalculateForcedFight() {
         
-        System.out.println("calculateForcedFight");
+        this.console.println("calculateForcedFight");
         
         /****************************
             Test Case Number One
         ****************************/
         
-            System.out.println("\tTest Case Number One");
+            this.console.println("\tTest Case Number One");
 
             //Values for Test Case One
             double player = 25;
@@ -215,7 +215,7 @@ public class FightingControlTest {
             Test Case Number Two
         ****************************/
         
-            System.out.println("\tTest Case Number Two");
+            this.console.println("\tTest Case Number Two");
 
             //Values for Test Case Two
 
@@ -236,7 +236,7 @@ public class FightingControlTest {
             Test Case Number Three
         ****************************/
         
-            System.out.println("\tTest Case Number Three");
+            this.console.println("\tTest Case Number Three");
 
             //Values for Test Case Three
 
@@ -257,7 +257,7 @@ public class FightingControlTest {
             Test Case Number Four
         ****************************/
         
-            System.out.println("\tTest Case Number Four");
+            this.console.println("\tTest Case Number Four");
 
             //Values for Test Case Four
 
@@ -278,7 +278,7 @@ public class FightingControlTest {
             Test Case Number Five
         ****************************/
         
-            System.out.println("\tTest Case Number Five");
+            this.console.println("\tTest Case Number Five");
 
             //Values for Test Case Five
 

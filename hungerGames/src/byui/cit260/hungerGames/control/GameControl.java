@@ -9,7 +9,6 @@ import byui.cit260.hungerGames.model.Game;
 import byui.cit260.hungerGames.model.Item;
 import byui.cit260.hungerGames.model.Map;
 import byui.cit260.hungerGames.model.Player;
-import byui.cit260.hungerGames.model.Scene;
 import hungergames.HungerGames;
 
 /**

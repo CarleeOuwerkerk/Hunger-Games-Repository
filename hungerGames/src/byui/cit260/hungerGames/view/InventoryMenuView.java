@@ -10,7 +10,6 @@ import byui.cit260.hungerGames.control.UseItemControl;
 import byui.cit260.hungerGames.exceptions.DiscardItemException;
 import byui.cit260.hungerGames.exceptions.UseItemException;
 import byui.cit260.hungerGames.model.Item;
-import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -82,27 +81,12 @@ public class InventoryMenuView extends View {
             case "B":
                 return false;
             default:
-                System.out.println("\n*** Invalid selection, try again. ***");
+                this.console.println("\n*** Invalid selection, try again. ***");
                 break;
         }
         return true;
     }
 
-//    private void viewFood() {
-//        FoodItemsView foodItemsView = new FoodItemsView();
-//        foodItemsView.display();
-//    }
-//
-//    private void viewWeapons() {
-//        WeaponsView weaponsView = new WeaponsView();
-//        weaponsView.display();
-//        
-//    }
-//        
-//    private void viewSupplies() {
-//        SupplyItemsView supplyItemsView = new SupplyItemsView();
-//        supplyItemsView.display();
-//    }
     private void view() {
 
         ViewItem viewItem = new ViewItem("\n Do you want to equip or discard item?");
@@ -125,7 +109,7 @@ public class InventoryMenuView extends View {
             }
         }
         for (Item i : item) {
-            System.out.println(i);
+            this.console.println(i);
 
         }
         return item;
@@ -169,7 +153,7 @@ public class InventoryMenuView extends View {
                 case "B":
                     return false;
                 default:
-                    System.out.println("\n*** Invalid selection, please try again. ***");
+                    this.console.println("\n*** Invalid selection, please try again. ***");
                     break;
             }
 

@@ -6,7 +6,6 @@
 package byui.cit260.hungerGames.control;
 
 import byui.cit260.hungerGames.model.Tribute;
-import java.util.Arrays;
 
 /**
  *
@@ -31,7 +30,7 @@ public class TributeControl {
             }
         }
         for (Tribute i : tribute) {
-            System.out.println(i);
+            this.console.println(i);
 
         }
         return tribute;

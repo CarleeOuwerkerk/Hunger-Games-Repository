@@ -7,11 +7,7 @@ package byui.cit260.hungerGames.view;
 
 import hungergames.HungerGames;
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -42,7 +38,7 @@ public abstract class View implements ViewInterface {
         char firstLetter;
 
         do {
-            System.out.println(promptMessage);
+            this.console.println(promptMessage);
 
             String selection = this.getInput();
             firstLetter = selection.toUpperCase().charAt(0);
@@ -61,18 +57,18 @@ public abstract class View implements ViewInterface {
         while (!valid) {
 
             try {
-                System.out.println("Please make a selection.");
+                this.console.println("Please make a selection.");
 
                 menuItem = this.keyboard.readLine();
                 menuItem = menuItem.trim();
 
                 if (menuItem.length() < 1) {
-                    System.out.println("Invalid option, please try again");
+                    ErrorView.display(this.getClass().getName(), "Invalid option, please try again");
                     continue;
                 }
                 break;
             } catch (Exception e) {
-                System.out.println("Error reading input: " + e.getMessage());
+                ErrorView.display(this.getClass().getName(), "Error reading input: " + e.getMessage());
             }
         }
 

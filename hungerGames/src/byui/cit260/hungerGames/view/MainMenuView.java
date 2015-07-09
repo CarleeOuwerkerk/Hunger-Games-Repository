@@ -7,7 +7,6 @@ package byui.cit260.hungerGames.view;
 
 import byui.cit260.hungerGames.control.GameControl;
 import hungergames.HungerGames;
-import java.util.Scanner;
 
 /**
  *
@@ -35,22 +34,18 @@ public class MainMenuView extends View {
 
         switch (selection) {
             case 'N':
-            case 'n':
                 this.startNewGame();
                 break;
             case 'C':
-            case 'c':
                 this.continueExistingGame();
                 break;
             case 'H':
-            case 'h':
                 this.displayHelpMenu();
                 break;
             case 'Q':
-            case 'q':
                 return false;
             default:
-                System.out.println("\n*** Invalid selection, please try again. ***");
+                this.console.println("\n*** Invalid selection, please try again. ***");
                 break;
         }
 
