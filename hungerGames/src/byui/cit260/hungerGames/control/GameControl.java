@@ -11,8 +11,11 @@ import byui.cit260.hungerGames.model.Item;
 import byui.cit260.hungerGames.model.Map;
 import byui.cit260.hungerGames.model.Player;
 import hungergames.HungerGames;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 /**
@@ -46,12 +49,25 @@ public class GameControl {
             
         
     }
-public static Item[] items = Item.values();
 
     public static void continueGame(String filePath) throws GameControlException{
+        Game game = null;
         
+        try(FileInputStream fips = new FileInputStream(filePath)){
+            ObjectInputStream output = new ObjectInputStream(fips);
+            
+            game = (Game) output.readObject();
+        }
+        catch(FileNotFoundException fnfe){
+            throw new GameControlException(fnfe.getMessage());
+        }
+        catch(Exception e){
+            throw new GameControlException(e.getMessage());
+        }
+        
+        HungerGames.setCurrentGame(game);
     }
-{
+public static Item[] items = Item.values();{
 
         for (int i = 0; i < items.length - 1; i++) {
             int index = 1;
