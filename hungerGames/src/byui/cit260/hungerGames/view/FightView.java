@@ -40,7 +40,7 @@ public class FightView extends View {
                 this.sneakPast();
                 return true;
             default:
-                this.console.println("\n*** Invalid selection, please try again. ***");
+                ErrorView.display(this.getClass().getName(), "\n*** Invalid selection, please try again. ***");
                 return false;
         }
     }

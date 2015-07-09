@@ -35,7 +35,8 @@ public class MapView extends View {
         int row = Integer.parseInt(inputOne);
         int col = Integer.parseInt(inputTwo);
         
-        MapControl.movePlayerToLocation(row, col);
+//        MapControl.movePlayerToLocation(row, col);
+        return false;
 
     }
 

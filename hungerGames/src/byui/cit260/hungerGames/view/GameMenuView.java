@@ -5,8 +5,9 @@
  */
 package byui.cit260.hungerGames.view;
 
-import byui.cit260.hungerGames.control.TributeControl;
+import byui.cit260.hungerGames.control.GameControl;
 import byui.cit260.hungerGames.model.Location;
+import byui.cit260.hungerGames.model.Tribute;
 import hungergames.HungerGames;
 
 /**
@@ -53,7 +54,7 @@ public class GameMenuView extends View {
                 this.viewMap();
                 break;
             case 'R':
-                this.viewRemainingTributes();
+                this.sortTribute();
                 break;
             case 'S':
                 this.saveGame();
@@ -64,7 +65,7 @@ public class GameMenuView extends View {
             case 'Q':
                 return false;
             default:
-                this.console.println("\n*** Invalid selection, please try again. ***");
+                ErrorView.display(this.getClass().getName(), "\n*** Invalid selection, please try again. ***");
                 break;
         }
         return true;
@@ -94,7 +95,7 @@ public class GameMenuView extends View {
             this.console.format("%2d", i);
             for (int j = 0; j < locations[0].length; j++) {
                 this.console.print(" | ");
-               this.console.print(locations[i][j].getScene().getMapSymbol());
+                this.console.print(locations[i][j].getScene().getMapSymbol());
 
             }
             this.console.print(" | ");
@@ -105,13 +106,39 @@ public class GameMenuView extends View {
         mapView.display();
     }
 
-    private void viewRemainingTributes() {
-        TributeControl.sortTribute();
+    public Tribute[] sortTribute() {
+        Tribute[] tribute = Tribute.values();
 
+        for (int i = 0; i < tribute.length - 1; i++) {
+            int index = i;
+            for (int j = i + 1; j < tribute.length; j++) {
+                if (tribute[j].getName().compareToIgnoreCase(tribute[index].getName()) < 0) {
+                    index = j;
+                }
+                Tribute smaller = tribute[index];
+                tribute[index] = tribute[i];
+                tribute[i] = smaller;
+
+            }
+        }
+        for (Tribute i : tribute) {
+            this.console.println(i);
+
+        }
+        return tribute;
     }
 
     private void saveGame() {
-        System.out.println("*** saveGame function called ***");
+        this.console.println("\n\n Please enter the file path where you would like this game to be saved.");
+        String filePath = this.getInput();
+        
+        try{
+            GameControl.saveGame(HungerGames.getCurrentGame(), filePath);
+        }
+        
+        catch(Exception ex){
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
     }
 
     private void displayHelpMenu() {

@@ -5,16 +5,43 @@
  */
 package byui.cit260.hungerGames.view;
 
+import byui.cit260.hungerGames.control.ProgramControl;
+import byui.cit260.hungerGames.exceptions.ProgramControlException;
 import byui.cit260.hungerGames.model.Player;
+import hungergames.HungerGames;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Zack
  */
-public class StartProgramView extends View {
+public class StartProgramView{
+    
+    protected final BufferedReader keyboard = HungerGames.getInFile();
+    protected final PrintWriter console = HungerGames.getOutFile();
 
-    public StartProgramView() {
-        super("\n\n************************************************************"
+    public void startProgram() throws ProgramControlException {
+
+        //Display the banner scren
+        this.displayBanner();
+        //Get player's name
+        String playersName = this.getPlayersName();
+        //Create a new player
+        Player player = ProgramControl.createPlayer(playersName);
+        //DISPLAY a customized welcome message
+        this.displayWelcomeMessage(player);
+        //DISPLAY main menu
+        MainMenuView mainMenu = new MainMenuView();
+        mainMenu.display();
+
+    }
+
+    private void displayBanner() {
+       this.console.println("\n\n************************************************************"
                 + "\n*                                                          *"
                 + "\n* Welcome to the 67th annual Hunger Games!  In a few       *"
                 + "\n* moments you will be placed in the arena with the rest of *"
@@ -50,66 +77,43 @@ public class StartProgramView extends View {
                 + "\n************************************************************");
     }
 
-//    public void startProgram() throws ProgramControlException {
-//
-//        //Display the banner scren
-////        this.displayBanner();
-//        //Get player's name
-//        String playersName = this.getPlayersName();
-//        //Create a new player
-//        Player player = ProgramControl.createPlayer(playersName);
-//        //DISPLAY a customized welcome message
-//        this.displayWelcomeMessage(player);
-//        //DISPLAY main menu
-//        MainMenuView mainMenu = new MainMenuView();
-//        mainMenu.display();
-//
-//    }
-//
-////    protected final BufferedReader keyboard = HungerGames.getInFile();
-//
-//    private String getPlayersName() throws ProgramControlException {
-//        boolean valid = false;
-//        String playersName = null;
-//
-//        while (!valid) {
-//
-//            this.console.println("Enter your name");
-//
-//            try {
-//                playersName = this.keyboard.readLine();
-//            } catch (IOException ex) {
-//                Logger.getLogger(StartProgramView.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//            playersName = playersName.trim();
-//
-//            if (playersName.length() < 2) {
-//                try {
-//                    ProgramControl.createPlayer(playersName);
-//                } catch (ProgramControlException pe) {
-//                    this.console.println(pe.getMessage());
-//                }
-//                continue;
-//            }
-//            break;
-//        }
-//
-//        return playersName;
-//    }
-    @Override
-    public boolean doAction(Object obj) {
-        Player player = (Player) obj;
-        
+
+    private String getPlayersName() throws ProgramControlException {
+        boolean valid = false;
+        String playersName = null;
+
+        while (!valid) {
+
+            this.console.println("Enter your name");
+
+            try {
+                playersName = this.keyboard.readLine();
+            } catch (IOException ex) {
+                Logger.getLogger(StartProgramView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            playersName = playersName.trim();
+
+            if (playersName.length() < 2) {
+                try {
+                    ProgramControl.createPlayer(playersName);
+                } catch (ProgramControlException pe) {
+                    this.console.println(pe.getMessage());
+                }
+                continue;
+            }
+            break;
+        }
+
+        return playersName;
+    }
+    
+    public void displayWelcomeMessage(Player player) {
+
         this.console.println("\n\n============================================================");
         this.console.println("\tWelcome to the 67th annual Hunger Games, " + player.getName() + ".");
         this.console.println("\t    May the odds be ever in your favour!");
         this.console.println("============================================================");
-        
-        MainMenuView mainMenu = new MainMenuView();
-        mainMenu.display();
-        
-        return false;
-    }
 
+    }
 
 }

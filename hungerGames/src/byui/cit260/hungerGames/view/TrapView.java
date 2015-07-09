@@ -62,7 +62,7 @@ public class TrapView extends View {
                 this.console.println("\n Trap was SUCESSFUL!");
                 return true;
             } else {
-                this.console.println("\n Invalid number, please try again.");
+                ErrorView.display(this.getClass().getName(), "\n Invalid number, please try again.");
                 return false;
             }
         } catch (TrapControlException te) {

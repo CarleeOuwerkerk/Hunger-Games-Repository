@@ -5,6 +5,7 @@
  */
 package byui.cit260.hungerGames.model;
 
+import byui.cit260.hungerGames.view.ErrorView;
 import java.io.Serializable;
 import java.util.Arrays;
 
@@ -26,7 +27,7 @@ public class Map implements Serializable {
     public Map(int noOfRows, int noOfColumns) {
 
         if (noOfRows < 1 || noOfColumns < 1) {
-            this.console.println("The number of columns and rows must be > than 0");
+            ErrorView.display(this.getClass().getName(), "The number of columns and rows must be > than 0");
             return;
         }
 

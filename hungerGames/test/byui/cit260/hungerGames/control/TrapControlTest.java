@@ -5,6 +5,7 @@
  */
 package byui.cit260.hungerGames.control;
 
+import byui.cit260.hungerGames.exceptions.TrapControlException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -21,14 +22,14 @@ public class TrapControlTest {
      * Test of calculateAngle method, of class TrapControl.
      */
     @Test
-    public void testCalculateAngle() {
+    public void testCalculateAngle() throws TrapControlException {
         
-        this.console.println("calculateAngle");
+       System.out.println("calculateAngle");
         
         /*****************
          * Test Case #1
          *****************/
-        this.console.println("\tTest Case #1");
+        System.out.println("\tTest Case #1");
         
         // input values for test case 1
         int height = 8;
@@ -51,7 +52,7 @@ public class TrapControlTest {
         /*****************
          * Test Case #2
          *****************/
-        this.console.println("\tTest Case #2");
+        System.out.println("\tTest Case #2");
         
         // input values for test case 2
         height = 8;
@@ -69,7 +70,7 @@ public class TrapControlTest {
         /*****************
          * Test Case #3
          *****************/
-        this.console.println("\tTest Case #3");
+        System.out.println("\tTest Case #3");
         
         // input values for test case 3
         height = 8;
@@ -87,7 +88,7 @@ public class TrapControlTest {
         /*****************
          * Test Case #4
          *****************/
-        this.console.println("\tTest Case #4");
+        System.out.println("\tTest Case #4");
         
         // input values for test case 4
         height = -1;
@@ -105,7 +106,7 @@ public class TrapControlTest {
         /*****************
          * Test Case #5
          *****************/
-        this.console.println("\tTest Case #5");
+        System.out.println("\tTest Case #5");
         
         // input values for test case 5
         height = 0;
@@ -123,7 +124,7 @@ public class TrapControlTest {
         /*****************
          * Test Case #6
          *****************/
-        this.console.println("\tTest Case #6");
+        System.out.println("\tTest Case #6");
         
         // input values for test case 6
         height = 8;
@@ -141,7 +142,7 @@ public class TrapControlTest {
         /*****************
          * Test Case #7
          *****************/
-        this.console.println("\tTest Case #7");
+        System.out.println("\tTest Case #7");
         
         // input values for test case 7
         height = 12;

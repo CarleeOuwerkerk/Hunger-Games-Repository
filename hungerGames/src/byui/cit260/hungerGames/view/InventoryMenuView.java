@@ -81,7 +81,7 @@ public class InventoryMenuView extends View {
             case "B":
                 return false;
             default:
-                this.console.println("\n*** Invalid selection, try again. ***");
+                ErrorView.display(this.getClass().getName(), "\n*** Invalid selection, try again. ***");
                 break;
         }
         return true;
@@ -153,7 +153,7 @@ public class InventoryMenuView extends View {
                 case "B":
                     return false;
                 default:
-                    this.console.println("\n*** Invalid selection, please try again. ***");
+                    ErrorView.display(this.getClass().getName(), "\n*** Invalid selection, please try again. ***");
                     break;
             }
 
