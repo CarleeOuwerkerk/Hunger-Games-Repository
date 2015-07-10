@@ -30,20 +30,21 @@ public class MainMenuView extends View {
     @Override
     public boolean doAction(Object obj) {
 
-        String selection = (String) obj;
-        selection = selection.toUpperCase();
+        String value = (String) obj;
+        char selection = value.charAt(0);
 
         switch (selection) {
-            case "N":
+            case 'N':
+            case 'n':
                 this.startNewGame();
                 break;
-            case "C":
+            case 'C':
                 this.continueExistingGame();
                 break;
-            case "H":
+            case 'H':
                 this.displayHelpMenu();
                 break;
-            case "Q":
+            case 'Q':
                 return false;
             default:
                 System.out.println("\n*** Invalid selection, please try again. ***");

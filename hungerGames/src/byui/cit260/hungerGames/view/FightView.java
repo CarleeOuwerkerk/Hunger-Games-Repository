@@ -5,13 +5,6 @@
  */
 package byui.cit260.hungerGames.view;
 
-import byui.cit260.hungerGames.control.FightingControl;
-import hungergames.HungerGames;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -19,35 +12,36 @@ import java.util.logging.Logger;
  */
 public class FightView extends View {
 
-    private final String SNEAK_OR_FIGHT = "\n"
-            + "\n----------------------------------------------"
-            + "\n| As you examine your location, you notice   |"
-            + "\n| another tribute. They don't see you,       |"
-            + "\n| however. Their skill point level is +       |"
-            + "\n| skillPointLevel + .  You have the option   |"
-            + "\n| to either fight them or to try to sneak    |"
-            + "\n| past them.                                 |"
-            + "\n|                                            |"
-            + "\n| F - I want to fight the other tribute.     |"
-            + "\n| S - I want to try to sneak past.           |"
-            + "\n----------------------------------------------";
+    public FightView(String promptMessage) {
+        super("\n"
+                + "\n----------------------------------------------"
+                + "\n| As you examine your location, you notice   |"
+                + "\n| another tribute. They don't see you,       |"
+                + "\n| however. Their skill point level is +       |"
+                + "\n| skillPointLevel + .  You have the option   |"
+                + "\n| to either fight them or to try to sneak    |"
+                + "\n| past them.                                 |"
+                + "\n|                                            |"
+                + "\n| F - I want to fight the other tribute.     |"
+                + "\n| S - I want to try to sneak past.           |"
+                + "\n----------------------------------------------"
+                + "\n \n What do you choose?");
+    }
 
     @Override
-    public void doAction(Object obj) {
-
+    public boolean doAction(Object obj) {
         String selection = (String) obj;
-        selection = selection.toUpperCase();
-
-        switch (selection) {
-            case "F":
+        char choice = selection.trim().charAt(0);
+        switch (choice) {
+            case 'F':
                 this.fightTribute();
-                break;
-            case "S":
+                return true;
+            case 'S':
                 this.sneakPast();
-                break;
+                return true;
             default:
-                System.out.println("\n*** Invalid selection, please try again. ***");
-                break;
+                ErrorView.display(this.getClass().getName(), "\n*** Invalid selection, please try again. ***");
+                return false;
         }
     }
 
@@ -60,5 +54,4 @@ public class FightView extends View {
         System.out.println("*** sneakPast function called ***");
 //        FightingControl.calculateSneak(player, scene, tribute);
     }
-
 }
