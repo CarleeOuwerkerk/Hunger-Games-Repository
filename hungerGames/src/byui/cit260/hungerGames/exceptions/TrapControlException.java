@@ -9,7 +9,7 @@ package byui.cit260.hungerGames.exceptions;
  *
  * @author Carlee Ouwerkerk
  */
-public class TrapControlException extends Exception{
+public class TrapControlException extends Exception {
 
     public TrapControlException() {
     }
@@ -29,6 +29,5 @@ public class TrapControlException extends Exception{
     public TrapControlException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
     }
-    
-    
+
 }

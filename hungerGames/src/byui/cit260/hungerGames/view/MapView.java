@@ -6,6 +6,11 @@
 package byui.cit260.hungerGames.view;
 
 import byui.cit260.hungerGames.control.MapControl;
+import byui.cit260.hungerGames.exceptions.MapControlException;
+import hungergames.HungerGames;
+import java.awt.Point;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -24,7 +29,6 @@ public class MapView extends View {
 
     }
 
-    
     @Override
     public boolean doAction(Object obj) {
         String input = (String) obj;
@@ -34,9 +38,14 @@ public class MapView extends View {
 
         int row = Integer.parseInt(inputOne);
         int col = Integer.parseInt(inputTwo);
-        
-//        MapControl.movePlayerToLocation(row, col);
-        return false;
+
+        try {
+            MapControl.movePlayerToLocation(HungerGames.getPlayer(), new Point(row, col));
+        } catch (MapControlException ex) {
+            ErrorView.display("MapView", ex.getMessage());
+            return false;
+        }
+        return true;
 
     }
 
