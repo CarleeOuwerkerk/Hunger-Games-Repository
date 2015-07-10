@@ -11,7 +11,7 @@ import byui.cit260.hungerGames.model.Player;
 import hungergames.HungerGames;
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.util.Scanner;
+import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -19,10 +19,10 @@ import java.util.logging.Logger;
  *
  * @author Zack
  */
-public class StartProgramView {
-
-    public StartProgramView() {
-    }
+public class StartProgramView{
+    
+    protected final BufferedReader keyboard = HungerGames.getInFile();
+    protected final PrintWriter console = HungerGames.getOutFile();
 
     public void startProgram() throws ProgramControlException {
 
@@ -41,16 +41,15 @@ public class StartProgramView {
     }
 
     private void displayBanner() {
-        System.out.println("\n\n************************************************************");
-
-        System.out.println("*                                                          *"
+       this.console.println("\n\n************************************************************"
+                + "\n*                                                          *"
                 + "\n* Welcome to the 67th annual Hunger Games!  In a few       *"
                 + "\n* moments you will be placed in the arena with the rest of *"
                 + "\n* the tributes.  Your objective is to be the last          *"
                 + "\n* tribute standing.  You can achieve this by outlasting    *"
-                + "\n* some tributes and killing others.                        *");
-
-        System.out.println("\n* You will begin by selecting a district and a name.       *"
+                + "\n* some tributes and killing others.                        *"
+                + "\n*                                                          *"
+                + "\n* You will begin by selecting a district and a name.       *"
                 + "\n* Once in the arena, you will be able to move to different *"
                 + "\n* locations. In each location, you will be provided with   *"
                 + "\n* options of things that you are able to do. Each time     *"
@@ -60,24 +59,24 @@ public class StartProgramView {
                 + "\n* weapons. You can use these supplies and weapons to help  *"
                 + "\n* increase your skill points. You may also find objects,   *"
                 + "\n* animals, or other things that may lower their skill      *"
-                + "\n* points.                                                  *");
-
-        System.out.println("\n* There will be other tributes scattered throughout the    *"
+                + "\n* points.                                                  *"
+                + "\n*                                                          *"
+                + "\n* There will be other tributes scattered throughout the    *"
                 + "\n* arena. If you land on the same space as another tribute, *"
                 + "\n* you have the option to either fight or attempt to sneak  *"
-                + "\n* past.                                                    *");
-
-        System.out.println("\n* Once all the other tributes have been eliminated, the    *"
+                + "\n* past.                                                    *"
+                + "\n*                                                          *"
+                + "\n* Once all the other tributes have been eliminated, the    *"
                 + "\n* game will be over, and you will become the winner of the *"
-                + "\n* 67th annual Hunger Games.                                *");
-
-        System.out.println("\n* May the odds be ever in your favour!                     *"
-                + "\n*                                                          *");
-
-        System.out.println("************************************************************");
+                + "\n* 67th annual Hunger Games.                                *"
+                + "\n*                                                          *"
+                + "\n* May the odds be ever in your favour!                     *"
+                + "\n*                                                          *"
+                + "\n************************************************************"
+                + "\n* Please enter your name.                                  *"
+                + "\n************************************************************");
     }
 
-    protected final BufferedReader keyboard = HungerGames.getInFile();
 
     private String getPlayersName() throws ProgramControlException {
         boolean valid = false;
@@ -85,7 +84,7 @@ public class StartProgramView {
 
         while (!valid) {
 
-            System.out.println("Enter your name");
+            this.console.println("Enter your name");
 
             try {
                 playersName = this.keyboard.readLine();
@@ -98,7 +97,7 @@ public class StartProgramView {
                 try {
                     ProgramControl.createPlayer(playersName);
                 } catch (ProgramControlException pe) {
-                    System.out.println(pe.getMessage());
+                    this.console.println(pe.getMessage());
                 }
                 continue;
             }
@@ -107,12 +106,14 @@ public class StartProgramView {
 
         return playersName;
     }
+    
+    public void displayWelcomeMessage(Player player) {
 
-    private void displayWelcomeMessage(Player player) {
-        System.out.println("\n\n============================================================");
-        System.out.println("\tWelcome to the 67th annual Hunger Games, " + player.getName() + ".");
-        System.out.println("\t    May the odds be ever in your favour!");
-        System.out.println("============================================================");
+        this.console.println("\n\n============================================================");
+        this.console.println("\tWelcome to the 67th annual Hunger Games, " + player.getName() + ".");
+        this.console.println("\t    May the odds be ever in your favour!");
+        this.console.println("============================================================");
+
     }
 
 }

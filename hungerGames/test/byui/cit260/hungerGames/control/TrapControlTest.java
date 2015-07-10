@@ -5,6 +5,7 @@
  */
 package byui.cit260.hungerGames.control;
 
+import byui.cit260.hungerGames.exceptions.TrapControlException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -21,9 +22,9 @@ public class TrapControlTest {
      * Test of calculateAngle method, of class TrapControl.
      */
     @Test
-    public void testCalculateAngle() {
+    public void testCalculateAngle() throws TrapControlException {
         
-        System.out.println("calculateAngle");
+       System.out.println("calculateAngle");
         
         /*****************
          * Test Case #1

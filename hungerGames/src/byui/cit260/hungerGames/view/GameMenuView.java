@@ -6,18 +6,9 @@
 package byui.cit260.hungerGames.view;
 
 import byui.cit260.hungerGames.control.GameControl;
-import byui.cit260.hungerGames.control.MapControl;
-import byui.cit260.hungerGames.control.TributeControl;
-import byui.cit260.hungerGames.exceptions.MapControlException;
-import byui.cit260.hungerGames.model.Item;
 import byui.cit260.hungerGames.model.Location;
-import byui.cit260.hungerGames.model.Map;
-import byui.cit260.hungerGames.model.Player;
-import byui.cit260.hungerGames.model.Scene;
 import byui.cit260.hungerGames.model.Tribute;
 import hungergames.HungerGames;
-import java.awt.Point;
-import java.util.Scanner;
 
 /**
  *
@@ -53,28 +44,28 @@ public class GameMenuView extends View {
         selection = selection.toUpperCase();
 
         switch (selection) {
-            case "I":
+            case 'I':
                 this.viewInventoryMenu();
                 break;
-            case "T":
+            case 'T':
                 this.setTrap();
                 break;
-            case "M":
+            case 'M':
                 this.viewMap();
                 break;
-            case "R":
-                this.viewRemainingTributes();
+            case 'R':
+                this.sortTribute();
                 break;
-            case "S":
+            case 'S':
                 this.saveGame();
                 break;
-            case "H":
+            case 'H':
                 this.displayHelpMenu();
                 break;
-            case "Q":
+            case 'Q':
                 return false;
             default:
-                System.out.println("\n*** Invalid selection, please try again. ***");
+                ErrorView.display(this.getClass().getName(), "\n*** Invalid selection, please try again. ***");
                 break;
         }
         return true;
@@ -89,39 +80,65 @@ public class GameMenuView extends View {
 
     private void setTrap() {
         TrapView trapView = new TrapView();
-        trapView.displayTrapView();
+        trapView.display();
     }
 
     private void viewMap() {
 
         Location[][] locations = HungerGames.getCurrentGame().getMap().getLocations();
 
-        System.out.println("\n***** Welcome to the 67th Annual Hunger Games ******");
-        System.out.println("   |  0 |  1 |  2 |  3 |  4 |  5 |");
+        this.console.println("\n***** Welcome to the 67th Annual Hunger Games ******");
+        this.console.println("   |  0 |  1 |  2 |  3 |  4 |  5 |");
 
         for (int i = 0; i < locations[0].length; i++) {
-            System.out.println("\n----------------------------------");
-            System.out.format("%2d", i);
+            this.console.println("\n----------------------------------");
+            this.console.format("%2d", i);
             for (int j = 0; j < locations[0].length; j++) {
-                System.out.print(" | ");
-                System.out.print(locations[i][j].getScene().getMapSymbol());
+                this.console.print(" | ");
+                this.console.print(locations[i][j].getScene().getMapSymbol());
 
             }
-            System.out.print(" | ");
+            this.console.print(" | ");
         }
-        System.out.println("\n----------------------------------");
+        this.console.println("\n----------------------------------");
 
         MapView mapView = new MapView();
         mapView.display();
     }
 
-    private void viewRemainingTributes() {
-        TributeControl.sortTribute();
+    public Tribute[] sortTribute() {
+        Tribute[] tribute = Tribute.values();
 
+        for (int i = 0; i < tribute.length - 1; i++) {
+            int index = i;
+            for (int j = i + 1; j < tribute.length; j++) {
+                if (tribute[j].getName().compareToIgnoreCase(tribute[index].getName()) < 0) {
+                    index = j;
+                }
+                Tribute smaller = tribute[index];
+                tribute[index] = tribute[i];
+                tribute[i] = smaller;
+
+            }
+        }
+        for (Tribute i : tribute) {
+            this.console.println(i);
+
+        }
+        return tribute;
     }
 
     private void saveGame() {
-        System.out.println("*** saveGame function called ***");
+        this.console.println("\n\n Please enter the file path where you would like this game to be saved.");
+        String filePath = this.getInput();
+        
+        try{
+            GameControl.saveGame(HungerGames.getCurrentGame(), filePath);
+        }
+        
+        catch(Exception ex){
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
     }
 
     private void displayHelpMenu() {

@@ -5,7 +5,6 @@
  */
 package byui.cit260.hungerGames.view;
 
-import java.util.Scanner;
 
 /**
  *
@@ -35,33 +34,28 @@ public class HelpMenuView extends View {
 
         switch (selection) {
             case 'O':
-            case 'o':
                 this.viewObjectives();
                 break;
             case 'C':
-            case 'c':
                 this.viewControls();
                 break;
             case 'G':
-            case 'g':
                 this.gatherSupplies();
                 break;
             case 'V':
-            case 'v':
                 this.viewInventoryHelp();
                 break;
             case 'B':
-            case 'b':
                 return false;
             default:
-                System.out.println("\n*** Invalid selection, try again. ***");
+                ErrorView.display(this.getClass().getName(), "\n*** Invalid selection, try again. ***");
                 break;
         }
         return true;
     }
 
     private void viewObjectives() {
-        System.out.println("\n\n********************************************"
+        this.console.println("\n\n********************************************"
                 + "\n************** The Objective ***************"
                 + "\n* The objective of the game is to be the   *"
                 + "\n* last tribute standing. You do this by    *"
@@ -75,7 +69,7 @@ public class HelpMenuView extends View {
     }
 
     private void viewControls() {
-        System.out.println("\n\n********************************************"
+        this.console.println("\n\n********************************************"
                 + "\n************** The Controls ****************"
                 + "\n* In order to move to a new location, you  *"
                 + "\n* must first consult your map. This is     *"
@@ -94,7 +88,7 @@ public class HelpMenuView extends View {
     }
 
     private void gatherSupplies() {
-        System.out.println("\n\n********************************************"
+        this.console.println("\n\n********************************************"
                 + "\n************* Gather Supplies **************"
                 + "\n* To gather supplies, you must explore     *"
                 + "\n* locations. Some locations are empty,     *"
@@ -108,7 +102,7 @@ public class HelpMenuView extends View {
     }
 
     private void viewInventoryHelp() {
-        System.out.println("\n\n********************************************"
+        this.console.println("\n\n********************************************"
                 + "\n*************** Inventory ******************"
                 + "\n* In order to view your inventory, you must*"
                 + "\n* go to the Gameplay menu and enter the    *"

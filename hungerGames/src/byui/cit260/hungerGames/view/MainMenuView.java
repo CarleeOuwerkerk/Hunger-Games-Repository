@@ -7,7 +7,6 @@ package byui.cit260.hungerGames.view;
 
 import byui.cit260.hungerGames.control.GameControl;
 import hungergames.HungerGames;
-import java.util.Scanner;
 
 /**
  *
@@ -35,7 +34,6 @@ public class MainMenuView extends View {
 
         switch (selection) {
             case 'N':
-            case 'n':
                 this.startNewGame();
                 break;
             case 'C':
@@ -47,7 +45,7 @@ public class MainMenuView extends View {
             case 'Q':
                 return false;
             default:
-                System.out.println("\n*** Invalid selection, please try again. ***");
+                ErrorView.display(this.getClass().getName(), "\n*** Invalid selection, please try again. ***");
                 break;
         }
 
@@ -62,7 +60,20 @@ public class MainMenuView extends View {
     }
 
     private void continueExistingGame() {
-        System.out.println("*** continueExistingGame function called ***");
+        this.console.println("\n\nEnter the file path where the game is saved.");
+        
+        String filePath = this.getInput();
+        
+        try{
+            GameControl.continueGame(filePath);
+        }
+        
+        catch(Exception ex){
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
+        
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
     }
 
     private void displayHelpMenu() {

@@ -5,6 +5,7 @@
  */
 package byui.cit260.hungerGames.control;
 
+import byui.cit260.hungerGames.exceptions.FightingControlException;
 import org.junit.After;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -31,7 +32,7 @@ public class FightingControlTest {
      * Test of calculateSneak method, of class FightingControl.
      */
     @Test
-    public void testCalculateSneak() {
+    public void testCalculateSneak() throws FightingControlException {
         
         System.out.println("calculateSneak");
         

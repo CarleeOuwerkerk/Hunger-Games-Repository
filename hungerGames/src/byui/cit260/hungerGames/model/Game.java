@@ -6,7 +6,6 @@
 package byui.cit260.hungerGames.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 /**
  *
