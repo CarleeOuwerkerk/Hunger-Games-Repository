@@ -65,7 +65,7 @@ public class GameMenuView extends View {
             case "H":
                 this.displayHelpMenu();
                 break;
-            case 'P':
+            case "P":
                 this.printTributeList();
                 break;
             case "Q":
