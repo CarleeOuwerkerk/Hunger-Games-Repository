@@ -91,7 +91,13 @@ public class MapControl {
         int newRow = coordinates.x - 1;
         int newColumn = coordinates.y - 1;
 
-        //Player is moved to correct location of user's choosing
+       // Ask end user for location where they want to move
+       // compare the desired location to locations available, based on rows and columns in map
+       // move player to location desired, if within bounds of map
+       // if not within bounds display error
+       // collect scene, items and option to explore in desired location
+       // display that the player successfully moved to new location
+        
         if (newRow < 0 || newRow >= map.getNoOfRows() || newColumn < 0 || newColumn >= map.getNoOfColumns()) {
             throw new MapControlException("Cannot move player to location."
                     + coordinates.x + ", " + coordinates.y

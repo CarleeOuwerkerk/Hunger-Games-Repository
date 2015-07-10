@@ -1,8 +1,0 @@
-byui.cit260.hungerGames.view.MainMenuView - 
-*** Invalid selection, please try again. ***
-byui.cit260.hungerGames.view.GameMenuView - 
-*** Invalid selection, please try again. ***
-byui.cit260.hungerGames.view.TrapView - 
- Invalid number, please try again.
-byui.cit260.hungerGames.view.MainMenuView - 
-*** Invalid selection, please try again. ***

@@ -44,25 +44,25 @@ public class GameMenuView extends View {
         selection = selection.toUpperCase();
 
         switch (selection) {
-            case 'I':
+            case "I":
                 this.viewInventoryMenu();
                 break;
-            case 'T':
+            case "T":
                 this.setTrap();
                 break;
-            case 'M':
+            case "M":
                 this.viewMap();
                 break;
-            case 'R':
+            case "R":
                 this.sortTribute();
                 break;
-            case 'S':
+            case "S":
                 this.saveGame();
                 break;
-            case 'H':
+            case "H":
                 this.displayHelpMenu();
                 break;
-            case 'Q':
+            case "Q":
                 return false;
             default:
                 ErrorView.display(this.getClass().getName(), "\n*** Invalid selection, please try again. ***");
