@@ -9,6 +9,8 @@ import byui.cit260.hungerGames.control.GameControl;
 import byui.cit260.hungerGames.model.Location;
 import byui.cit260.hungerGames.model.Tribute;
 import hungergames.HungerGames;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 /**
  *
@@ -28,6 +30,7 @@ public class GameMenuView extends View {
                 + "\nS - Save Game"
                 + "\nH - Help"
                 + "\nQ - Quit"
+                + "\nP - Print Tribute List"
                 + "\n----------------------------------------------");
 
     }
@@ -61,6 +64,9 @@ public class GameMenuView extends View {
                 break;
             case 'H':
                 this.displayHelpMenu();
+                break;
+            case 'P':
+                this.printTributeList();
                 break;
             case 'Q':
                 return false;
@@ -131,12 +137,10 @@ public class GameMenuView extends View {
     private void saveGame() {
         this.console.println("\n\n Please enter the file path where you would like this game to be saved.");
         String filePath = this.getInput();
-        
-        try{
+
+        try {
             GameControl.saveGame(HungerGames.getCurrentGame(), filePath);
-        }
-        
-        catch(Exception ex){
+        } catch (Exception ex) {
             ErrorView.display("MainMenuView", ex.getMessage());
         }
     }
@@ -145,6 +149,11 @@ public class GameMenuView extends View {
 
         HelpMenuView helpMenuView = new HelpMenuView();
         helpMenuView.display();
+    }
+
+    private void printTributeList() {
+        PrintTributeListView printTributeList = new PrintTributeListView();
+        printTributeList.display();
     }
 
 }
