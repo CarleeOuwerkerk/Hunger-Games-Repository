@@ -72,8 +72,6 @@ public class StartProgramView{
                 + "\n*                                                          *"
                 + "\n* May the odds be ever in your favour!                     *"
                 + "\n*                                                          *"
-                + "\n************************************************************"
-                + "\n* Please enter your name.                                  *"
                 + "\n************************************************************");
     }
 
@@ -89,7 +87,7 @@ public class StartProgramView{
             try {
                 playersName = this.keyboard.readLine();
             } catch (IOException ex) {
-                Logger.getLogger(StartProgramView.class.getName()).log(Level.SEVERE, null, ex);
+               System.out.println("I/O Error: " + ex.getMessage());
             }
             playersName = playersName.trim();
 

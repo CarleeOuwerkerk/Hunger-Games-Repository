@@ -84,27 +84,48 @@ public class MapControl {
         locations[5][5].setScene(Scene.mountain);
     }
 
-    public static int movePlayerToLocation(Player player, Point coordinates)
+    public static Location movePlayerToLocation(Player player, Point coordinates)
             throws MapControlException {
 
-        Map map = HungerGames.getCurrentGame().getMap();
+//        Map map = HungerGames.getCurrentGame().getMap();
         int newRow = coordinates.x - 1;
         int newColumn = coordinates.y - 1;
 
-       // Ask end user for location where they want to move
-       // compare the desired location to locations available, based on rows and columns in map
-       // move player to location desired, if within bounds of map
-       // if not within bounds display error
-       // collect scene, items and option to explore in desired location
-       // display that the player successfully moved to new location
-        
-        if (newRow < 0 || newRow >= map.getNoOfRows() || newColumn < 0 || newColumn >= map.getNoOfColumns()) {
-            throw new MapControlException("Cannot move player to location."
-                    + coordinates.x + ", " + coordinates.y
-                    + " because that location is outside "
-                    + "the bounds of the map.");
+        // get map (location)
+        Location[][] locations = HungerGames.getCurrentGame().getMap().getLocations();
+
+        // if player == null, throw MapControlException
+        if (player == null) {
+            throw new MapControlException("Player is null");
         }
-        return 0;
+
+        //if coordinates x and y > 5 or < 0 throw exception
+        if (coordinates.x > locations.length - 1 || coordinates.y > locations[0].length - 1 || coordinates.x < 0 || coordinates.y < 0) {
+            throw new MapControlException("Location is out of map boundaries");
+        }
+
+        Location targetLocation = locations[coordinates.x][coordinates.y];
+
+        //move out of current location
+        player.getLocation().setPlayer(null);
+
+        //put in new location[coordinates.x][coordinates.y]
+        targetLocation.setPlayer(player);
+
+        // Assign new location to player
+        player.setLocation(targetLocation);
+
+        //return the new location
+        return targetLocation;
+
+//        if (newRow < 0 || newRow >= map.getNoOfRows() || newColumn < 0 || newColumn >= map.getNoOfColumns()) {
+//            throw new MapControlException("Cannot move player to location."
+//                    + coordinates.x + ", " + coordinates.y
+//                    + " because that location is outside "
+//                    + "the bounds of the map.");
+//        }
+//        return 0;
+//    }
     }
 
 }

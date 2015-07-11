@@ -78,6 +78,8 @@ public class InventoryMenuView extends View {
             case "RO":
                 this.view();
                 break;
+            case "P":
+                this.printInventoryList();
             case "B":
                 return false;
             default:
@@ -115,15 +117,20 @@ public class InventoryMenuView extends View {
         return item;
     }
 
+    private void printInventoryList() {
+        PrintInventoryView printInventory = new PrintInventoryView();
+        printInventory.display();
+    }
+
     class ViewItem extends View {
 
         public ViewItem(String promptMessage) {
             super("\n\n********************************************"
                     + "\n* Do you wish to use or discard item?    *"
-                    + "\n*                                          *"
+                    + "\n*                                        *"
                     + "\n* U- Use                                 *"
-                    + "\n* D- Discard                               *"
-                    + "\n* B- Back                                  *"
+                    + "\n* D- Discard                             *"
+                    + "\n* B- Back                                *"
                     + "\n********************************************");
         }
 

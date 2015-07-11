@@ -29,8 +29,8 @@ public class GameMenuView extends View {
                 + "\nR - Remaining Tributes"
                 + "\nS - Save Game"
                 + "\nH - Help"
-                + "\nQ - Quit"
                 + "\nP - Print Tribute List"
+                + "\nQ - Quit"
                 + "\n----------------------------------------------");
 
     }

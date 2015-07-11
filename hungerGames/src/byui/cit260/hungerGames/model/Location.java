@@ -18,9 +18,11 @@ public class Location implements Serializable {
     private boolean visited;
     private boolean trap;
 
+
     private Scene scene;
     private Item item;
     private Tribute tribute;
+    private Player player = null;
 
     public Location() {
     }
@@ -80,6 +82,16 @@ public class Location implements Serializable {
     public void setItem(Item item) {
         this.item = item;
     }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+    
+    
 
     @Override
     public String toString() {

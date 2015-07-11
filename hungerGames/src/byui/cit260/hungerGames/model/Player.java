@@ -17,6 +17,8 @@ public class Player implements Serializable {
     private String name;
 
     private Tribute tribute;
+    
+    private Location location = null;
 
     public Player() {
     }
@@ -37,15 +39,25 @@ public class Player implements Serializable {
         this.tribute = tribute;
     }
 
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
     @Override
     public String toString() {
-        return "Player{" + "name=" + name + '}';
+        return "Player{" + "name=" + name + ", tribute=" + tribute + ", location=" + location + '}';
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 17 * hash + Objects.hashCode(this.name);
+        int hash = 5;
+        hash = 43 * hash + Objects.hashCode(this.name);
+        hash = 43 * hash + Objects.hashCode(this.tribute);
+        hash = 43 * hash + Objects.hashCode(this.location);
         return hash;
     }
 
@@ -61,7 +73,14 @@ public class Player implements Serializable {
         if (!Objects.equals(this.name, other.name)) {
             return false;
         }
+        if (this.tribute != other.tribute) {
+            return false;
+        }
+        if (!Objects.equals(this.location, other.location)) {
+            return false;
+        }
         return true;
     }
-
+    
+  
 }

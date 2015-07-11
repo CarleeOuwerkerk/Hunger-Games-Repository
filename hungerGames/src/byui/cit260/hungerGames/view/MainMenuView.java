@@ -34,15 +34,19 @@ public class MainMenuView extends View {
 
         switch (selection) {
             case 'N':
+            case 'n':
                 this.startNewGame();
                 break;
             case 'C':
+            case 'c':
                 this.continueExistingGame();
                 break;
             case 'H':
+            case 'h':
                 this.displayHelpMenu();
                 break;
             case 'Q':
+            case 'q':
                 return false;
             default:
                 ErrorView.display(this.getClass().getName(), "\n*** Invalid selection, please try again. ***");

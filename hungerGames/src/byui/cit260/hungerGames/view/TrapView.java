@@ -61,16 +61,15 @@ public class TrapView extends View {
             if (TrapControl.calculateAngle(8, 6, guess)) {
                 this.console.println("\n Trap was SUCESSFUL!");
                 return true;
+//                break;
             } else {
                 ErrorView.display(this.getClass().getName(), "\n Invalid number, please try again.");
                 return false;
             }
         } catch (TrapControlException te) {
             this.console.println(te.getMessage());
-
-            return false;
+            return true;
         }
-
     }
 
 }
