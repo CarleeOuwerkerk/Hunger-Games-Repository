@@ -26,7 +26,9 @@ public class InventoryMenuView extends View {
         promptMessage = "\n"
                 + "\n----------------------------------------------"
                 + "\n| Inventory Menu                              |"
-                + "\n----------------------------------------------";
+                + "\n----------------------------------------------"
+                + "\nP-PrintInventory List                         "
+                + "\nB- Back                                       ";
 
         Item[] items = sortItem();
 
