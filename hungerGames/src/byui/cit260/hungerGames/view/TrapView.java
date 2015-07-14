@@ -28,31 +28,6 @@ public class TrapView extends View {
                 + "\n \n What is the slant?");
     }
 
-//
-//    private String getInput() {
-//        boolean valid = false;
-//        String menuItem = "";
-//
-//        while (!valid) {
-//
-//            this.console.println("What is the slant?");
-//
-//            try {
-//                menuItem = this.keyboard.readLine();
-//            } catch (IOException ex) {
-//                Logger.getLogger(TrapView.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//            menuItem = menuItem.trim();
-//
-//            if (menuItem.length() < 1) {
-//                this.console.println("Invalid selection, please try again.");
-//                continue;
-//            }
-//            break;
-//        }
-//
-//        return menuItem;
-//    }
     @Override
     public boolean doAction(Object obj) {
         String choice = (String) obj;

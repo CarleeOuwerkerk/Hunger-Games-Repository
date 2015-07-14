@@ -61,6 +61,7 @@ public abstract class View implements ViewInterface {
 
                 menuItem = this.keyboard.readLine();
                 menuItem = menuItem.trim();
+                menuItem = menuItem.toUpperCase();
 
                 if (menuItem.length() < 1) {
                     ErrorView.display(this.getClass().getName(), "Invalid option, please try again");

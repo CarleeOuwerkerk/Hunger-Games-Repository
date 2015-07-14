@@ -88,8 +88,8 @@ public class MapControl {
             throws MapControlException {
 
 //        Map map = HungerGames.getCurrentGame().getMap();
-        int newRow = coordinates.x - 1;
-        int newColumn = coordinates.y - 1;
+//        int newRow = coordinates.x - 1;
+//        int newColumn = coordinates.y - 1;
 
         // get map (location)
         Location[][] locations = HungerGames.getCurrentGame().getMap().getLocations();

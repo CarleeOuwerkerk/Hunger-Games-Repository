@@ -44,7 +44,6 @@ public class GameMenuView extends View {
     public boolean doAction(Object obj) {
 
         String selection = (String) obj;
-        selection = selection.toUpperCase();
 
         switch (selection) {
             case "I":
