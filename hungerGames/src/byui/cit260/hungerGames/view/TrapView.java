@@ -45,6 +45,10 @@ public class TrapView extends View {
             this.console.println(te.getMessage());
             return true;
         }
+        
+    // display that meat was added successfully
+    
+    // return end user to GameMenuView
     }
 
 }

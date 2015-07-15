@@ -10,5 +10,7 @@ package byui.cit260.hungerGames.control;
  * @author Carlee Ouwerkerk
  */
 public class ExploreControl {
+    
+
 
 }

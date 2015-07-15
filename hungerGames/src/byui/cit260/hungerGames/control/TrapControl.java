@@ -34,4 +34,11 @@ public class TrapControl {
         }
 
     }
-}
+    
+    // if trap was successful add meat to inventory
+    
+    // get inventory
+    
+    // add meat to inventory
+    
+} 
