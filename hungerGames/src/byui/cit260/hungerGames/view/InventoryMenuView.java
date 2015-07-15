@@ -28,7 +28,9 @@ public class InventoryMenuView extends View {
                 + "\n| Inventory Menu                              |"
                 + "\n----------------------------------------------"
                 + "\nP-PrintInventory List                         "
-                + "\nB- Back                                       ";
+                + "\n----------------------------------------------"
+                + "\nB- Back                                       "
+                + "\n----------------------------------------------";
 
         Item[] items = sortItem();
 

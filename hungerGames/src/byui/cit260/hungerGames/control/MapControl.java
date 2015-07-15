@@ -84,8 +84,7 @@ public class MapControl {
         locations[5][5].setScene(Scene.mountain);
     }
 
-    public static Location movePlayerToLocation(Player player, Point coordinates)
-            throws MapControlException {
+    public static Location movePlayerToLocation(Player player, Point coordinates) throws MapControlException {
 
 //        Map map = HungerGames.getCurrentGame().getMap();
         int newRow = coordinates.x - 1;
