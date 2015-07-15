@@ -32,13 +32,6 @@ public class MapView extends View {
     @Override
     public boolean doAction(Object obj) {
         
-        
-        // ask user for desired location
-        // user inputs desired location
-        // compare desired location to map boundaries
-        // move player to desired location
-        // display that move was successful
-        
         String input = (String) obj;
 
         switch (input) {

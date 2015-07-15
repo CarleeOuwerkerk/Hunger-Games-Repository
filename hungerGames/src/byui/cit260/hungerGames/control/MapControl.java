@@ -6,12 +6,10 @@
 package byui.cit260.hungerGames.control;
 
 import byui.cit260.hungerGames.exceptions.MapControlException;
-import byui.cit260.hungerGames.model.Game;
 import byui.cit260.hungerGames.model.Location;
 import byui.cit260.hungerGames.model.Map;
 import byui.cit260.hungerGames.model.Player;
 import byui.cit260.hungerGames.model.Scene;
-import byui.cit260.hungerGames.model.Tribute;
 import hungergames.HungerGames;
 import java.awt.Point;
 
@@ -28,20 +26,7 @@ public class MapControl {
 
         return map;
     }
-//
-//    public static int moveTributesToStartingLocation(Map map) {
-//        
-//        Tribute[] tributes = Tribute.values();
-//        
-//        for (Tribute player : tributes) {
-//            Point coordinates = Tribute.getLocation();
-//            int returnValue = MapControl.movePlayerToLocation(player, coordinates);
-//            if (returnValue < 0){
-//                return returnValue;
-//            }
-//        }
-//        return 0;
-//    }
+
 
     private static void assignScenesToLocations(Map map) {
         Location[][] locations = map.getLocations();
@@ -86,9 +71,6 @@ public class MapControl {
 
     public static Location movePlayerToLocation(Player player, Point coordinates) throws MapControlException {
 
-//        Map map = HungerGames.getCurrentGame().getMap();
-//        int newRow = coordinates.x - 1;
-//        int newColumn = coordinates.y - 1;
 
         // get map (location)
         Location[][] locations = HungerGames.getCurrentGame().getMap().getLocations();
@@ -116,15 +98,7 @@ public class MapControl {
 
         //return the new location
         return targetLocation;
-
-//        if (newRow < 0 || newRow >= map.getNoOfRows() || newColumn < 0 || newColumn >= map.getNoOfColumns()) {
-//            throw new MapControlException("Cannot move player to location."
-//                    + coordinates.x + ", " + coordinates.y
-//                    + " because that location is outside "
-//                    + "the bounds of the map.");
-//        }
-//        return 0;
-//    }
+        
     }
 
 }
