@@ -34,8 +34,6 @@ public class GameControl {
         game.setMap(map);
 
         player.setLocation(map.getLocations()[0][0]);
-    
-
  
     }
 

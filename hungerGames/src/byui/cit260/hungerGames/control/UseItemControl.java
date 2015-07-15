@@ -16,7 +16,6 @@ import static byui.cit260.hungerGames.model.Item.water;
 import byui.cit260.hungerGames.model.Player;
 import byui.cit260.hungerGames.view.GameMenuView;
 
-
 /**
  *
  * @author Zack
@@ -24,16 +23,14 @@ import byui.cit260.hungerGames.view.GameMenuView;
 public class UseItemControl {
 
     public static void useItem(double stats, int amount, String description) {
-        
+
         //change stats
         Player player = new Player();
         double skillPoints = player.getSkillPoints();
-        
+
         double newStats = skillPoints + stats;
-        
-        //change amount
-        
-        
+
+        //change amount in inventory
         switch (description) {
             case "Fruit":
                 fruit.amount = fruit.getAmount() - 1;
@@ -61,11 +58,10 @@ public class UseItemControl {
                 break;
         }
 
-        
         System.out.println("Your skill points are now " + newStats);
-        
+
         GameMenuView gameMenuView = new GameMenuView();
         gameMenuView.display();
-        
+
     }
 }

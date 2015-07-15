@@ -7,6 +7,8 @@ package byui.cit260.hungerGames.view;
 
 import byui.cit260.hungerGames.control.GameControl;
 import byui.cit260.hungerGames.model.Location;
+import byui.cit260.hungerGames.model.Player;
+import byui.cit260.hungerGames.model.Scene;
 import byui.cit260.hungerGames.model.Tribute;
 import hungergames.HungerGames;
 import java.io.IOException;
@@ -24,6 +26,7 @@ public class GameMenuView extends View {
                 + "\n| Game Play Menu                             |"
                 + "\n----------------------------------------------"
                 + "\nI - Inventory"
+                + "\nE - Explore Location"
                 + "\nT - Set Trap"
                 + "\nM - Map"
                 + "\nR - Remaining Tributes"
@@ -48,6 +51,9 @@ public class GameMenuView extends View {
         switch (selection) {
             case "I":
                 this.viewInventoryMenu();
+                break;
+            case "E":
+                this.exploreLocation();
                 break;
             case "T":
                 this.setTrap();
@@ -153,6 +159,16 @@ public class GameMenuView extends View {
     private void printTributeList() {
         PrintTributeListView printTributeList = new PrintTributeListView();
         printTributeList.display();
+    }
+
+    private void exploreLocation() {
+        //get user's location to pass to explore view
+        Player player = new Player();
+        Location location = player.getLocation();
+        Scene scene = location.getScene();
+        
+        ExploreView exploreView = new ExploreView(location, scene, null);
+        exploreView.display();
     }
 
 }
