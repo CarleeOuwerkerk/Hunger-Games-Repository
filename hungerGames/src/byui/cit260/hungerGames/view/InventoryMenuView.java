@@ -11,7 +11,6 @@ import static byui.cit260.hungerGames.model.Item.bowAndArrow;
 import static byui.cit260.hungerGames.model.Item.fruit;
 import static byui.cit260.hungerGames.model.Item.knife;
 import static byui.cit260.hungerGames.model.Item.meat;
-import static byui.cit260.hungerGames.model.Item.rope;
 import static byui.cit260.hungerGames.model.Item.spear;
 import static byui.cit260.hungerGames.model.Item.sword;
 import static byui.cit260.hungerGames.model.Item.water;
@@ -56,6 +55,7 @@ public class InventoryMenuView extends View {
 
         int amount;
         double stats;
+        String description;
 
         String selection = (String) obj;
         selection = selection.toUpperCase();
@@ -64,47 +64,50 @@ public class InventoryMenuView extends View {
             case "FR":
                 amount = fruit.getAmount();
                 stats = fruit.getStats();
-                this.view(amount, stats);
+                description = fruit.getDescription();
+                this.view(amount, stats, description);
                 break;
             case "ME":
                 amount = meat.getAmount();
                 stats = meat.getStats();
-                this.view(amount, stats);
+                description = meat.getDescription();
+                this.view(amount, stats, description);
                 break;
             case "WA":
                 amount = water.getAmount();
                 stats = water.getStats();
-                this.view(amount, stats);
+                description = water.getDescription();
+                this.view(amount, stats, description);
                 break;
             case "BA":
                 amount = bat.getAmount();
                 stats = bat.getStats();
-                this.view(amount, stats);
+                description = bat.getDescription();
+                this.view(amount, stats, description);
                 break;
             case "KN":
                 amount = knife.getAmount();
                 stats = knife.getStats();
-                this.view(amount, stats);
+                description = knife.getDescription();
+                this.view(amount, stats, description);
                 break;
             case "SW":
                 amount = sword.getAmount();
                 stats = sword.getStats();
-                this.view(amount, stats);
+                description = sword.getDescription();
+                this.view(amount, stats, description);
                 break;
             case "BO":
                 amount = bowAndArrow.getAmount();
                 stats = bowAndArrow.getStats();
-                this.view(amount, stats);
+                description = bowAndArrow.getDescription();
+                this.view(amount, stats, description);
                 break;
             case "SP":
                 amount = spear.getAmount();
                 stats = spear.getStats();
-                this.view(amount, stats);
-                break;
-            case "RO":
-                amount = rope.getAmount();
-                stats = rope.getStats();
-                this.view(amount, stats);
+                description = spear.getDescription();
+                this.view(amount, stats, description);
                 break;
             case "P":
                 this.printInventoryList();
@@ -117,9 +120,9 @@ public class InventoryMenuView extends View {
         return true;
     }
 
-    private void view(int amount, double stats) {
+    private void view(int amount, double stats, String description) {
 
-        ItemView itemView = new ItemView(amount, stats, null);
+        ItemView itemView = new ItemView(amount, stats, description, null);
         itemView.display();
     }
 

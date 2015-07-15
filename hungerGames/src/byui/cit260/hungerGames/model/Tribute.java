@@ -15,14 +15,14 @@ import java.util.Objects;
  */
 public enum Tribute implements Serializable {
 
-    george("George", 1, 10.0, new Point(3, 3), "Male"),
-    fred("Fred", 2, 10.0, new Point(3, 3), "Male"),
-    bill("Bill", 3, 10.1, new Point(3, 3), "Male"),
-    ted("Ted", 4, 10.1, new Point(3, 3), "Male"),
-    amber("Amber", 5, 10.5, new Point(2, 2), "Female"),
-    ali("Ali", 6, 10.5, new Point(2, 2), "Female"),
-    kate("Kate", 7, 10.5, new Point(2, 2), "Female"),
-    suzy("Suzy", 8, 10.5, new Point(2, 2), "Female");
+    george("George", 1, 5.0, new Point(3, 3), "Male"),
+    fred("Fred", 2, 10.0, new Point(1, 4), "Male"),
+    bill("Bill", 3, 15.1, new Point(2, 5), "Male"),
+    ted("Ted", 4, 20.1, new Point(4, 0), "Male"),
+    amber("Amber", 5, 25.5, new Point(0, 3), "Female"),
+    ali("Ali", 6, 30.5, new Point(5, 2), "Female"),
+    kate("Kate", 7, 35.5, new Point(3, 1), "Female"),
+    suzy("Suzy", 8, 45.0, new Point(5, 0), "Female");
 
     private final String name;
     private final int district;

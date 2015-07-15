@@ -50,10 +50,12 @@ public class MapView extends View {
                     ErrorView.display("MapView", ex.getMessage());
                     return false;
                 }
+                this.console.print("Move was successful.");
+                GameMenuView gameMenu = new GameMenuView();
+                gameMenu.display();
                 return true;
 
         }
-        
 
     }
 

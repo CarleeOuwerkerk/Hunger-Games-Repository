@@ -13,7 +13,11 @@ import byui.cit260.hungerGames.control.UseItemControl;
  */
 public class ItemView extends View {
 
-    public ItemView(int amount, double stats, String promptMessage) {
+    double stats = 0;
+    int amount = 0;
+    String description = null;
+
+    public ItemView(int amount, double stats, String description, String promptMessage) {
 
         super(promptMessage);
 
@@ -26,19 +30,20 @@ public class ItemView extends View {
 
         this.setPromptMessage(promptMessage);
 
+        this.stats = stats;
+        this.amount = amount;
+        this.description = description;
     }
 
     @Override
     public boolean doAction(Object obj) {
-        
-//        double stats = ;
 
         String selectedItem = (String) obj;
         selectedItem = selectedItem.toUpperCase();
 
         switch (selectedItem) {
             case "U":
-//                UseItemControl.useItem(obj, stats);
+                this.useItem();
 
                 break;
             case "B":
@@ -49,5 +54,15 @@ public class ItemView extends View {
         }
 
         return true;
+    }
+
+    private void useItem() {
+
+        if (amount == 0) {
+            this.console.print("You don't have any of this item to use.");
+        } else {
+            UseItemControl.useItem(this.stats, this.amount, this.description);
+        }
+
     }
 }

@@ -5,7 +5,6 @@
  */
 package byui.cit260.hungerGames.model;
 
-import java.awt.Point;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -20,6 +19,8 @@ public class Player implements Serializable {
     private Tribute tribute;
     
     private Location location = null;
+    
+    private double skillPoints = 10.0;
 
     public Player() {
     }
@@ -47,6 +48,16 @@ public class Player implements Serializable {
     public void setLocation(Location location) {
         this.location = location;
     }
+
+    public double getSkillPoints() {
+        return skillPoints;
+    }
+
+    public void setSkillPoints(double skillPoints) {
+        this.skillPoints = skillPoints;
+    }
+    
+    
 
     @Override
     public String toString() {

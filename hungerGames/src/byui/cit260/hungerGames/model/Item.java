@@ -20,8 +20,7 @@ public enum Item implements Serializable {
     knife("Knife", 1.0, 0),
     sword("Sword", 3.0, 0),
     bowAndArrow("Bow & Arrow", 5.0, 1),
-    spear("Spear", 5.0, 0),
-    rope("Rope", 0.0, 0);
+    spear("Spear", 5.0, 0);
 
     //class instance variables
     public String description;
@@ -40,23 +39,14 @@ public enum Item implements Serializable {
         return description;
     }
 
-//    public void setDescription(String description) {
-//        this.description = description;
-//    }
     public double getStats() {
         return stats;
     }
 
-//    public void setStats(int stats) {
-//        this.stats = stats;
-//    }
     public int getAmount() {
         return amount;
     }
 
-//    public void setAmount(int amount) {
-//        this.amount = amount;
-//    }
     @Override
     public String toString() {
         return "Items{" + "description=" + description + ", stats=" + stats + ", amount=" + amount + '}';
@@ -68,35 +58,3 @@ public enum Item implements Serializable {
     }
 
 }
-
-//    @Override
-//    public int hashCode() {
-//        int hash = 7;
-//        hash = 37 * hash + Objects.hashCode(this.description);
-//        hash = 37 * hash + this.stats;
-//        hash = 37 * hash + this.amount;
-//        return hash;
-//    }
-//
-//    @Override
-//    public boolean equals(Object obj) {
-//        if (obj == null) {
-//            return false;
-//        }
-//        if (getClass() != obj.getClass()) {
-//            return false;
-//        }
-//        final Item other = (Item) obj;
-//        if (!Objects.equals(this.description, other.description)) {
-//            return false;
-//        }
-//
-//        if (this.stats != other.stats) {
-//            return false;
-//        }
-//        if (this.amount != other.amount) {
-//            return false;
-//        }
-//        return true;
-//    }
-
