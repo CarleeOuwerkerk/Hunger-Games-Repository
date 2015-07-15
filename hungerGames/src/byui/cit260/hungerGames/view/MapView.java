@@ -40,20 +40,28 @@ public class MapView extends View {
         // display that move was successful
         
         String input = (String) obj;
-        String[] coordinates = input.split(",");
-        String inputOne = coordinates[0];
-        String inputTwo = coordinates[1];
 
-        int row = Integer.parseInt(inputOne);
-        int col = Integer.parseInt(inputTwo);
+        switch (input) {
+            case "B":
+                return false;
+            default:
+                String[] coordinates = input.split(",");
+                String inputOne = coordinates[0];
+                String inputTwo = coordinates[1];
 
-        try {
-            MapControl.movePlayerToLocation(HungerGames.getPlayer(), new Point(row, col));
-        } catch (MapControlException ex) {
-            ErrorView.display("MapView", ex.getMessage());
-            return false;
+                int row = Integer.parseInt(inputOne);
+                int col = Integer.parseInt(inputTwo);
+
+                try {
+                    MapControl.movePlayerToLocation(HungerGames.getPlayer(), new Point(row, col));
+                } catch (MapControlException ex) {
+                    ErrorView.display("MapView", ex.getMessage());
+                    return false;
+                }
+                return true;
+
         }
-        return true;
+        
 
     }
 
