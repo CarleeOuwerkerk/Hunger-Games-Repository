@@ -19,7 +19,7 @@ public enum Item implements Serializable {
     bat("Bat", 1.0, 0),
     knife("Knife", 1.0, 0),
     sword("Sword", 3.0, 0),
-    bowAndArrow("Bow & Arrow", 5.0, 0),
+    bowAndArrow("Bow & Arrow", 5.0, 1),
     spear("Spear", 5.0, 0),
     rope("Rope", 0.0, 0);
 

@@ -51,28 +51,10 @@ public class MapView extends View {
                     return false;
                 }
                 return true;
-            
 
         }
- 
+        
 
     }
-//
-//    private boolean getCoordinates() {
-//        String[] coordinates = input.split(",");
-//        String inputOne = coordinates[0];
-//        String inputTwo = coordinates[1];
-//
-//        int row = Integer.parseInt(inputOne);
-//        int col = Integer.parseInt(inputTwo);
-//
-//        try {
-//            MapControl.movePlayerToLocation(HungerGames.getPlayer(), new Point(row, col));
-//        } catch (MapControlException ex) {
-//            ErrorView.display("MapView", ex.getMessage());
-//            return false;
-//        }
-//        return true;
+
 }
-
-

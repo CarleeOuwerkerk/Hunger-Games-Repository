@@ -15,7 +15,7 @@ import java.io.PrintWriter;
  */
 public abstract class View implements ViewInterface {
 
-    private String promptMessage;
+    String promptMessage;
 
     protected final BufferedReader keyboard = HungerGames.getInFile();
     protected final PrintWriter console = HungerGames.getOutFile();

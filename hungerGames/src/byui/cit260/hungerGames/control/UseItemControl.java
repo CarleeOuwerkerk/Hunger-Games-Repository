@@ -5,7 +5,6 @@
  */
 package byui.cit260.hungerGames.control;
 
-import byui.cit260.hungerGames.exceptions.UseItemException;
 
 /**
  *
@@ -13,7 +12,7 @@ import byui.cit260.hungerGames.exceptions.UseItemException;
  */
 public class UseItemControl {
 
-    public static void useItem(Object obj) throws UseItemException {
-        System.out.println("\n*** Item was not used because you do not have any items ***");
+    public static void useItem(Object obj, double stats) {
+        System.out.println(stats);
     }
 }

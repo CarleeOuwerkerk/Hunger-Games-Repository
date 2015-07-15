@@ -5,13 +5,16 @@
  */
 package byui.cit260.hungerGames.view;
 
-import byui.cit260.hungerGames.control.DiscardItemControl;
-import byui.cit260.hungerGames.control.UseItemControl;
-import byui.cit260.hungerGames.exceptions.DiscardItemException;
-import byui.cit260.hungerGames.exceptions.UseItemException;
 import byui.cit260.hungerGames.model.Item;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import static byui.cit260.hungerGames.model.Item.bat;
+import static byui.cit260.hungerGames.model.Item.bowAndArrow;
+import static byui.cit260.hungerGames.model.Item.fruit;
+import static byui.cit260.hungerGames.model.Item.knife;
+import static byui.cit260.hungerGames.model.Item.meat;
+import static byui.cit260.hungerGames.model.Item.rope;
+import static byui.cit260.hungerGames.model.Item.spear;
+import static byui.cit260.hungerGames.model.Item.sword;
+import static byui.cit260.hungerGames.model.Item.water;
 
 /**
  *
@@ -27,10 +30,12 @@ public class InventoryMenuView extends View {
                 + "\n----------------------------------------------"
                 + "\n| Inventory Menu                              |"
                 + "\n----------------------------------------------"
-                + "\nP-PrintInventory List                         "
-                + "\nB- Back                                       ";
+                + "\nP - PrintInventory List                         "
+                + "\nB - Back                                       ";
 
         Item[] items = sortItem();
+
+        promptMessage += "\n----------------------------------------------";
 
         for (Item item : items) {
             String firstCharacter = item.getDescription().substring(0, 2);
@@ -49,36 +54,57 @@ public class InventoryMenuView extends View {
     @Override
     public boolean doAction(Object obj) {
 
+        int amount;
+        double stats;
+
         String selection = (String) obj;
         selection = selection.toUpperCase();
 
         switch (selection) {
             case "FR":
-                this.view();
+                amount = fruit.getAmount();
+                stats = fruit.getStats();
+                this.view(amount, stats);
                 break;
             case "ME":
-                this.view();
+                amount = meat.getAmount();
+                stats = meat.getStats();
+                this.view(amount, stats);
                 break;
             case "WA":
-                this.view();
+                amount = water.getAmount();
+                stats = water.getStats();
+                this.view(amount, stats);
                 break;
             case "BA":
-                this.view();
+                amount = bat.getAmount();
+                stats = bat.getStats();
+                this.view(amount, stats);
                 break;
             case "KN":
-                this.view();
+                amount = knife.getAmount();
+                stats = knife.getStats();
+                this.view(amount, stats);
                 break;
             case "SW":
-                this.view();
+                amount = sword.getAmount();
+                stats = sword.getStats();
+                this.view(amount, stats);
                 break;
             case "BO":
-                this.view();
+                amount = bowAndArrow.getAmount();
+                stats = bowAndArrow.getStats();
+                this.view(amount, stats);
                 break;
             case "SP":
-                this.view();
+                amount = spear.getAmount();
+                stats = spear.getStats();
+                this.view(amount, stats);
                 break;
             case "RO":
-                this.view();
+                amount = rope.getAmount();
+                stats = rope.getStats();
+                this.view(amount, stats);
                 break;
             case "P":
                 this.printInventoryList();
@@ -91,10 +117,10 @@ public class InventoryMenuView extends View {
         return true;
     }
 
-    private void view() {
+    private void view(int amount, double stats) {
 
-        ViewItem viewItem = new ViewItem("\n Do you want to equip or discard item?");
-        viewItem.display();
+        ItemView itemView = new ItemView(amount, stats, null);
+        itemView.display();
     }
 
     private Item[] sortItem() {
@@ -122,52 +148,6 @@ public class InventoryMenuView extends View {
     private void printInventoryList() {
         PrintInventoryView printInventory = new PrintInventoryView();
         printInventory.display();
-    }
-
-    class ViewItem extends View {
-
-        public ViewItem(String promptMessage) {
-            super("\n\n********************************************"
-                    + "\n* Do you wish to use or discard item?    *"
-                    + "\n*                                        *"
-                    + "\n* U- Use                                 *"
-                    + "\n* D- Discard                             *"
-                    + "\n* B- Back                                *"
-                    + "\n********************************************");
-        }
-
-        @Override
-        public boolean doAction(Object obj) {
-
-            String selectedItem = (String) obj;
-            selectedItem = selectedItem.toUpperCase();
-
-            switch (selectedItem) {
-                case "U": {
-                    try {
-                        UseItemControl.useItem(obj);
-                    } catch (UseItemException ex) {
-                        Logger.getLogger(InventoryMenuView.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-                break;
-                case "D": {
-                    try {
-                        DiscardItemControl.discardItem(obj);
-                    } catch (DiscardItemException ex) {
-                        Logger.getLogger(InventoryMenuView.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-                break;
-                case "B":
-                    return false;
-                default:
-                    ErrorView.display(this.getClass().getName(), "\n*** Invalid selection, please try again. ***");
-                    break;
-            }
-
-            return true;
-        }
     }
 
 }
