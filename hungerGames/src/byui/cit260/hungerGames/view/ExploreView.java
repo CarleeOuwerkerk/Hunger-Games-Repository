@@ -21,29 +21,67 @@ public class ExploreView extends View{
     public ExploreView(Location location, Scene scene, String promptMessage) {
         super(promptMessage);
         
-        promptMessage = "welcome";
+        String description = scene.getDescription();
+        
+        promptMessage = "" + description + "\n\nWould you like to "
+                + "\ncheck this area for items or for tributes?"
+                + "\nI - Items"
+                + "\nT - Tributes"
+                + "\nB - Back";
+        
         
         this.setPromptMessage(promptMessage);
         
         this.location = location;
         this.scene = scene;
-        String description = scene.getDescription();
+        
         
     }
 
     @Override
     public boolean doAction(Object obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String selection = (String) obj;
+        selection = selection.toUpperCase();
+        
+        switch (selection){
+            case "I":
+                this.checkForItems();
+                break;
+            case "T":
+                this.checkForTributes();
+                break;
+            case "B":
+                return false;
+            default:
+                ErrorView.display(this.getClass().getName(), "\n*** Invalid selection, try again. ***");
+                break;
+        }
+        return true;
     }
     
     // For Zack and Carlee to-do:
     // end user will explore the location - done
-    // description of scene will display
-    // location needs to get scene
-    // scene needs to get items available
-    // scene needs to get tribute if applicable
-    // end user has to fight or sneak by if tribute is located
+    // description of scene will display - done, but doesn't work
+    // location needs to get scene - done, but doesn't work
+    // scene needs to get items available - put this into stub function below
+    // scene needs to get tribute if applicable - put this into stub function below
+    // end user has to fight or sneak by if tribute is located - call fighting view in stub function to do this
     // once explore has been done retrun end user to GameMenuView
+
+    private void checkForItems() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void checkForTributes() {
+        //check if there's a tribute in location
+        
+        //if not, print "There are no tributes in this location"
+        
+        //if yes, call fightview
+        FightView fightView = new FightView(null);
+        fightView.display();
+        
+    }
     
     
 }
