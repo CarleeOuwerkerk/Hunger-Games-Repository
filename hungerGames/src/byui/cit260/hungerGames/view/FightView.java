@@ -5,6 +5,11 @@
  */
 package byui.cit260.hungerGames.view;
 
+import byui.cit260.hungerGames.control.FightingControl;
+import byui.cit260.hungerGames.exceptions.FightingControlException;
+import byui.cit260.hungerGames.model.Location;
+import byui.cit260.hungerGames.model.Player;
+import byui.cit260.hungerGames.model.Tribute;
 
 /**
  *
@@ -12,20 +17,32 @@ package byui.cit260.hungerGames.view;
  */
 public class FightView extends View {
 
-    public FightView(String promptMessage) {
-        super("\n"
+    Location location;
+    Tribute tribute;
+    double tributeStats;
+
+    public FightView(Location location, String promptMessage) {
+        super(promptMessage);
+
+        promptMessage = "\n"
                 + "\n----------------------------------------------"
                 + "\n| As you examine your location, you notice   |"
-                + "\n| another tribute. They don't see you,       |"
+                + "\n| another tribute. They don't see you        |"
                 + "\n| however. Their skill point level is +       |"
-                + "\n| skillPointLevel + .  You have the option   |"
+                + "\n|" + tributeStats + ".  You have the option   |"
                 + "\n| to either fight them or to try to sneak    |"
                 + "\n| past them.                                 |"
                 + "\n|                                            |"
                 + "\n| F - I want to fight the other tribute.     |"
                 + "\n| S - I want to try to sneak past.           |"
                 + "\n----------------------------------------------"
-                + "\n \n What do you choose?");
+                + "\n \n What do you choose?";
+
+        this.setPromptMessage(promptMessage);
+
+        this.location = location;
+        this.tribute = location.getTribute();
+        this.tributeStats = tribute.getStats();
     }
 
     @Override
@@ -46,12 +63,34 @@ public class FightView extends View {
     }
 
     private void fightTribute() {
-        System.out.println("*** fightTribute function called ***");
-//        FightingControl.calculateFight(player, tribute);
+        
+        FightingControl fightingControl = new FightingControl();
+        
+        try {
+            fightingControl.calculateFight();
+        } catch (FightingControlException fce) {
+            ErrorView.display("FightView", fce.getMessage());
+        }
+        return;
+
     }
 
     private void sneakPast() {
-        System.out.println("*** sneakPast function called ***");
-//        FightingControl.calculateSneak(player, scene, tribute);
+
+        Player player = new Player();
+        double skillPoints = player.getSkillPoints();
+
+        double environFactor = this.location.getScene().getStats();
+
+        double tributeSkillPoints = this.tribute.getStats();
+
+        FightingControl fightingControl = new FightingControl();
+
+        try {
+            fightingControl.calculateSneak(skillPoints, environFactor, tributeSkillPoints, this.tribute);
+        } catch (FightingControlException fce) {
+            ErrorView.display("FightView", fce.getMessage());
+        }
+        return;
     }
 }
