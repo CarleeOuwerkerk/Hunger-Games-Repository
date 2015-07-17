@@ -6,6 +6,8 @@
 package byui.cit260.hungerGames.control;
 
 import byui.cit260.hungerGames.exceptions.MapControlException;
+import byui.cit260.hungerGames.model.AssignedItem;
+import byui.cit260.hungerGames.model.Item;
 import byui.cit260.hungerGames.model.Location;
 import byui.cit260.hungerGames.model.Map;
 import byui.cit260.hungerGames.model.Player;
@@ -99,6 +101,61 @@ public class MapControl {
         //return the new location
         return targetLocation;
         
+    }
+    
+    public static void assignItemToLocation(Item item) {
+        Location[][] locations = item.getLocations();
+        
+        // create new assigned item
+        AssignedItem waterItem = new AssignedItem(Item.water,1);
+        // set AssignedItem to location
+        locations[0][1].setAssignedItem(waterItem);
+        locations[4][0].setAssignedItem(waterItem);
+        
+         // create new assigned item
+        AssignedItem meatItem = new AssignedItem(Item.meat,2);
+        // set AssignedItem to location
+        locations[0][4].setAssignedItem(meatItem);
+        locations[1][1].setAssignedItem(meatItem);
+        locations[4][4].setAssignedItem(meatItem);
+        
+         // create new assigned item
+        AssignedItem fruitItem = new AssignedItem(Item.fruit,1);
+        // set AssignedItem to location
+        locations[0][3].setAssignedItem(fruitItem);
+        locations[2][0].setAssignedItem(fruitItem);
+        locations[5][1].setAssignedItem(fruitItem);
+        
+        // create new assigned item
+        AssignedItem knifeItem = new AssignedItem(Item.knife,1);
+        // set AssignedItem to location
+        locations[0][2].setAssignedItem(knifeItem);
+        locations[3][1].setAssignedItem(knifeItem);
+        locations[5][5].setAssignedItem(knifeItem);
+        
+        // create new assigned item
+        AssignedItem batItem = new AssignedItem(Item.bat,1);
+        // set AssignedItem to location
+        locations[2][5].setAssignedItem(batItem);
+        locations[3][0].setAssignedItem(batItem);
+        
+        // create new assigned item
+        AssignedItem swordItem = new AssignedItem(Item.sword,1);
+        // set AssignedItem to location
+        locations[1][0].setAssignedItem(swordItem);
+        locations[3][5].setAssignedItem(swordItem);
+        
+        // create new assigned item
+        AssignedItem bowAndArrowItem = new AssignedItem(Item.bowAndArrow,1);
+        // set AssignedItem to location
+        locations[1][3].setAssignedItem(bowAndArrowItem);
+        locations[4][5].setAssignedItem(bowAndArrowItem);
+       
+        // create new assigned item
+        AssignedItem spearItem = new AssignedItem(Item.spear,1);
+        // set AssignedItem to location
+        locations[4][1].setAssignedItem(spearItem);
+        locations[5][4].setAssignedItem(spearItem);
     }
 
 }

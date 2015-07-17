@@ -31,8 +31,7 @@ public class InventoryMenuView extends View {
                 + "\n----------------------------------------------"
                 + "\nP-PrintInventory List                         "
                 + "\n----------------------------------------------"
-                + "\nB- Back                                       "
-                + "\n----------------------------------------------";
+                + "\nB- Back                                       ";
 
         Item[] items = sortItem();
 

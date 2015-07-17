@@ -19,7 +19,7 @@ public class Location implements Serializable {
 
 
     private Scene scene;
-    private Item item;
+    private AssignedItem assignedItem;
     private Tribute tribute;
     private Player player = null;
 
@@ -66,14 +66,15 @@ public class Location implements Serializable {
         this.tribute = tribute;
     }
 
-    public Item getItem() {
-        return item;
+    public AssignedItem getAssignedItem() {
+        return assignedItem;
     }
 
-    public void setItem(Item item) {
-        this.item = item;
+    public void setAssignedItem(AssignedItem assignedItem) {
+        this.assignedItem = assignedItem;
     }
 
+    
     public Player getPlayer() {
         return player;
     }

@@ -32,6 +32,7 @@ public class StartProgramView{
         String playersName = this.getPlayersName();
         //Create a new player
         Player player = ProgramControl.createPlayer(playersName);
+        HungerGames.setPlayer(player);
         //DISPLAY a customized welcome message
         this.displayWelcomeMessage(player);
         //DISPLAY main menu

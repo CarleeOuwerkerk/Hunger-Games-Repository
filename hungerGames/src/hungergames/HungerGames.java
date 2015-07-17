@@ -22,7 +22,8 @@ import java.io.PrintWriter;
 public class HungerGames {
 
     private static Game currentGame = null;
-
+    private static Player player = null;
+    
     private static PrintWriter outFile = null;
     private static BufferedReader inFile = null;
 
@@ -43,7 +44,6 @@ public class HungerGames {
     public static void setPlayer(Player player) {
         HungerGames.player = player;
     }
-    private static Player player = null;
 
     public static void main(String[] args) throws ProgramControlException {
 
