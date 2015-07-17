@@ -13,7 +13,7 @@ import java.io.Serializable;
  */
 public enum Scene implements Serializable {
 
-    start("Start Scene", "You're in a ship taking you to the arena", 0.0, "SS"),
+    start("Start Scene", "You're in a ship taking you to the arena.", 0.0, "SS"),
     sand("Sandy Area", "You look around you, and it's sandy.", -3.0, "SA"),
     forest("Forest Area", "You look around you, and it's a forest.", 5.0, "FO"),
     grass("Grassy Area", "You look around you, and it's grassy.", 4.0, "GR"),

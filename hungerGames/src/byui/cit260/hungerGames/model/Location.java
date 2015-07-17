@@ -17,7 +17,6 @@ public class Location implements Serializable {
     private int column;
     private boolean visited;
 
-
     private Scene scene;
     private AssignedItem assignedItem;
     private Tribute tribute;
@@ -74,7 +73,6 @@ public class Location implements Serializable {
         this.assignedItem = assignedItem;
     }
 
-    
     public Player getPlayer() {
         return player;
     }
@@ -82,8 +80,6 @@ public class Location implements Serializable {
     public void setPlayer(Player player) {
         this.player = player;
     }
-    
-    
 
     @Override
     public String toString() {

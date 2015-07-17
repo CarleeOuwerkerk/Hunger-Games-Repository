@@ -15,7 +15,7 @@ import java.util.Random;
  * @author Carlee Ouwerkerk
  */
 public class FightingControl {
-    
+
     double skillPoints;
     double environFactor;
     double tributeSkillPoints;
@@ -27,12 +27,11 @@ public class FightingControl {
         this.environFactor = environFactor;
         this.tributeSkillPoints = tributeSkillPoints;
         this.tribute = tribute;
-        
+
         //Sneak paramaters
-        if (skillPoints < 0 || skillPoints >= 51) {
+        if (skillPoints < 0) {
             throw new FightingControlException("The player's stats have to be greater "
-                    + "than zero and less than or equal to "
-                    + "fifty-one.");
+                    + "than zero.");
         }                                       // There is no other function calling this function yet, so I 
         // couldn't add any throws or catch statements anywhere else.
 
@@ -73,8 +72,7 @@ public class FightingControl {
         //forced fight paramaters
         if (this.skillPoints < 0 || this.skillPoints >= 51) {
             throw new FightingControlException("The player's stats have to be greater "
-                    + "than zero and less than or equal to "
-                    + "fifty-one.");
+                    + "than zero.");
         }
 
         if (this.tributeSkillPoints < 5 || this.tributeSkillPoints > 45) {
@@ -109,8 +107,7 @@ public class FightingControl {
         //Sneak paramaters
         if (skillPoints < 0 || skillPoints >= 51) {
             throw new FightingControlException("The player's stats have to be greater "
-                    + "than zero and less than or equal to "
-                    + "fifty-one.");
+                    + "than zero.");
         }
 
         if (tributeSkillPoints < 5 || tributeSkillPoints >= 45) {

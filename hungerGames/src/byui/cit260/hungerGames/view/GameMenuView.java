@@ -166,7 +166,7 @@ public class GameMenuView extends View {
         Player player = HungerGames.getPlayer();
         Location location = player.getLocation();
         Scene scene = location.getScene();
-        
+
         ExploreView exploreView = new ExploreView(location, scene, null);
         exploreView.display();
     }

@@ -22,11 +22,11 @@ public class ExploreView extends View {
 
         String description = scene.getDescription();
 
-        promptMessage = "" + description + "\n\nWould you like to "
-                + "\ncheck this area for items or for tributes?"
-                + "\nI - Items"
+        promptMessage = "\n" + description + "\n\nWould you like to check this area for"
+                + "\nitems or for tributes?"
+                + "\n\nI - Items"
                 + "\nT - Tributes"
-                + "\nB - Back";
+                + "\nB - Back\n";
 
         this.setPromptMessage(promptMessage);
 
@@ -64,23 +64,20 @@ public class ExploreView extends View {
     // scene needs to get tribute if applicable - put this into stub function below - done
     // end user has to fight or sneak by if tribute is located - call fighting view in stub function to do this - done
     // once explore has been done retrun end user to GameMenuView
-    
     private void checkForItems() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     private void checkForTributes() {
-        
+
         //check if there's a tribute in location
         //if not, print "There are no tributes in this location"
-        if (location.getTribute() == null){
-            this.console.print("There are no tributes in this location.");
+        if (this.location.getTribute() == null) {
+            this.console.print("\nThere are no tributes in this location.  ");
             return;
-        }
-        
-        //if yes, call fightview
+        } //if yes, call fightview
         else {
-            FightView fightView = new FightView(location, null);
+            FightView fightView = new FightView(this.location, null);
             fightView.display();
             return;
         }

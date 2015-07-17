@@ -34,9 +34,8 @@ public class GameControl {
         game.setMap(map);
 
         player.setLocation(map.getLocations()[0][0]);
- 
-    }
 
+    }
 
     public static void saveGame(Game currentGame, String filePath) throws GameControlException {
         try (FileOutputStream fops = new FileOutputStream(filePath)) {

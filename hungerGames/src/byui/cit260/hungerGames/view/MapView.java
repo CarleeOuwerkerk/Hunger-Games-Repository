@@ -9,8 +9,6 @@ import byui.cit260.hungerGames.control.MapControl;
 import byui.cit260.hungerGames.exceptions.MapControlException;
 import hungergames.HungerGames;
 import java.awt.Point;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -20,15 +18,24 @@ public class MapView extends View {
 
     public MapView() {
         super("\n"
+                + "SS = Start Scene"
+                + "     SA = Sand"
+                + "       FO = Forest"
+                + "       GR = Grass"
+                + "\nMO = Mountain"
+                + "        MA = Marsh"
+                + "      FI = Field"
+                + "        FS = Finish"
+                + "\n"
                 + "\n----------------------------------------------"
                 + "\nPlease enter the coordinates of a location on "
-                + "\nthe map. (row, column)"
+                + "\nthe map. (row,column)"
                 + "\n"
                 + "\nB - Back"
                 + "\n----------------------------------------------");
 
     }
-
+    
     @Override
     public boolean doAction(Object obj) {
         
