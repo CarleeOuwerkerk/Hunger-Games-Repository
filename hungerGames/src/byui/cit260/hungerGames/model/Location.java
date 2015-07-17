@@ -16,7 +16,6 @@ public class Location implements Serializable {
     private int row;
     private int column;
     private boolean visited;
-    private boolean trap;
 
 
     private Scene scene;
@@ -49,14 +48,6 @@ public class Location implements Serializable {
 
     public void setVisited(boolean visited) {
         this.visited = visited;
-    }
-
-    public boolean isTrap() {
-        return trap;
-    }
-
-    public void setTrap(boolean trap) {
-        this.trap = trap;
     }
 
     public Scene getScene() {
@@ -96,7 +87,7 @@ public class Location implements Serializable {
 
     @Override
     public String toString() {
-        return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", trap=" + trap + '}';
+        return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + '}';
     }
 
     @Override
@@ -105,7 +96,6 @@ public class Location implements Serializable {
         hash = 83 * hash + this.row;
         hash = 83 * hash + this.column;
         hash = 83 * hash + (this.visited ? 1 : 0);
-        hash = 83 * hash + (this.trap ? 1 : 0);
         return hash;
     }
 
@@ -125,9 +115,6 @@ public class Location implements Serializable {
             return false;
         }
         if (this.visited != other.visited) {
-            return false;
-        }
-        if (this.trap != other.trap) {
             return false;
         }
         return true;

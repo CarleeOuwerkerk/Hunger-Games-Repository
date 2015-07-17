@@ -6,6 +6,8 @@
 package byui.cit260.hungerGames.control;
 
 import byui.cit260.hungerGames.exceptions.FightingControlException;
+import byui.cit260.hungerGames.model.Tribute;
+import byui.cit260.hungerGames.view.GameMenuView;
 import java.util.Random;
 
 /**
@@ -13,24 +15,36 @@ import java.util.Random;
  * @author Carlee Ouwerkerk
  */
 public class FightingControl {
+    
+    double skillPoints;
+    double environFactor;
+    double tributeSkillPoints;
+    Tribute tribute;
 
-    static public boolean calculateSneak(double player, double scene, double tribute) throws FightingControlException {
+    public boolean calculateSneak(double skillPoints, double environFactor, double tributeSkillPoints, Tribute tribute) throws FightingControlException {
 
+        this.skillPoints = skillPoints;
+        this.environFactor = environFactor;
+        this.tributeSkillPoints = tributeSkillPoints;
+        this.tribute = tribute;
+        
         //Sneak paramaters
-        if (player < 0 || player >= 51) {
+        if (skillPoints < 0 || skillPoints >= 51) {
             throw new FightingControlException("The player's stats have to be greater "
                     + "than zero and less than or equal to "
                     + "fifty-one.");
         }                                       // There is no other function calling this function yet, so I 
         // couldn't add any throws or catch statements anywhere else.
 
-        if (scene < -3 || scene > 3) {
+        if (environFactor < -3 || environFactor > 3) {
             throw new FightingControlException("The environment factor has to be greater "
                     + "than three and less than negative three.");
         }
 
-        if (tribute < 5 || tribute >= 45) {
-            return false;
+        if (tributeSkillPoints < 5 || tributeSkillPoints >= 45) {
+            throw new FightingControlException("The tribute's stats have to be greater "
+                    + "than five and less than or equal to "
+                    + "forty-five.");
         }
 
         Random randomNum1 = new Random();
@@ -40,26 +54,33 @@ public class FightingControl {
         double tributeRandomFactor = randomNum2.nextInt(4);
 
         //Calculate sneak
-        double playerFactor = (player + scene) * playerRandomFactor;
-        double tributeFactor = tribute * tributeRandomFactor;
+        double playerFactor = (skillPoints + environFactor) * playerRandomFactor;
+        double tributeFactor = tributeSkillPoints * tributeRandomFactor;
 
-        //ignore the "if statement is redundant" comment on the left.
         if (playerFactor < tributeFactor) {
+            System.out.println("You weren't careful enough. " + tribute + " spotted you!"
+                    + "\nYou have no choice now, but to fight.");
+            this.calculateForcedFight();
             return false;
         } else {
+
             return true;
         }
     }
 
-    static public boolean calculateForcedFight(double player, double tribute) {
+    public boolean calculateForcedFight() throws FightingControlException {
 
         //forced fight paramaters
-        if (player < 0 || player >= 51) {
-            return false;
+        if (this.skillPoints < 0 || this.skillPoints >= 51) {
+            throw new FightingControlException("The player's stats have to be greater "
+                    + "than zero and less than or equal to "
+                    + "fifty-one.");
         }
 
-        if (tribute < 5 || tribute > 45) {
-            return false;
+        if (this.tributeSkillPoints < 5 || this.tributeSkillPoints > 45) {
+            throw new FightingControlException("The tribute's stats have to be greater "
+                    + "than five and less than or equal to "
+                    + "forty-five.");
         }
 
         // As we make new random numbers with different ranges we should continue with the pattern of randomNum1, randomNum2, randomNum3, etc.
@@ -67,26 +88,35 @@ public class FightingControl {
         double RandomFactor = randomNum1.nextInt(4);
 
         //Calculate forced fight
-        double playerFactor = ((player - 3) * RandomFactor);
-        double tributeFactor = tribute * RandomFactor;
+        double playerFactor = ((skillPoints - 3) * RandomFactor);
+        double tributeFactor = tributeSkillPoints * RandomFactor;
 
         //ignore the "if statement is redundant" comment on the left.
         if (playerFactor < tributeFactor) {
+            System.out.println("You have been killed by " + tribute + "."
+                    + "\n GAME OVER.");
             return false;
         } else {
+            System.out.println("Congratulations!  You have successfully killed " + tribute + " .");
+            GameMenuView gameMenuView = new GameMenuView();
+            gameMenuView.display();
             return true;
         }
     }
 
-    static public boolean calculateFight(double player, double tribute) {
+    public boolean calculateFight() throws FightingControlException {
 
         //Sneak paramaters
-        if (player < 0 || player >= 51) {
-            return false;
+        if (skillPoints < 0 || skillPoints >= 51) {
+            throw new FightingControlException("The player's stats have to be greater "
+                    + "than zero and less than or equal to "
+                    + "fifty-one.");
         }
 
-        if (tribute < 5 || tribute >= 45) {
-            return false;
+        if (tributeSkillPoints < 5 || tributeSkillPoints >= 45) {
+            throw new FightingControlException("The tribute's stats have to be greater "
+                    + "than five and less than or equal to "
+                    + "forty-five.");
         }
 
         // As we make new random numbers with different ranges we should continue with the pattern of randomNum1, randomNum2, randomNum3, etc.
@@ -94,13 +124,18 @@ public class FightingControl {
         double RandomFactor = randomNum1.nextInt(4);
 
         //Calculate sneak
-        double playerFactor = (player + 2) * RandomFactor;
-        double tributeFactor = tribute * RandomFactor;
+        double playerFactor = (skillPoints + 2) * RandomFactor;
+        double tributeFactor = tributeSkillPoints * RandomFactor;
 
         //ignore the "if statement is redundant" comment on the left.
         if (playerFactor < tributeFactor) {
+            System.out.println("You have been killed by " + tribute + "."
+                    + "\n GAME OVER.");
             return false;
         } else {
+            System.out.println("Congratulations!  You have successfully killed " + tribute + " .");
+            GameMenuView gameMenuView = new GameMenuView();
+            gameMenuView.display();
             return true;
         }
     }
