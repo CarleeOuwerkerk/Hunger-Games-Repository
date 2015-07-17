@@ -163,7 +163,7 @@ public class GameMenuView extends View {
 
     private void exploreLocation() {
         //get user's location to pass to explore view
-        Player player = new Player();
+        Player player = HungerGames.getPlayer();
         Location location = player.getLocation();
         Scene scene = location.getScene();
         

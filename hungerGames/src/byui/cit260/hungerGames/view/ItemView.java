@@ -44,7 +44,6 @@ public class ItemView extends View {
         switch (selectedItem) {
             case "U":
                 this.useItem();
-
                 break;
             case "B":
                 return false;

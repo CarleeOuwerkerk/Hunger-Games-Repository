@@ -6,6 +6,7 @@
 package byui.cit260.hungerGames.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  *
@@ -16,7 +17,7 @@ public class Game implements Serializable {
     private Map map;
     private Player player;
 
-    private Item[] itemList = null;
+    private ArrayList<AssignedItem> itemList = new ArrayList<>();
 
     public Game() {
     }
@@ -37,11 +38,11 @@ public class Game implements Serializable {
         this.player = player;
     }
 
-    public Item[] getItemList() {
+    public ArrayList<AssignedItem> getItemList() {
         return itemList;
     }
 
-    public void setItemList(Item[] itemList) {
+    public void setItemList(ArrayList<AssignedItem> itemList) {
         this.itemList = itemList;
     }
 

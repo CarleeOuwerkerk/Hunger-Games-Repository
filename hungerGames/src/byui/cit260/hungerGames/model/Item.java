@@ -57,4 +57,9 @@ public enum Item implements Serializable {
         return 0;
     }
 
+    public Location[][] getLocations() {
+        System.out.println("\n**** I hope this works ***");
+        return null;
+    }
+
 }
