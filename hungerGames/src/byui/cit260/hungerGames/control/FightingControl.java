@@ -6,7 +6,6 @@
 package byui.cit260.hungerGames.control;
 
 import byui.cit260.hungerGames.exceptions.FightingControlException;
-import byui.cit260.hungerGames.model.Tribute;
 import byui.cit260.hungerGames.view.GameMenuView;
 import java.util.Random;
 
@@ -19,14 +18,14 @@ public class FightingControl {
     double skillPoints;
     double environFactor;
     double tributeSkillPoints;
-    Tribute tribute;
+    String tributeName;
 
-    public boolean calculateSneak(double skillPoints, double environFactor, double tributeSkillPoints, Tribute tribute) throws FightingControlException {
+    public boolean calculateSneak(double skillPoints, double environFactor, double tributeSkillPoints, String tributeName) throws FightingControlException {
 
         this.skillPoints = skillPoints;
         this.environFactor = environFactor;
         this.tributeSkillPoints = tributeSkillPoints;
-        this.tribute = tribute;
+        this.tributeName = tributeName;
 
         //Sneak paramaters
         if (skillPoints < 0) {
@@ -40,9 +39,9 @@ public class FightingControl {
                     + "than three and less than negative three.");
         }
 
-        if (tributeSkillPoints < 5 || tributeSkillPoints >= 45) {
+        if (tributeSkillPoints < 4 || tributeSkillPoints > 45) {
             throw new FightingControlException("The tribute's stats have to be greater "
-                    + "than five and less than or equal to "
+                    + "than four and less than or equal to "
                     + "forty-five.");
         }
 
@@ -57,12 +56,15 @@ public class FightingControl {
         double tributeFactor = tributeSkillPoints * tributeRandomFactor;
 
         if (playerFactor < tributeFactor) {
-            System.out.println("You weren't careful enough. " + tribute + " spotted you!"
-                    + "\nYou have no choice now, but to fight.");
+            System.out.println("You weren't careful enough. " + tributeName + " spotted you!"
+                    + "\nYou were forced to fight...");
             this.calculateForcedFight();
             return false;
         } else {
-
+            System.out.println("\nGood work. " + tributeName + " didn't see you.  "
+                    + "You were able to successfully sneak past them.");
+            GameMenuView gameMenuView = new GameMenuView();
+            gameMenuView.display();
             return true;
         }
     }
@@ -75,9 +77,9 @@ public class FightingControl {
                     + "than zero.");
         }
 
-        if (this.tributeSkillPoints < 5 || this.tributeSkillPoints > 45) {
+        if (tributeSkillPoints < 4 || tributeSkillPoints > 45) {
             throw new FightingControlException("The tribute's stats have to be greater "
-                    + "than five and less than or equal to "
+                    + "than four and less than or equal to "
                     + "forty-five.");
         }
 
@@ -91,18 +93,19 @@ public class FightingControl {
 
         //ignore the "if statement is redundant" comment on the left.
         if (playerFactor < tributeFactor) {
-            System.out.println("You have been killed by " + tribute + "."
+            System.out.println("... aaannd you have been killed by " + tributeName + "."
                     + "\n GAME OVER.");
+            System.exit(0);
             return false;
         } else {
-            System.out.println("Congratulations!  You have successfully killed " + tribute + " .");
+            System.out.println("...aaannd congratulations!  You have successfully killed " + tributeName + " .");
             GameMenuView gameMenuView = new GameMenuView();
             gameMenuView.display();
             return true;
         }
     }
 
-    public boolean calculateFight() throws FightingControlException {
+    public boolean calculateFight(double skillPoints, double tributeSkillPoints, String tributeName) throws FightingControlException {
 
         //Sneak paramaters
         if (skillPoints < 0 || skillPoints >= 51) {
@@ -110,9 +113,9 @@ public class FightingControl {
                     + "than zero.");
         }
 
-        if (tributeSkillPoints < 5 || tributeSkillPoints >= 45) {
+        if (tributeSkillPoints < 4 || tributeSkillPoints > 45) {
             throw new FightingControlException("The tribute's stats have to be greater "
-                    + "than five and less than or equal to "
+                    + "than four and less than or equal to "
                     + "forty-five.");
         }
 
@@ -126,11 +129,12 @@ public class FightingControl {
 
         //ignore the "if statement is redundant" comment on the left.
         if (playerFactor < tributeFactor) {
-            System.out.println("You have been killed by " + tribute + "."
+            System.out.println("You have been killed by " + tributeName + "."
                     + "\n GAME OVER.");
+            System.exit(0);
             return false;
         } else {
-            System.out.println("Congratulations!  You have successfully killed " + tribute + " .");
+            System.out.println("Congratulations!  You have successfully killed " + tributeName + " .");
             GameMenuView gameMenuView = new GameMenuView();
             gameMenuView.display();
             return true;

@@ -15,11 +15,11 @@ public enum Scene implements Serializable {
 
     start("Start Scene", "You're in a ship taking you to the arena.", 0.0, "SS"),
     sand("Sandy Area", "You look around you, and it's sandy.", -3.0, "SA"),
-    forest("Forest Area", "You look around you, and it's a forest.", 5.0, "FO"),
-    grass("Grassy Area", "You look around you, and it's grassy.", 4.0, "GR"),
-    mountain("Mountain Area", "You look around you, and it's rocky.", 3.0, "MO"),
+    forest("Forest Area", "You look around you, and it's a forest.", 3.0, "FO"),
+    grass("Grassy Area", "You look around you, and it's grassy.", 2.0, "GR"),
+    mountain("Mountain Area", "You look around you, and it's rocky.", 2.5, "MO"),
     marsh("Marsh Area", "You look around you, and it's marshy.", -2.0, "MA"),
-    field("Field Area", "You look around you, and it's a field.", -4.0, "FI"),
+    field("Field Area", "You look around you, and it's a field.", -1.0, "FI"),
     finish("Finish Scene", "You beat the last tribute!!!", 2.0, "FS");
 
     // class instance variables 

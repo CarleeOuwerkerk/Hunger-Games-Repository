@@ -9,15 +9,8 @@ import byui.cit260.hungerGames.control.FightingControl;
 import byui.cit260.hungerGames.exceptions.FightingControlException;
 import byui.cit260.hungerGames.model.Location;
 import byui.cit260.hungerGames.model.Player;
+import byui.cit260.hungerGames.model.Scene;
 import byui.cit260.hungerGames.model.Tribute;
-import static byui.cit260.hungerGames.model.Tribute.ali;
-import static byui.cit260.hungerGames.model.Tribute.amber;
-import static byui.cit260.hungerGames.model.Tribute.bill;
-import static byui.cit260.hungerGames.model.Tribute.fred;
-import static byui.cit260.hungerGames.model.Tribute.george;
-import static byui.cit260.hungerGames.model.Tribute.kate;
-import static byui.cit260.hungerGames.model.Tribute.suzy;
-import static byui.cit260.hungerGames.model.Tribute.ted;
 
 /**
  *
@@ -29,6 +22,7 @@ public class FightView extends View {
     Tribute tribute;
     double tributeStats;
     String tributeName;
+    Scene scene;
 
     public FightView(Location location, String promptMessage) {
         super(promptMessage);
@@ -37,6 +31,7 @@ public class FightView extends View {
         this.tribute = location.getTribute();
         this.tributeName = tribute.getName();
         this.tributeStats = tribute.getStats();
+        this.scene = location.getScene();
         
         promptMessage = "\n"
                 + "\n-----------------------------------------------"
@@ -76,10 +71,17 @@ public class FightView extends View {
 
     private void fightTribute() {
 
+        Player player = new Player();
+        double skillPoints = player.getSkillPoints();
+
+        double environFactor = this.scene.getStats();
+
+        double tributeSkillPoints = this.tributeStats;
+        
         FightingControl fightingControl = new FightingControl();
 
         try {
-            fightingControl.calculateFight();
+            fightingControl.calculateFight(skillPoints, tributeSkillPoints, this.tributeName);
         } catch (FightingControlException fce) {
             ErrorView.display("FightView", fce.getMessage());
         }
@@ -92,14 +94,14 @@ public class FightView extends View {
         Player player = new Player();
         double skillPoints = player.getSkillPoints();
 
-        double environFactor = this.location.getScene().getStats();
+        double environFactor = this.scene.getStats();
 
-        double tributeSkillPoints = this.tribute.getStats();
+        double tributeSkillPoints = this.tributeStats;
 
         FightingControl fightingControl = new FightingControl();
 
         try {
-            fightingControl.calculateSneak(skillPoints, environFactor, tributeSkillPoints, this.tribute);
+            fightingControl.calculateSneak(skillPoints, environFactor, tributeSkillPoints, this.tributeName);
         } catch (FightingControlException fce) {
             ErrorView.display("FightView", fce.getMessage());
         }

@@ -46,7 +46,7 @@ public class FightingControlTest {
         double skillPoints = 25.0;
         double environFactor = 2.0;
         double tributeSkillPoints = 25.0;
-        Tribute tribute = null;
+        String tributeName = null;
         
         
         boolean expResult = true; // expected output returned value
@@ -55,7 +55,7 @@ public class FightingControlTest {
         FightingControl instance= new FightingControl();
         
         // call function to run test
-        boolean result = instance.calculateSneak(skillPoints, environFactor, tributeSkillPoints, tribute);
+        boolean result = instance.calculateSneak(skillPoints, environFactor, tributeSkillPoints, tributeName);
         
         //compare excepted return value with actual vaule returned
         assertEquals(expResult, result);
@@ -75,7 +75,7 @@ public class FightingControlTest {
          expResult = false; // expected output returned value
         
         // call function to run test
-        result = instance.calculateSneak(skillPoints, environFactor, tributeSkillPoints, tribute);
+        result = instance.calculateSneak(skillPoints, environFactor, tributeSkillPoints, tributeName);
         
         //compare excepted return value with actual vaule returned
         assertEquals(expResult, result);
@@ -95,7 +95,7 @@ public class FightingControlTest {
          expResult = false; // expected output returned value
         
         // call function to run test
-        result = instance.calculateSneak(skillPoints, environFactor, tributeSkillPoints, tribute);
+        result = instance.calculateSneak(skillPoints, environFactor, tributeSkillPoints, tributeName);
         
         //compare excepted return value with actual vaule returned
         assertEquals(expResult, result);
@@ -116,7 +116,7 @@ public class FightingControlTest {
          expResult = false; // expected output returned value
         
         // call function to run test
-        result = instance.calculateSneak(skillPoints, environFactor, tributeSkillPoints, tribute);
+        result = instance.calculateSneak(skillPoints, environFactor, tributeSkillPoints, tributeName);
         
         //compare excepted return value with actual vaule returned
         assertEquals(expResult, result);
@@ -137,7 +137,7 @@ public class FightingControlTest {
          expResult = false; // expected output returned value
         
         // call function to run test
-        result = instance.calculateSneak(skillPoints, environFactor, tributeSkillPoints, tribute);
+        result = instance.calculateSneak(skillPoints, environFactor, tributeSkillPoints, tributeName);
         
         //compare excepted return value with actual vaule returned
         assertEquals(expResult, result);
@@ -158,7 +158,7 @@ public class FightingControlTest {
          expResult = false; // expected output returned value
         
         // call function to run test
-        result = instance.calculateSneak(skillPoints, environFactor, tributeSkillPoints, tribute);
+        result = instance.calculateSneak(skillPoints, environFactor, tributeSkillPoints, tributeName);
         
         //compare excepted return value with actual vaule returned
         assertEquals(expResult, result);
@@ -179,7 +179,7 @@ public class FightingControlTest {
          expResult = false; // expected output returned value
         
         // call function to run test
-        result = instance.calculateSneak(skillPoints, environFactor, tributeSkillPoints, tribute);
+        result = instance.calculateSneak(skillPoints, environFactor, tributeSkillPoints, tributeName);
         
         //compare excepted return value with actual vaule returned
         assertEquals(expResult, result);
