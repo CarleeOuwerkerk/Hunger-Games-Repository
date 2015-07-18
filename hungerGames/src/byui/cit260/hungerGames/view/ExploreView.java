@@ -74,7 +74,7 @@ public class ExploreView extends View {
         else {
             //figure out what item is in location
             
-            //add that item to inventory
+            //add that item to inventory and println to the user that it was successful or not
             
             return;
         }
