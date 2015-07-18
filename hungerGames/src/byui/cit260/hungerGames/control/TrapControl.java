@@ -7,8 +7,10 @@ package byui.cit260.hungerGames.control;
 
 import byui.cit260.hungerGames.exceptions.TrapControlException;
 import byui.cit260.hungerGames.model.AssignedItem;
+import byui.cit260.hungerGames.model.Item;
 import static byui.cit260.hungerGames.model.Item.meat;
 import hungergames.HungerGames;
+import java.util.ArrayList;
 import static jdk.nashorn.internal.objects.NativeString.search;
 
 /**
@@ -33,27 +35,43 @@ public class TrapControl {
         double heightDistance = Math.pow(height, 2) + Math.pow(distance, 2);
         if (heightDistance == Math.pow(angle, 2)) {
          
-//           AssignedItem assignedItem = HungerGames.getPlayer().getLocation().getAssignedItem();
-//            
-//           // get assigned amount
-//           assignedItem.setAmount(assignedItem.getAmount() - 1);
-//    
-//        // get inventory
-//           search ArrayList<AssignedItem> for(meat);
-//           
-//           // if found 
-//            // new assignedlist for meat
-//                //set amount to 1
-//           
-//           //else 
-//                // get assigneditem for meat
-//                    //set amount(currentamount +1)
+           AssignedItem assignedItem = HungerGames.getPlayer().getLocation().getAssignedItem();
+            
+           // get assigned amount
+           assignedItem.setAmount(assignedItem.getAmount() - 1);
+    
+        // get inventory
+          
+           
+//           if inventory was found
+            // new assignedlist for meat
+                //set amount to 1
+           
+//           else 
+                // get assigneditem for meat
+                    //set amount(currentamount +1)
     
             return true;
         } else {
             return false;
         }
 
+    }
+    
+    public static AssignedItem searchList(Item[] items, Item item) {
+        
+        AssignedItem assignedItem = HungerGames.getPlayer().getLocation().getAssignedItem();
+        
+        for(AssignedItem assignedItem : assignedItems) {
+            if(AssignedItem != meat){
+                continue to next item;
+            }
+            else {
+                return assignedItem;  
+            }
+        }
+        
+           
     }
     
 } 

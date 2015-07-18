@@ -65,7 +65,16 @@ public class ExploreView extends View {
     // end user has to fight or sneak by if tribute is located - call fighting view in stub function to do this - done
     // once explore has been done retrun end user to GameMenuView
     private void checkForItems() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         //check if there's an item in location
+        //if not, print "There are no items in this location"
+        if (this.location.getAssignedItem()== null) {
+            this.console.print("\nThere are no items in this location.  ");
+            return;
+        } //if yes, add to inventory
+        else {
+            
+            return;
+        }
     }
 
     private void checkForTributes() {
