@@ -121,7 +121,7 @@ public class FightingControl {
 
         // As we make new random numbers with different ranges we should continue with the pattern of randomNum1, randomNum2, randomNum3, etc.
         Random randomNum1 = new Random();
-        double RandomFactor = randomNum1.nextInt(4);
+        double RandomFactor = randomNum1.nextInt(3);
 
         //Calculate sneak
         double playerFactor = (skillPoints + 2) * RandomFactor;

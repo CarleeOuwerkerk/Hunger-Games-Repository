@@ -11,8 +11,7 @@ import byui.cit260.hungerGames.model.Player;
 import byui.cit260.hungerGames.model.Scene;
 import byui.cit260.hungerGames.model.Tribute;
 import hungergames.HungerGames;
-import java.io.IOException;
-import java.io.PrintWriter;
+
 
 /**
  *
