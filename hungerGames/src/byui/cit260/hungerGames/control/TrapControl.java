@@ -58,20 +58,18 @@ public class TrapControl {
 
     }
     
-    public static AssignedItem searchList(Item[] items, Item item) {
-        
-        AssignedItem assignedItem = HungerGames.getPlayer().getLocation().getAssignedItem();
-        
-        for(AssignedItem assignedItem : assignedItems) {
-            if(AssignedItem != meat){
-                continue to next item;
-            }
-            else {
-                return assignedItem;  
-            }
-        }
-        
-           
-    }
+//    public static AssignedItem searchList(Item[] assignedItems, Item item) {
+//        
+////        AssignedItem assignedItem = HungerGames.getPlayer().getLocation().getAssignedItem();
+////        
+////        for(Item Item : assignedItems) {
+////            if(item.Item != meat) {
+////                return assignedItem;
+////            }
+////        }
+////        else {
+////                return null;
+////                }
+////    }
     
 } 
