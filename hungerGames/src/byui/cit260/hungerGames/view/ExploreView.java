@@ -72,6 +72,9 @@ public class ExploreView extends View {
             return;
         } //if yes, add to inventory
         else {
+            //figure out what item is in location
+            
+            //add that item to inventory
             
             return;
         }
