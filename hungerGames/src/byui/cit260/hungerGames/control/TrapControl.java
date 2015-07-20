@@ -8,10 +8,8 @@ package byui.cit260.hungerGames.control;
 import byui.cit260.hungerGames.exceptions.TrapControlException;
 import byui.cit260.hungerGames.model.AssignedItem;
 import byui.cit260.hungerGames.model.Item;
-import static byui.cit260.hungerGames.model.Item.meat;
 import hungergames.HungerGames;
 import java.util.ArrayList;
-import static jdk.nashorn.internal.objects.NativeString.search;
 
 /**
  *
@@ -19,8 +17,37 @@ import static jdk.nashorn.internal.objects.NativeString.search;
  */
 public class TrapControl {
 
+    public static boolean checkTrap(int height, int distance, int angle) throws TrapControlException {
+
+        // check to see if trap was successful by calling the calculateAngle function
+        TrapControl.calculateAngle(height, distance, angle);
+        boolean successful = calculateAngle(height, distance, angle);
+
+        if (successful) {
+
+            // call searchList function for meat
+            TrapControl.searchList(HungerGames.getCurrentGame().itemList, Item.meat);
+            AssignedItem meatItem = searchList(HungerGames.getCurrentGame().itemList, Item.meat);
+
+            if (meatItem == null) {
+                // add new assignedItem to inventory for meat
+                meatItem = new AssignedItem(Item.meat, 1);
+            } else {
+                // add 1 meat to current amount of assignedItem
+//                AssignedItem assignedItem = HungerGames.getPlayer().getLocation().getAssignedItem();
+//                meatItem = assignedItem.setAmount(assignedItem.getAmount() + 1);
+            }
+            return true;
+            
+        } else {
+            
+            return false;
+            
+        }
+    }
+
     static public boolean calculateAngle(int height, int distance, int angle) throws TrapControlException {
-        
+
         if (height != 8) {
             throw new TrapControlException("The height must be equal to eight.");
         }
@@ -32,59 +59,24 @@ public class TrapControl {
         if (angle != 10) {
             return false;
         }
-        //I think we should change it so meat is in every location, that way you can set a trap anywhere
-        //or, this may make thing easier, we could make it so there is ininity meat in every location
-        //that way, we wouldn't have to check if there was meat.  This would make it easy to cheat, but
-        //who's going to be really playing this?
-        
-        //we need something  here to check if there is an assigned meat item in this location.
-        //if there isn't, we should println(You have already set a trap here) and return to the game menu
-        //if there is meat available, we should proceed with this function
+
         double heightDistance = Math.pow(height, 2) + Math.pow(distance, 2);
         if (heightDistance == Math.pow(angle, 2)) {
-         
-            //We need to subtract one from the assigned meat item
-           AssignedItem assignedItem = HungerGames.getPlayer().getLocation().getAssignedItem();
-            
-           //I'm not sure what this is doing
-           // get assigned amount
-           assignedItem.setAmount(assignedItem.getAmount() - 1);
-    
-        // get inventory
-           
-           //this will add meat to inventory from the trap
-           meat.amount = meat.getAmount() + 1;
-          
-           
-           //again, I'm not sure what this is doing
-//           if inventory was found
-            // new assignedlist for meat
-                //set amount to 1
-           
-           //or what this is for
-//           else 
-                // get assigneditem for meat
-                    //set amount(currentamount +1)
-    
             return true;
         } else {
             return false;
         }
 
     }
-    
-//    public static AssignedItem searchList(Item[] assignedItems, Item item) {
-//        
-////        AssignedItem assignedItem = HungerGames.getPlayer().getLocation().getAssignedItem();
-////        
-////        for(Item Item : assignedItems) {
-////            if(item.Item != meat) {
-////                return assignedItem;
-////            }
-////        }
-////        else {
-////                return null;
-////                }
-////    }
-    
-} 
+
+    public static AssignedItem searchList(ArrayList<AssignedItem> assignedItems, Item item) {
+
+        for (int i = 0; i < assignedItems.size(); i++) {
+            if (assignedItems.get(i).getItem().equals(item)) {
+                return assignedItems.get(i);
+            }
+
+        }
+        return null;
+    }
+}

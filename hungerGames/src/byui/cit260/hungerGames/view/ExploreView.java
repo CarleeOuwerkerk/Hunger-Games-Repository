@@ -5,8 +5,10 @@
  */
 package byui.cit260.hungerGames.view;
 
+import byui.cit260.hungerGames.model.AssignedItem;
 import byui.cit260.hungerGames.model.Location;
 import byui.cit260.hungerGames.model.Scene;
+import hungergames.HungerGames;
 
 /**
  *
@@ -67,15 +69,17 @@ public class ExploreView extends View {
     private void checkForItems() {
          //check if there's an item in location
         //if not, print "There are no items in this location"
-        if (this.location.getAssignedItem()== null) {
+        if (HungerGames.getPlayer().getLocation().getAssignedItem() == null) {
             this.console.print("\nThere are no items in this location.  ");
             return;
         } //if yes, add to inventory
         else {
             //figure out what item is in location
+            AssignedItem assignedItem = HungerGames.getPlayer().getLocation().getAssignedItem();
             
             //add that item to inventory and println to the user that it was successful or not
-            
+            assignedItem.setAmount(assignedItem.getAmount() + 1);
+            this.console.print("\n " +  " was added to your inventory.");
             return;
         }
     }

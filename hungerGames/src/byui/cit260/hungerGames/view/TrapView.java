@@ -33,8 +33,10 @@ public class TrapView extends View {
         String choice = (String) obj;
         try {
             int guess = Integer.parseInt(choice);
-            if (TrapControl.calculateAngle(8, 6, guess)) {
-                this.console.println("\n Trap was SUCESSFUL!");
+            if (TrapControl.checkTrap(8, 6, guess)) {
+                this.console.println("\n Trap was SUCESSFUL! Meat was added to your inventory");
+                GameMenuView gameMenuView = new GameMenuView();
+                gameMenuView.display();
                 return true;
 //                break;
             } else {
@@ -46,9 +48,8 @@ public class TrapView extends View {
             return true;
         }
         
-    // display that meat was added successfully
     
-    // return end user to GameMenuView
+    
     }
 
 }
