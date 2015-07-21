@@ -27,15 +27,17 @@ public class TrapControl {
 
             // call searchList function for meat
             TrapControl.searchList(HungerGames.getCurrentGame().itemList, Item.meat);
-            AssignedItem meatItem = searchList(HungerGames.getCurrentGame().itemList, Item.meat);
+            ArrayList<AssignedItem> itemList = HungerGames.getCurrentGame().getItemList();
+            
+            AssignedItem meatItem = searchList(itemList, Item.meat);
 
             if (meatItem == null) {
                 // add new assignedItem to inventory for meat
                 meatItem = new AssignedItem(Item.meat, 1);
+                itemList.add(meatItem);
             } else {
                 // add 1 meat to current amount of assignedItem
-//                AssignedItem assignedItem = HungerGames.getPlayer().getLocation().getAssignedItem();
-//                meatItem = assignedItem.setAmount(assignedItem.getAmount() + 1);
+                meatItem.setAmount(meatItem.getAmount() + 1);
             }
             return true;
             
@@ -71,11 +73,10 @@ public class TrapControl {
 
     public static AssignedItem searchList(ArrayList<AssignedItem> assignedItems, Item item) {
 
-        for (int i = 0; i < assignedItems.size(); i++) {
-            if (assignedItems.get(i).getItem().equals(item)) {
-                return assignedItems.get(i);
+        for (AssignedItem assignedItem : assignedItems) {
+            if (assignedItem.getItem().equals(item)) {
+                return assignedItem;
             }
-
         }
         return null;
     }

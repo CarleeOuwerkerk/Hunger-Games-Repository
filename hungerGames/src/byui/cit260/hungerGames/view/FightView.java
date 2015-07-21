@@ -32,7 +32,7 @@ public class FightView extends View {
         this.tributeName = tribute.getName();
         this.tributeStats = tribute.getStats();
         this.scene = location.getScene();
-        
+
         promptMessage = "\n"
                 + "\n-----------------------------------------------"
                 + "\n As you examine your location, you notice    "
@@ -49,7 +49,7 @@ public class FightView extends View {
                 + "\n \n What do you choose?";
 
         this.setPromptMessage(promptMessage);
-  
+
     }
 
     @Override
@@ -77,11 +77,12 @@ public class FightView extends View {
         double environFactor = this.scene.getStats();
 
         double tributeSkillPoints = this.tributeStats;
-        
+
         FightingControl fightingControl = new FightingControl();
 
         try {
             fightingControl.calculateFight(skillPoints, tributeSkillPoints, this.tributeName);
+            this.console.println("Congratulations!  You have successfully killed " + tributeName + " .");
         } catch (FightingControlException fce) {
             ErrorView.display("FightView", fce.getMessage());
         }
@@ -105,6 +106,9 @@ public class FightView extends View {
         } catch (FightingControlException fce) {
             ErrorView.display("FightView", fce.getMessage());
         }
+        GameMenuView gameMenuView = new GameMenuView();
+        gameMenuView.display();
+
         return;
     }
 }

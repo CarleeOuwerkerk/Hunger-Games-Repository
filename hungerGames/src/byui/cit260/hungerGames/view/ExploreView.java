@@ -5,11 +5,13 @@
  */
 package byui.cit260.hungerGames.view;
 
+import byui.cit260.hungerGames.control.TrapControl;
 import byui.cit260.hungerGames.model.AssignedItem;
 import byui.cit260.hungerGames.model.Item;
 import byui.cit260.hungerGames.model.Location;
 import byui.cit260.hungerGames.model.Scene;
 import hungergames.HungerGames;
+import java.util.ArrayList;
 
 /**
  *
@@ -68,21 +70,30 @@ public class ExploreView extends View {
     // end user has to fight or sneak by if tribute is located - call fighting view in stub function to do this - done
     // once explore has been done retrun end user to GameMenuView
     private void checkForItems() {
-         //check if there's an item in location
+
+        AssignedItem assignedItem = HungerGames.getPlayer().getLocation().getAssignedItem();
+
+        //check if there's an item in location
         //if not, print "There are no items in this location"
-        if (HungerGames.getPlayer().getLocation().getAssignedItem() == null) {
+        if (assignedItem == null) {
             this.console.print("\nThere are no items in this location.  ");
             return;
         } //if yes, add to inventory
-        else {
-            //figure out what item is in location
-            AssignedItem assignedItem = HungerGames.getPlayer().getLocation().getAssignedItem();
-            
-            //add that item to inventory and println to the user that it was successful or not
-            assignedItem.setAmount(assignedItem.getAmount() + 1);
-            this.console.print("\nAn Item was added to your inventory.");
-            return;
+
+        // call the searchList function to find out if this type of itm is in inventory list.
+        ArrayList<AssignedItem> itemList = HungerGames.getCurrentGame().getItemList();
+
+        AssignedItem aItem = TrapControl.searchList(itemList, assignedItem.getItem());
+
+        if (aItem == null) {
+            aItem = new AssignedItem(assignedItem.getItem(), 1);
+            itemList.add(aItem);
+        } else {
+            aItem.setAmount(aItem.getAmount() + 1);
         }
+
+        this.console.print("\n" + aItem.getItem().getDescription() + " was added to your inventory.");
+
     }
 
     private void checkForTributes() {

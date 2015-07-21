@@ -23,9 +23,9 @@ public enum Item implements Serializable {
     spear("Spear", 5.0, 6);
 
     //class instance variables
-    public String description;
-    public double stats;
-    public int amount;
+    private String description;
+    private double stats;
+    private int amount;
 
     private  Item(String description, double stats, int amount) {
         this.description = description;

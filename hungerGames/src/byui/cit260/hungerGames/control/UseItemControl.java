@@ -5,17 +5,12 @@
  */
 package byui.cit260.hungerGames.control;
 
-import static byui.cit260.hungerGames.model.Item.bat;
-import static byui.cit260.hungerGames.model.Item.bowAndArrow;
-import static byui.cit260.hungerGames.model.Item.fruit;
-import static byui.cit260.hungerGames.model.Item.knife;
-import static byui.cit260.hungerGames.model.Item.meat;
-import static byui.cit260.hungerGames.model.Item.spear;
-import static byui.cit260.hungerGames.model.Item.sword;
-import static byui.cit260.hungerGames.model.Item.water;
+import byui.cit260.hungerGames.exceptions.UseItemException;
+import byui.cit260.hungerGames.model.AssignedItem;
+import byui.cit260.hungerGames.model.Item;
 import byui.cit260.hungerGames.model.Player;
-import byui.cit260.hungerGames.view.GameMenuView;
 import hungergames.HungerGames;
+import java.util.ArrayList;
 
 /**
  *
@@ -23,47 +18,32 @@ import hungergames.HungerGames;
  */
 public class UseItemControl {
 
-    public static void useItem(double stats, int amount, String description) {
+    public static void useItem(Item item) throws UseItemException {
 
-        //change stats
-        Player player = HungerGames.getPlayer();
-        double skillPoints = player.getSkillPoints();
+        ArrayList<AssignedItem> itemList = HungerGames.getCurrentGame().getItemList();
 
-        double newStats = skillPoints + stats;
-        player.setSkillPoints(newStats);
+        // call the searchList function in trapControl
+        TrapControl.searchList(itemList, item);
 
-        //change amount in inventory
-        switch (description) {
-            case "Fruit":
-                fruit.amount = fruit.getAmount() - 1;
-                break;
-            case "Meat":
-                meat.amount = meat.getAmount() - 1;
-                break;
-            case "Water":
-                water.amount = water.getAmount() - 1;
-                break;
-            case "Bat":
-                bat.amount = bat.getAmount() - 1;
-                break;
-            case "Knife":
-                knife.amount = knife.getAmount() - 1;
-                break;
-            case "Sword":
-                sword.amount = sword.getAmount() - 1;
-                break;
-            case "Bow & Arrow":
-                bowAndArrow.amount = bowAndArrow.getAmount() - 1;
-                break;
-            case "Spear":
-                spear.amount = spear.getAmount() - 1;
-                break;
+        // if assignedItem == null, throw an exception
+        if (item == null) {
+            throw new UseItemException("Item is not in your inventory");
+
+            // if assignedItem's amount is > 0, throw an exception
+            if (item.getAmount() > 0) {
+                throw new UseItemException("Not enough " + item.getDescription() + " to use.");
+                // subtract from the itemList by 1
+                item.setAmount(item.getAmount() - 1);
+
+                // get the players stats
+                Player player = HungerGames.getPlayer();
+                double skillPoints = player.getSkillPoints();
+
+                // set players new stats to be added by item's stats
+                double newStats = skillPoints + item.getStats();
+                player.setSkillPoints(newStats);
+            }
         }
-
-        System.out.println("Your skill points are now " + newStats);
-
-        GameMenuView gameMenuView = new GameMenuView();
-        gameMenuView.display();
-
     }
+
 }
