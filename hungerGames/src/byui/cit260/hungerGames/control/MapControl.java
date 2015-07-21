@@ -26,6 +26,14 @@ public class MapControl {
         Map map = new Map(6, 6);
 
         MapControl.assignScenesToLocations(map);
+//        MapControl.assignItemToLocation(Item.water);
+//        MapControl.assignItemToLocation(Item.bat);
+//        MapControl.assignItemToLocation(Item.meat);
+//        MapControl.assignItemToLocation(Item.bowAndArrow);
+//        MapControl.assignItemToLocation(Item.fruit);
+//        MapControl.assignItemToLocation(Item.knife);
+//        MapControl.assignItemToLocation(Item.spear);
+//        MapControl.assignItemToLocation(Item.sword);
 
         return map;
     }
@@ -125,9 +133,42 @@ public class MapControl {
          // create new assigned item
         AssignedItem meatItem = new AssignedItem(Item.meat,2);
         // set AssignedItem to location
+        locations[0][1].setAssignedItem(meatItem);
+        locations[0][2].setAssignedItem(meatItem);
+        locations[0][3].setAssignedItem(meatItem);
         locations[0][4].setAssignedItem(meatItem);
+        locations[0][5].setAssignedItem(meatItem);
+        locations[1][0].setAssignedItem(meatItem);
         locations[1][1].setAssignedItem(meatItem);
+        locations[1][2].setAssignedItem(meatItem);
+        locations[1][3].setAssignedItem(meatItem);
+        locations[1][4].setAssignedItem(meatItem);
+        locations[1][5].setAssignedItem(meatItem);
+        locations[2][0].setAssignedItem(meatItem);
+        locations[2][1].setAssignedItem(meatItem);
+        locations[2][2].setAssignedItem(meatItem);
+        locations[2][3].setAssignedItem(meatItem);
+        locations[2][4].setAssignedItem(meatItem);
+        locations[2][5].setAssignedItem(meatItem);
+        locations[3][0].setAssignedItem(meatItem);
+        locations[3][1].setAssignedItem(meatItem);
+        locations[3][2].setAssignedItem(meatItem);
+        locations[3][3].setAssignedItem(meatItem);
+        locations[3][3].setAssignedItem(meatItem);
+        locations[3][4].setAssignedItem(meatItem);
+        locations[3][5].setAssignedItem(meatItem);
+        locations[4][0].setAssignedItem(meatItem);
+        locations[4][1].setAssignedItem(meatItem);
+        locations[4][2].setAssignedItem(meatItem);
+        locations[4][3].setAssignedItem(meatItem);
         locations[4][4].setAssignedItem(meatItem);
+        locations[4][5].setAssignedItem(meatItem);
+        locations[5][0].setAssignedItem(meatItem);
+        locations[5][1].setAssignedItem(meatItem);
+        locations[5][2].setAssignedItem(meatItem);
+        locations[5][3].setAssignedItem(meatItem);
+        locations[5][4].setAssignedItem(meatItem);
+        locations[5][5].setAssignedItem(meatItem);
         
          // create new assigned item
         AssignedItem fruitItem = new AssignedItem(Item.fruit,1);

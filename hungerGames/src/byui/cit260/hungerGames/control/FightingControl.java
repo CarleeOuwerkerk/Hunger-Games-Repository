@@ -19,6 +19,7 @@ public class FightingControl {
     double environFactor;
     double tributeSkillPoints;
     String tributeName;
+    
 
     public boolean calculateSneak(double skillPoints, double environFactor, double tributeSkillPoints, String tributeName) throws FightingControlException {
 
@@ -39,10 +40,10 @@ public class FightingControl {
                     + "than three and less than negative three.");
         }
 
-        if (tributeSkillPoints < 4 || tributeSkillPoints > 45) {
+        if (tributeSkillPoints < 4 || tributeSkillPoints > 46) {
             throw new FightingControlException("The tribute's stats have to be greater "
                     + "than four and less than or equal to "
-                    + "forty-five.");
+                    + "forty-six.");
         }
 
         Random randomNum1 = new Random();
@@ -71,16 +72,17 @@ public class FightingControl {
 
     public boolean calculateForcedFight() throws FightingControlException {
 
+        
         //forced fight paramaters
-        if (this.skillPoints < 0 || this.skillPoints >= 51) {
+        if (this.skillPoints < 0 || this.skillPoints >= 500) {
             throw new FightingControlException("The player's stats have to be greater "
                     + "than zero.");
         }
 
-        if (tributeSkillPoints < 4 || tributeSkillPoints > 45) {
+        if (tributeSkillPoints < 4 || tributeSkillPoints > 46) {
             throw new FightingControlException("The tribute's stats have to be greater "
                     + "than four and less than or equal to "
-                    + "forty-five.");
+                    + "forty-six.");
         }
 
         // As we make new random numbers with different ranges we should continue with the pattern of randomNum1, randomNum2, randomNum3, etc.
@@ -107,16 +109,21 @@ public class FightingControl {
 
     public boolean calculateFight(double skillPoints, double tributeSkillPoints, String tributeName) throws FightingControlException {
 
+        this.skillPoints = skillPoints;
+//        this.environFactor = environFactor;
+        this.tributeSkillPoints = tributeSkillPoints;
+        this.tributeName = tributeName;
+        
         //Sneak paramaters
-        if (skillPoints < 0 || skillPoints >= 51) {
+        if (skillPoints < 0 || skillPoints >= 500) {
             throw new FightingControlException("The player's stats have to be greater "
                     + "than zero.");
         }
 
-        if (tributeSkillPoints < 4 || tributeSkillPoints > 45) {
+        if (tributeSkillPoints < 4 || tributeSkillPoints > 46) {
             throw new FightingControlException("The tribute's stats have to be greater "
                     + "than four and less than or equal to "
-                    + "forty-five.");
+                    + "forty-six.");
         }
 
         // As we make new random numbers with different ranges we should continue with the pattern of randomNum1, randomNum2, randomNum3, etc.

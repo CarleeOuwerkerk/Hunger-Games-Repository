@@ -6,6 +6,7 @@
 package byui.cit260.hungerGames.view;
 
 import byui.cit260.hungerGames.model.AssignedItem;
+import byui.cit260.hungerGames.model.Item;
 import byui.cit260.hungerGames.model.Location;
 import byui.cit260.hungerGames.model.Scene;
 import hungergames.HungerGames;
@@ -79,7 +80,7 @@ public class ExploreView extends View {
             
             //add that item to inventory and println to the user that it was successful or not
             assignedItem.setAmount(assignedItem.getAmount() + 1);
-            this.console.print("\n " +  " was added to your inventory.");
+            this.console.print("\nAn Item was added to your inventory.");
             return;
         }
     }

@@ -15,6 +15,7 @@ import static byui.cit260.hungerGames.model.Item.sword;
 import static byui.cit260.hungerGames.model.Item.water;
 import byui.cit260.hungerGames.model.Player;
 import byui.cit260.hungerGames.view.GameMenuView;
+import hungergames.HungerGames;
 
 /**
  *
@@ -25,10 +26,11 @@ public class UseItemControl {
     public static void useItem(double stats, int amount, String description) {
 
         //change stats
-        Player player = new Player();
+        Player player = HungerGames.getPlayer();
         double skillPoints = player.getSkillPoints();
 
         double newStats = skillPoints + stats;
+        player.setSkillPoints(newStats);
 
         //change amount in inventory
         switch (description) {

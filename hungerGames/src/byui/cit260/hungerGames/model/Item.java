@@ -13,21 +13,21 @@ import java.io.Serializable;
  */
 public enum Item implements Serializable {
 
-    fruit("Fruit", 3.0, 0),
-    meat("Meat", 5.0, 0),
-    water("Water", 2.0, 0),
-    bat("Bat", 1.0, 0),
-    knife("Knife", 1.0, 0),
-    sword("Sword", 3.0, 0),
+    fruit("Fruit", 3.0, 10),
+    meat("Meat", 5.0, 10),
+    water("Water", 2.0, 10),
+    bat("Bat", 1.0, 10),
+    knife("Knife", 1.0, 10),
+    sword("Sword", 3.0, 5),
     bowAndArrow("Bow & Arrow", 5.0, 1),
-    spear("Spear", 5.0, 0);
+    spear("Spear", 5.0, 6);
 
     //class instance variables
     public String description;
     public double stats;
     public int amount;
 
-    private Item(String description, double stats, int amount) {
+    private  Item(String description, double stats, int amount) {
         this.description = description;
         this.stats = stats;
         this.amount = amount;
