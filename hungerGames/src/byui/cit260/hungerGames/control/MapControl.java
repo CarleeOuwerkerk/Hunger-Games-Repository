@@ -26,7 +26,14 @@ public class MapControl {
         Map map = new Map(6, 6);
 
         MapControl.assignScenesToLocations(map);
-        MapControl.assignItemToLocation(map);
+//        MapControl.assignItemToLocation(Item.water);
+//        MapControl.assignItemToLocation(Item.bat);
+//        MapControl.assignItemToLocation(Item.meat);
+//        MapControl.assignItemToLocation(Item.bowAndArrow);
+//        MapControl.assignItemToLocation(Item.fruit);
+//        MapControl.assignItemToLocation(Item.knife);
+//        MapControl.assignItemToLocation(Item.spear);
+//        MapControl.assignItemToLocation(Item.sword);
 
         return map;
     }
@@ -114,8 +121,8 @@ public class MapControl {
         
     }
     
-    public static void assignItemToLocation(Map map) {
-        Location[][] locations = map.getLocations();
+    public static void assignItemToLocation(Item item) {
+        Location[][] locations = item.getLocations();
         
         // create new assigned item
         AssignedItem waterItem = new AssignedItem(Item.water,1);

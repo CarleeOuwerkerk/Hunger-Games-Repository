@@ -14,9 +14,19 @@ import java.util.Random;
  * @author Carlee Ouwerkerk
  */
 public class FightingControl {
+
+    double skillPoints;
+    double environFactor;
+    double tributeSkillPoints;
+    String tributeName;
     
 
     public boolean calculateSneak(double skillPoints, double environFactor, double tributeSkillPoints, String tributeName) throws FightingControlException {
+
+        this.skillPoints = skillPoints;
+        this.environFactor = environFactor;
+        this.tributeSkillPoints = tributeSkillPoints;
+        this.tributeName = tributeName;
 
         //Sneak paramaters
         if (skillPoints < 0) {
@@ -47,24 +57,24 @@ public class FightingControl {
         double tributeFactor = tributeSkillPoints * tributeRandomFactor;
 
         if (playerFactor < tributeFactor) {
-//            System.out.println("You weren't careful enough. " + tributeName + " spotted you!"
-//                    + "\nYou were forced to fight...");
-            this.calculateForcedFight(skillPoints, tributeSkillPoints);
+            System.out.println("You weren't careful enough. " + tributeName + " spotted you!"
+                    + "\nYou were forced to fight...");
+            this.calculateForcedFight();
             return false;
         } else {
-//            System.out.println("\nGood work. " + tributeName + " didn't see you.  "
-//                    + "You were able to successfully sneak past them.");
+            System.out.println("\nGood work. " + tributeName + " didn't see you.  "
+                    + "You were able to successfully sneak past them.");
             GameMenuView gameMenuView = new GameMenuView();
             gameMenuView.display();
             return true;
         }
     }
 
-    public boolean calculateForcedFight(double skillPoints,double tributeSkillPoints) throws FightingControlException {
+    public boolean calculateForcedFight() throws FightingControlException {
 
         
         //forced fight paramaters
-        if (skillPoints < 0 || skillPoints >= 500) {
+        if (this.skillPoints < 0 || this.skillPoints >= 500) {
             throw new FightingControlException("The player's stats have to be greater "
                     + "than zero.");
         }
@@ -85,19 +95,24 @@ public class FightingControl {
 
         //ignore the "if statement is redundant" comment on the left.
         if (playerFactor < tributeFactor) {
-//            System.out.println("... aaannd you have been killed by " + tributeName + "."
-//                    + "\n GAME OVER.");
+            System.out.println("... aaannd you have been killed by " + tributeName + "."
+                    + "\n GAME OVER.");
             System.exit(0);
             return false;
         } else {
-//            System.out.println("...aaannd congratulations!  You have successfully killed " + tributeName + " .");
-//            GameMenuView gameMenuView = new GameMenuView();
-//            gameMenuView.display();
+            System.out.println("...aaannd congratulations!  You have successfully killed " + tributeName + " .");
+            GameMenuView gameMenuView = new GameMenuView();
+            gameMenuView.display();
             return true;
         }
     }
 
     public boolean calculateFight(double skillPoints, double tributeSkillPoints, String tributeName) throws FightingControlException {
+
+        this.skillPoints = skillPoints;
+//        this.environFactor = environFactor;
+        this.tributeSkillPoints = tributeSkillPoints;
+        this.tributeName = tributeName;
         
         //Sneak paramaters
         if (skillPoints < 0 || skillPoints >= 500) {
@@ -127,7 +142,8 @@ public class FightingControl {
             return false;
         } else {
             System.out.println("Congratulations!  You have successfully killed " + tributeName + " .");
-
+            GameMenuView gameMenuView = new GameMenuView();
+            gameMenuView.display();
             return true;
         }
     }
